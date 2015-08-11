@@ -1,0 +1,668 @@
+{\rtf1\fbidis\ansi\deff0{\fonttbl{\f0\fnil\fcharset0 Courier New;}}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\ltrpar\lang1033\ul\b\f0\fs24 C++ - https://www.thenewboston.com/\ulnone\b0\fs22\par
+\par
+compiler + IDE = http://www.codeblocks.org/\par
+codeblocks-13.12mingw-setup.exe\par
+\par
+Every Program Starts From main()\par
+\par
+\ul\b Take Input From User\ulnone\b0\par
+\par
+cout << "Enter A Number : \\n";\par
+cin >> a;\par
+\par
+cin will read until first space or endl so...\par
+\par
+getline(cin, x) --> will get all the line \par
+\par
+\par
+\ul\b Print Text On The Screen\ulnone\b0\par
+\par
+cout << "Hello world!" << endl;\par
+cout << "Hello world! \\n"; = same\par
+\par
+cout = output stream.\par
+endl = End Of Line like \\n\par
+\par
+\ul\b Variables\ulnone\b0\par
+\par
+int tuna = 6;\par
+float salmon = 3.254\par
+\par
+Const\par
+\par
+const int x = 3; -> never changed !!\par
+\par
+const Sally constObj;\par
+\par
+the constObj functions needs to be const functions.\par
+\par
+void Sally::printShiz() const\{\par
+   cout << "i am the const function"\par
+\}\par
+\par
+in h file:\par
+void printShiz() const;\par
+\par
+\ul\b Arrays\ulnone\b0\par
+\par
+int fishes[5] = \{1,2,3,4,5\};\par
+\par
+cout << Fishes[3] << endl;\par
+\par
+in function :\par
+void printArray(int theArray[],int sizeOfTheArray)\par
+\par
+Multidimensional Arrays\par
+int sally[2][3] = \{\{2,3,4\},\{8,9,10\}\}\par
+\par
+\ul\b Arithmetic\ulnone\b0\par
+\par
+Add = a + b\par
+Substruct = a - b\par
+Devide = a / b\par
+Remain = a % b (81 % 2 = 1)\par
+\par
+\ul\b If Statement\ulnone\b0\par
+\par
+>,<,==,>=,<=,!=\par
+\par
+if (test)\{\par
+   cout << "test is true"\par
+\}else\{\par
+\tab cout << "test is false"\par
+\}\par
+\par
+Logical Operators\par
+\par
+And && \par
+Or ||\par
+\par
+\ul\b Functions\ulnone\b0\par
+\par
+void printSomething()\{\par
+    cout << "this is like sub"\par
+\}\par
+\par
+\b\i\fs20 Calling A Function\b0\i0\fs22\par
+\par
+or it is above the main !\par
+or add prototype under the using above the main\par
+(using namespace std;\par
+ void printSomething();)\par
+ \par
+printSomething();\par
+\par
+Function that use parameters\par
+\par
+void printAge(int year,int Age)\{\par
+\par
+\}\par
+\par
+\b\i Default Parameters\b0\i0\par
+\par
+int volume(int l=1,int w=1,int h=1); in the prototype.\par
+\par
+Function Overloading\par
+\par
+void printNumber(int x)\{\}\par
+void printNumber(float x\{\})\par
+\par
+\b\i Function Templates\b0\i0\par
+\par
+int addCrap(int a,int b)\{\par
+\tab return a+b;\par
+\}\par
+\par
+if we need the same but with double or float ???\par
+\par
+template<class stam>\par
+stam addCrap (stam a,stam b)\{\par
+\tab return a+b;\par
+\}\par
+\par
+stam = Generic data variable \par
+stam MUST be the same type !!!!\par
+\par
+int x =4;\par
+int y =5;\par
+addCrap(x,y)\par
+\par
+\b\i Function Templates With Multiple Parameters\b0\i0\par
+\par
+template <class FIRST, class SECOND>\par
+FIRST smaller (FIRST a, SECOND b)\{\par
+\tab return (a<b?a:b)\par
+\}\par
+\par
+int x = 4;\par
+double y = 5.78;\par
+\par
+smaller(x,y);\par
+\par
+\par
+\ul\b Classes And Objects\ulnone\b0\par
+\par
+class FirstClass\{\par
+\tab public: (access specifier)\par
+\tab\tab void coolSaying()\{\par
+\tab\tab\tab cout << ""preaching to the choir"\par
+\tab\tab\}\par
+\};\par
+\par
+FirstClass myObject;\par
+myObject.coolSaying();\par
+\par
+Variables in Classes\par
+#include <string>\par
+\par
+class SecondClass\{\par
+\tab private:\par
+\tab\tab string name;\par
+\tab public: (Like Properties)\par
+\tab\tab void setName(string x)\{\par
+\tab\tab\tab name = x;\par
+\tab\tab\}\par
+\tab\tab string getName()\{\par
+\tab\tab\tab return name;\par
+\tab\tab\}\par
+\};\par
+\par
+SecondClass sec;\par
+sec.setName("Itai");\par
+cout << sec.getName();\par
+\par
+\ul\b Member Initializers\ulnone\b0\par
+\par
+When you want to init the private members in the construcator you will need to put the : sign.\par
+Sally::Sally(int a, int b)\par
+: regVar(a), constVar(b)\par
+\{\par
+\}\par
+\par
+\ul\b Compositon\ulnone\b0\par
+\par
+1st class - Birthday\par
+\par
+public:\par
+\tab Birthday(int m,int d,int year)\par
+\tab void printDate();\par
+private:\par
+\tab int month;\par
+\tab int day;\par
+\tab int year;\par
+\tab\par
+2nd class - People will use Birthday class \par
+#include "Birthday.h"\par
+\par
+public:\par
+\tab People(string x,Birthday bo);\par
+private:\par
+\tab string name;\par
+\tab Birthday dateOfBirth;\par
+\par
+Friend\par
+\par
+The Friend function has access the members of the class\par
+and the class has to give the friendship the friend can't take it.\par
+\par
+class Stank\{\par
+\tab public:\par
+\tab\tab Stank()\{StinkeyVar=0;\}\par
+\tab private:\par
+\tab\tab int stinkyVar;\par
+\tab\tab\par
+\tab friend void stinkysFriend(Stank &sfo);\par
+\};\par
+\tab\par
+void stinkysFriend(Stank &sfo)\{\par
+\tab sfo.stinkyVar = 99;\par
+\}\par
+\par
+Protected\par
+It's a mix btw private and public only friends derived classes can see it \par
+\par
+Class Templates\par
+\par
+template <class T>\par
+class Bucky\{\par
+\tab T first,second;\par
+\tab public:\par
+\tab\tab Bucky(T a, T b)\{\par
+\tab\tab\tab first=a;\par
+\tab\tab\tab second=b;\par
+\tab\tab\}\par
+\tab\tab T bigger();\par
+\};\par
+\par
+template <class T>\par
+T Bucky<T>::bigger()\{\par
+\tab return (first>second?first:second);\par
+\}\par
+\par
+int main()\{\par
+\tab Bucky <int> bo(69,105);\par
+\tab cout << bo.bigger();\par
+\}\par
+\par
+Every Function needs template<class T> above it !\par
+T is replaced by the type you state <int>,<double>...\par
+\par
+\par
+\ul\b Inheritance\ulnone\b0\par
+\par
+in h file:\par
+\par
+in the daughter class include all the stuff from mother class\par
+any public variable and any public functions\par
+\par
+derived class : base class \par
+class Daughter: public Mother\par
+\{\par
+\tab Public:\par
+\tab\tab Daughter();\par
+\}\par
+\par
+\b\i Derived Class Constructors and Deconstructors\b0\i0\par
+\par
+First it will invoke the top most class construcator\par
+Then the daughter disconstructor will be called and only after it will call the base disconstructor\par
+\par
+\par
+\tab\par
+\ul\b Constructors\ulnone\b0\par
+\par
+class ThirdClass()\{\par
+\tab public:\par
+\tab\tab ThirdClass(string z)\{\par
+\tab\tab    setName(z); (initialize the private params on new)\par
+\tab\tab    cout << "this will get printed automatically";\par
+\tab\tab\}\par
+\}\par
+\par
+ThirdClass third("this is z value");\par
+\par
+\ul\b Placing Classes in Separate Files\ulnone\b0\par
+\par
+File -> New -> Class\par
+\par
+2 files are created Forth.h and Forth.cpp\par
+in the Forth.h we will put all prototypes and functions declerations.\par
+in the cpp all the functions goes.\par
+\par
+Forth::Forth() (:: is the binary scope resulution parameter)\par
+Forth::setName()\par
+\par
+in the main()\par
+#include <Forth.h> \par
+in order to use it\par
+\par
+\ul\b Loops\ulnone\b0\par
+\par
+For Loop \par
+\par
+for(int x=1;x<10;x++)\{\par
+\tab cout <<"x is " << x << endl;\par
+\}\par
+\par
+While Loop\par
+\par
+int bacon = 0;\par
+\par
+while(bacon <= 5)\{\par
+\tab cout <<"bacon is " << bacon << endl;\par
+\tab bacon++;\par
+\}\par
+\par
+do While Loop\par
+\par
+do\{\par
+\tab cout << x << endl;\par
+\tab x++;\par
+\}while (x<10)\par
+\par
+\par
+\ul\b Increment Operators\ulnone\b0\par
+\par
+x++,x--,x*=x\par
+\par
+x++ will add 1 after the statements.\par
+++x when it is before it's add 1 first and then run the statement.\par
+\par
+\par
+\ul\b Operator Overloading\ulnone\b0\par
+\par
+overloads the + in order to add 2 objects\par
+Sally operator+(Sally)\par
+(or / or - or *)\par
+\par
+Sally Sally::operator+(Sally aso)\{\par
+   Sally brandNew;\par
+   brandNew.num = num + aso.num;\par
+   return(brandNew);\par
+\}\par
+\par
+in main:\par
+\tab Sally a(34);\par
+\tab Sally b(21);\par
+\tab Sally c;\par
+\par
+\tab (c.num = a.add(b);)\par
+\tab c=a+b; //Same because the operator overloads\par
+\tab c.num = 55;\par
+\tab\par
+\ul\b Switch\ulnone\b0\par
+\par
+switch(age)\{\par
+\tab case 16:\par
+\tab\tab cout << "hey you are 16";\par
+\tab\tab break;\par
+\tab default:\par
+\tab\tab cout << "error";\par
+\}\par
+\par
+\ul\b Random Generator\ulnone\b0\par
+\par
+#include <ctime>\par
+\par
+srand(time(0)); //changes the random algorithem by seconds\par
+\par
+for (int x=1;x<25;x++)\{\par
+\tab cout << 1+(rand()%6) << endl;\par
+\}\par
+\par
+\ul\b Unary Scope Resolution Operator\ulnone\b0\par
+\par
+int tuna =69;\par
+\par
+int main()\par
+\{\par
+\tab int tuna = 20;\par
+\tab cout << tuna << endl; --> 20\par
+\tab cout << ::tuna << endl; --> 69\par
+\}\par
+\par
+:: -> means it will take the global variable.\par
+\par
+\ul\b Recursion\ulnone\b0\par
+\par
+Always think first on the exit point\par
+\par
+int factioralFinder(int x)\{\par
+\tab if(x=1)\{\par
+\tab\tab return 1;\par
+\tab\}else\{\par
+\tab\tab return x * factioralFinder(x-1);\par
+\tab\}\par
+\}\par
+\par
+\ul\b Pointers (byref)\ulnone\b0\par
+\par
+int fish = 5;\par
+& = address operator\par
+\par
+cout << &fish << endl; --> prints the memory address.\par
+\par
+int *fishPointer = &fish;\par
+\par
+void passByReference (int *x)\{\par
+\}\par
+\par
+Math On Pointers\par
+\par
+int *bp0 = &bucky[0]; -> 0x28ff00\par
+int *bp1 = &bucky[1]; -> 0x28ff04\par
+int *bp2 = &bucky[2]; -> 0x28ff08\par
+\par
+bp0 + 2 --> will not be 0x28ff02\par
+            it will be  0x28ff08 \par
+\tab\tab\tab\par
+it jumps 2 elements and NOT adding 2 to the address !!!\par
+\par
+\par
+\ul\b SizeOf\ulnone\b0\par
+\par
+measures the size of variable in bytes.\par
+\par
+char c;\par
+sizeOf(c) --> 1\par
+\par
+int x;\par
+sizeOf(x) --> 4\par
+\par
+double y;\par
+sizeOf(y) --> 8\par
+\par
+get numbers of elements in array by calculating the bytes\par
+double myarr[10]\par
+sizeOf(myarr)/ sizeOf(myarr[0]) --> 10\par
+\par
+\ul\b Arrow Member Selection \ulnone\b0\par
+\par
+sally sallyObject;\par
+sally *sallyPointer = &sallyObject;\par
+\par
+sallyObject.printCrap();\par
+sallyPointer->printCrap();\par
+\par
+To access function in object pointer you need to use the arrow ->\par
+\par
+\ul\b Deconstructors\ulnone\b0\par
+\par
+constructor:\par
+Sally::Sally()\{\par
+\tab cout << "i am the constructor !";\par
+\}\par
+\par
+Sally::~Sally()\{\par
+\tab cout << "i am the disconstructor !";\par
+\}\par
+\par
+public:\par
+  Sally();\par
+  ~Sally();\par
+  \par
+Sally Sobj;\par
+\par
+\ul\b This\ulnone\b0\par
+\par
+Sally::Sally(int num)\par
+:h(num)\par
+\{\par
+\}\par
+\par
+3 different way to print h value\par
+THIS IS A POINTER OF THE CURRENT OBJECT \par
+void Sally::PrintCrap()\{\par
+\tab cout << "h=" << h;\par
+\tab cout << "this->h" << this->h;\par
+\tab cout << "(*this).h=" << (*this).h;\par
+\}\par
+\par
+\ul\b Polymorphism\ulnone\b0\par
+\par
+Allow you to call the same function on many objects\par
+like enemy attack but differently\par
+Virtual is Like Overridable \par
+\par
+class Enemy\{\par
+\tab public:\par
+\tab\tab virtual void attack()\{\par
+\tab\tab\tab cout << "I am Enemy Attack"\par
+\tab\tab\}  (Like a Template it will call the object attack)\par
+\tab\tab\par
+\tab\tab virtual void attack() = 0 (Pure virtual function no implementaion on the father like must override)\par
+\tab\tab\par
+\};\par
+\par
+Class Ninja: public Enemy \{\par
+\tab public:\par
+\tab\tab void attack()\{\par
+\tab\tab\tab cout << "ninja attack !";\par
+\tab\tab\}\par
+\};\par
+\par
+Class Monster: public Enemy \{\par
+\tab public:\par
+\tab\tab void attack()\{\par
+\tab\tab\tab cout << "monster attack !";\par
+\tab\tab\}\par
+\};\par
+\par
+int main()\{\par
+\tab Ninja n;\par
+\tab Monster m;\par
+\tab Enemy *enemy1 = &n;\par
+\tab Enemy *enemy2 = &m;\par
+\tab enemy1 -> attack();\par
+\tab enemy2 -> attack();\par
+\}\par
+\par
+\ul\b Template Specializations\ulnone\b0\par
+\par
+whenever we will pass a char will be handled in the second class\par
+anything else will be handled in the First class.\par
+\par
+\par
+template<class T>\par
+class Spunky\{\par
+\tab public:\par
+\tab\tab Spunky(T x)\{\par
+\tab\tab\tab cout << x << "is not a char";\par
+\tab\tab\}\par
+\};\par
+\par
+template<>  ---> we are going to use template specialization\par
+class Spunky<char>\{\par
+\tab public:\par
+\tab\tab Spunky(char x)\{\par
+\tab\tab\tab cout << x << "is a char";\par
+\tab\tab\}\par
+\};\par
+\par
+int main()\{\par
+\tab Spunky<int> obj1(7);\par
+\tab Spunky<double> obj2(6.23);\par
+\tab Spunky<char> obj3('q');\par
+\}\par
+\par
+\ul\b Exceptions\ulnone\b0\par
+\par
+99 = exception moms age is smaller than son age\par
+int main()\{\par
+\tab try\{\par
+\tab\tab int momsAge = 30;\par
+\tab\tab int sonsAge = 34;\par
+\tab\tab\par
+\tab\tab if(sonsAge > momsAge)\{\par
+\tab\tab\tab throw 99;\par
+\tab\tab\}\par
+\tab\}catch(int x)\{\par
+\tab\tab cout << "son can not be older than mom, ERROR NUMBER: " << x;\par
+\tab\}\par
+\}\par
+\par
+catch(...) --> Default general Any type !!!\par
+\par
+\ul\b Files\ulnone\b0\par
+\par
+#include <fstream>\par
+#include <iostream>\par
+\par
+int main()\{\par
+\tab ofstream buckyFile;\par
+\tab buckyFile.open("tuna.txt");\par
+\tab\par
+\tab //write the string to the file.\par
+\tab buckyFile << "I love tuna";\par
+\tab\par
+\tab buckyFile.close();\par
+\}\par
+\par
+*if the tuna.txt file doesn't exists it will create it automatically !!!\par
+\par
+File Handling\par
+\par
+ofstream buckyFile("beef.txt");\par
+\par
+if(buckyFile.is_open())\{\par
+\tab cout << "the file is open";\par
+\}\par
+\par
+buckyFile << "i love the beef";\par
+buckyFile.close();\par
+\par
+\b\i Writing Custom File Structures\b0\i0\par
+\par
+int main()\{\par
+\tab ofstream theFile(players.txt);\par
+\tab\par
+\tab cout <<"Enters players ID, Name, and Money";\par
+\tab cout << "press Ctrl+Z to quit";\par
+\tab\par
+\tab int idNumber;\par
+\tab string name;\par
+\tab double money;\par
+\tab\par
+\tab while(cin >> idNumber >> name >> money)\{\par
+\tab\tab theFile << idNumber << ' ' << name << ' ' << moeny << endl;\tab\par
+\tab\}\par
+\}\par
+\par
+\b\i Reading File Structures\b0\i0\par
+\par
+int main()\{\par
+\tab ifstream theFile("players.txt");\par
+\tab int id;\par
+\tab string name;\par
+\tab double money;\par
+\tab\par
+\tab while(theFile >> id >> name >> money)\{\par
+\tab\tab cout << id << ", " << name << ", " << money << end;\par
+\tab\}\par
+\}\par
+\par
+* No need to close the file in the ifstream.\par
+\par
+\ul\b String Class - #include <string>\ulnone\b0\par
+\par
+string s1("hampster");\par
+string s2;\par
+string s3;\par
+\par
+copy s1 content to s2 and s3\par
+s2 = s1;\par
+s3.assign(s1);\par
+\par
+cout << s1.at(3); --> 'p'\par
+\par
+for (int x=0 x<s1.length();x++)\{\par
+\tab cout s1.at(x);\par
+\}\par
+\par
+\b\i Substring\b0\i0\par
+\par
+s1.substr(17,2);\par
+\par
+Swap\par
+\par
+s1.swap(s2);\par
+\par
+Find\par
+find the first --> index.of\par
+s1.find("am");\par
+\par
+rFind \par
+find the first from the END --> lastindexof\par
+\par
+Erase --> remove\par
+s1.erase(20);\par
+\par
+Replace\par
+s1.replace (14,5,"koko");\par
+\par
+Insert\par
+s1.insert(14,"lucky ");\par
+\par
+}
+ 

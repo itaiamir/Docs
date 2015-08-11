@@ -1,0 +1,524 @@
+Math
+----
++,-,*,/
+18/7 = 2
+18.0/7 = 2.571428...
+REMINDER:
+9%4 = 1
+8.75%.5 = 0.25
+6*7 = 42
+EXPONENT:
+8**3 = 512
+-5**4 = -625
+
+Variables
+---------
+
+ASSIGNMENT:
+x=18
+will stay this value 
+
+g = input("Enter number here: ")
+Enter number here: 43
+now g = 43
+
+name=raw_input("Enter your name: ")
+for strings
+
+If Statement
+------------
+indentation is IMPORTENT
+if tuna == "fish":
+	print 'this is a fish alright'
+elif tuna == "salmon":
+	print 'this is a fish'
+else:
+	print 'this is not a fish'
+
+nesting :
+
+if thing == "1":
+	if thing =="2":
+
+Comparison Operators
+9<7 9<=9 != 
+
+is --> only if it the same object
+
+if 'p' in pizza:
+	print 'It\'s true'
+	
+And and Or
+----------
+"dog" < "cat" = false  --> alpha numeric compare
+example = 5
+if example < 3:
+	print "true"
+	
+if example > 3 and example < 10:
+	print 'number is between 3 and 10'
+	
+if example > 3 or example < 4:
+	print 'this works'
+	
+For and While
+-------------	
+b = 1
+while b <=10:
+	print b
+	b+=1
+
+Infinit loop break
+
+while 1:
+	name = raw_input('Enter name: ')
+	if name == 'quit': break
+	
+	
+gl =['bread','milk','meat','beef']
+for food in gl:
+	print 'I want ' + food
+
+ages={'dad':42,'mom':48,'lisa':7}
+
+print the keys -->
+for item in ages:
+	print item	
+
+print the values -->
+for item in ages:
+	print item, ages[item]
+
+Range()
+for i in range(10):
+	print i          --> 0-9
+	
+Modules And Function
+--------------------
+pow(5,4) - power the number = 625
+abs(-18) = 18 - absolute
+
+import a module: module.functionName
+import math
+math.floor(18.7) = 18.0
+math.sqrt(81) = 9.0
+
+you can assign a function to a variable !
+bucky = math.sqrt 
+bucky(81) = 9.0
+
+Functions
+
+def whatsup(x):
+	return 'whats up ' + x
+
+print whatsup('itai') --> whats up itai	
+
+Default Paremeters
+
+def name(first='tom',last='smith'):
+	print '%s %s' % (first, last)
+
+Multiple Parameters
+
+treat *food as a tuple
+
+def list(*food):
+	print food
+
+list('apples') -> ('apples',) 
+list('apples','peaches','beef')) --> ('apples','peaches','beef')
+
+def profile(name,*ages):
+	print name
+	print ages
+	
+profile('bucky',42,43,76,54,98)
+bucky
+(42,43,76,54,98)	
+
+Parameter Types
+def cart (**items):
+	print items
+
+cart (apples=4,peaches=6,beef=60) -->
+{'peaches': 6,'apples': 4,'beef': 60}
+
+def profile(first,last,*ages,**items):
+	print first, last
+	print ages
+	print items
+	
+profile('bucky','roberts',32,43,76,bacon=4,saus=64) -->
+bucky roberts
+(32,43,76)
+{'saus': 64, 'bacon': 4}
+
+
+Strings
+-------
+"" or '' same!
+he's a jerk --> "he's a jerk" --> 'he\'s a jerk'
+x = "itai"
+y = "amir"
+x+y = "itaiamir"
+
+convert to string : str(18)
+or
+num = 32 number --> `num` = "32"
+or
+repr() 
+
+Format A String
+bucky = "Hey there bucky, hows your head"
+bucky = "Hey there %s,hows your %s"
+varb = ('betty','foot')
+
+print bucky % varb
+"Hey there betty, hows your foot"
+
+
+return the starting position of the searched item
+example = "Hey now itai"
+example.find('itai') = 8
+
+sequence=['hey','there','bessie','hoss']
+glue='hoss'
+glue.join(sequence) = 'heyhosstherehossbessiehosshoss'
+
+randstr = "I wish i Had NO"
+randstr.lower() = 'i wish i had no'
+
+truth="I love old women"
+truth.replace('old','young') = 'I love young women'
+
+Dictionary
+----------
+book={'dad':'bob','mom':'Lisa','Bro':'Joe'}
+book['dad'] = 'bob'
+
+ages = {'dad':'42','mom':'87'}
+ages['dad'] = '42'
+
+book.clear() --> empty the dictionary
+
+tuna=ages.copy() --> will copy ages to tuna
+
+tuna.has_key('mom') = true 
+
+
+Sequences And Lists
+-------------------
+family = ['mom','dad','bro','sis','dog']
+family[3] = 'sis'
+family[-2] = 'sis'
+
+strings are also an array
+
+'bucky'[3] = 'k'
+
+List Functions
+
+numbers = [8,1,4,17,28,165,7]
+len(numbers) = 7 (elements)
+
+max(numbers) = 165 the biggest number in the list
+min(numbers) = 1 the lowest number in the list
+
+list('itai') = ['i','t','a','i']
+
+numbers[3] = 77 will change the forth number in the list
+
+del numbers[3] = deletes the forth number from the list
+
+
+Slicing (substring)
+-------
+example = [0,1,2,3,4,5,6,7,8,9]
+example[4:8] = 4,5,6,7
+
+backwards:
+
+example[-5:-1] = 5,6,7,8  !! THE 9 IS MISSING
+example[-5:] = 5,6,7,8,9 continue until the last item
+example[:7] = 0,1,2,3,4,5,6
+
+example[:] = gets the entire list
+
+staring,ending,how many to skip
+example[1:8:2] = 1,3,5,7
+
+example[10:0:-2] = 9,7,5,3,1
+
+example[::-2] = 9,7,5,3,1 Same !
+
+
+Slicing Lists
+
+example = list('easyhoss')
+example[4:]=list('baby')
+['e','a','s','y','b','a','b','y']
+
+NO NEED FOR SAME AMOUNT
+
+example = [7,8,9]
+example[1:1] = [3,3,3]
+[7,3,3,3,8,9]
+
+example[1:5] =[] --> to delete elements in a list using slicing
+[7,9]
+
+Editing Sequences
+-----------------
+[7,4,5] + [4,6,5] = [7,4,5,4,6,5]
+'bucky'*10 repeat it 10 times
+'buckybuckybucky.....'
+[21]*10 = [21,21,21,21,21,21,21,21...]
+
+like InStr
+name='roastbeef'
+'z' in name = false 
+'r' in name = true 
+
+is element in a sequence
+
+Methods
+-------
+
+face = [21,18,30]
+face.append(45) --> append an element at the end
+[21,18,30,45]
+
+apples=['i','love','apples','apples','now]
+apples.count('apples') = 2
+apples.count('bow') = 0
+
+one=[1,2,3]
+two=[4,5,6]
+
+one.extend(two) = [1,2,3,4,5,6]
+if I wrote :
+one.append(two) = [1,2,3,[4,5,6]] AHAH
+
+say=['hey','now','brown','cow']
+say.index('brown') = 2
+
+say.insert(2,'hoss') = say=['hey','now',,'hoss','brown','cow']
+x = say.pop(1) = ['hey','brown','cow'] returns the deleted item also
+x ='now'
+
+say.remove('brown') = ['hey','now','cow']
+
+say.reverse() = ['cow','now','hey']
+
+new=[32,54,22,7,98,1]
+new.sort() = [1,7,22,32,54,98]
+sorted('Easyhoss') = ['E','a','h','o','s','s','s','y']
+
+Tuples
+------
+Like a list but it can't be changed
+
+41,42,32,54  = (41,42,32,54)
+
+WE CAN ONLY GET OUR VALUES CAN'T CHANGE IT
+
+Tuples as Parameters
+
+def example(a,b,c):
+	return a+b*c
+	
+tuna=(5,7,3)
+
+* - indicates you are working with a tuple
+** - indicates you are working with dictionary
+
+example(*tuna) --> 26
+
+def example2(**this):
+	print this
+bacon={'mom':32,'dad':54}
+
+example2(**bacon) --> {'dad':54, 'mom':32}
+	
+Object Oriented Program
+-----------------------
+
+Constructor 
+class new:
+	def __init__(self):
+		print "this is a constructor"
+		print "this will happen once we create the object"
+		
+newobj=new() -->
+this is a constructor
+this also print out
+
+Class
+		
+self = the object itself
+
+class exampleClass:
+	eyes="blue"
+	age=22
+	def thisMethod(self):
+		return 'hey this method worked'
+		
+exampleObject=exampleClass()
+exampleObject.eyes --> 'blue'
+exampleObject.age --> 22
+exampleObject.thisMethod() --> 'hey this method worked'
+
+class className:
+	def createName(self,name):
+		self.name=name
+	def displayName(self):
+		return self.name
+	def saying(self):
+		print "hello %s" % self.name
+		
+first=className()
+second=className()
+
+first.createName('itai')
+print first.displayName --> 'itai'
+		
+Subclass and Superclasses - inhertance
+--------------------------------------
+class parentClass:
+	var1="i am var1"
+	var2="i am var2"
+	
+class childClass(parentClass):
+	pass
+	
+parentObject=parentClass()
+parentObject.var1 --> 'i am var1'
+
+childObject=childClass()
+childObject.var1 --> 'i am var1'
+
+Overwrite Variable Sub
+
+class parent:
+	var1="bacon"
+	var2="snuage"
+	
+class child(parent):
+	var2="toast"
+	
+pob=parent()
+cob=child()
+
+pob.var1 --> 'bacon'
+pob.var2 --> 'snuage'
+
+cob.var1 --> 'bacon'
+cob.var2 --> 'toast'
+
+Multiple Parent Classes
+
+class Mom:
+	var1="hey im mom"
+	
+class Dad:
+	var2="hey there son i am dad"
+	
+class child(Mom,Dad):
+	var3='i am a new variable'
+	
+childObject = child()
+childObject.var1 --> 'hey i am mom'
+childObject.var2 --> 'hey there son i am dad'
+childObject.var3 --> 'i am a new variable'
+
+Import Modules
+--------------
+def testmod():
+	print 'this baby worked'
+	
+you need to save the module in the python directory
+the name --> swineflu.py
+
+import swineflu
+
+swineflu.testmod() --> this baby worked
+
+YOU CAN IMPORT ONLY ONCE IN IDLE
+
+Reload Modules
+
+baby =swineflu.testmod
+baby() --> this baby worked
+
+reload(swineflu) --> this will reload the module if you changed it :)
+
+Getting Module Info
+import math
+
+dir(math) -->
+['__doc__', '__name__', '__package__', 'acos', 'acosh',
+ 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign',
+ 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1',
+ 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
+
+help(math) --> better help on the moudle
+
+math.__doc__ --> will give you a quick summary
+
+Working With Files
+------------------
+
+write to file:
+fob=open('c:/test/a.txt','w') or 'r'
+fob.write('hey now i am in the file')
+fob.close()
+
+read from file:
+fob=open('c:/test/a.txt,'r')
+fob.read(3) --> 3 bytes means 3 chars
+
+fob.read() --> reads the whole file.
+
+reading line by line:
+fob=open("c:/test/a.txt")
+fob.readline()
+
+fob.readlines() --> enters the lines to a list
+
+writing lines:
+fob.write('this is  a new line\n')
+
+modifying lines:
+listme=fob.readlines()
+fob.close
+listme[2] = 'changed line'
+fob.writelines(listme)
+
+-m 
+------------------
+-m lets you run modules as scripts
+
+Simple Http Server
+python -m SimpleHTTPServer 8000 
+
+Open a WebPage
+python -m webbrowser -n http://www.google.co.il
+
+it'll indent nicely an JSON input in the standard output
+curl -sL http://j.mp/1IuxaLD | python -m json.tool
+
+
+filecmp - Compare two directories.
+$ python -m filecmp /tmp/a /tmp/b
+
+zipfile will let you view, extract and create zip files
+
+python -m zipfile -h
+Usage:
+    zipfile.py -l zipfile.zip        # Show listing of a zipfile
+    zipfile.py -t zipfile.zip        # Test if a zipfile is valid
+    zipfile.py -e zipfile.zip target # Extract zipfile into target dir
+    zipfile.py -c zipfile.zip src ... # Create zipfile from sources
+
+python -m calendar

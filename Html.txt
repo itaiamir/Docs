@@ -1,0 +1,43 @@
+Html
+----
+<h1> --> <h6>
+headers should be from <h1> the highest to <h6> the lowest
+
+<p></p>
+if you want some text in a separate line use <p> paragrapgh tag
+
+<ul></ul>
+unordered list 
+* apple
+* banana
+
+<ol></ol>
+ordered list
+1. apple
+2. banana
+
+<li></li>
+list item each list item use these tags
+
+<a></a> (a is a short for anchor)
+to mark a text as a link
+
+ATTRIBUTES
+----------
+href
+is an attribute that states where the link should go
+the value should always be in quotes
+<a href="http://www.myfilms.co.il">MyFilms Website</a>
+ 
+target 
+sets where the page should open when link is clicked
+
+_self (default)  --> means replace the currently open page in this tab/window
+_blank --> means open this page in a new tab/window
+
+<a href="http://..." target="_blank">legal page</a>
+
+relative path 
+if you want to open a page from the same server you can use
+only the file name : "legal.html" and it will assume : http://example.com/legal.html
+

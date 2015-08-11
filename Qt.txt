@@ -1,0 +1,186 @@
+QML Structure Summary
+---------------------
+id
+custom properties
+signals
+functions
+object properties
+child objects
+states
+transitions
+
+QML Syntax
+----------
+(1)Name->(2)Delimiter->(3)id attribute->(4)property
+______________________
+(1) Item{ (2)
+	(3) id: myItemId
+	(4) width: 640
+(2)}
+----------------------
+item{id:myItemId; width:640} if you want in 1 row.
+
+Attributes
+
+ID - optional but recommended
+-----------------------------
+Text {
+	id: textId
+	text:"Here is some simple text"
+}
+Text {
+	id: nextTextId
+	text: textId.text
+}
+
+PROPERTIES
+----------
+Properties of specific type 
+property string firstString : "This is a custom property"
+
+Variant properties
+property var largeFont : 48
+
+Declaring custom Property implicitly creates a Signal for that property that get raised when property changed
+
+onFirstStringChanged
+on_FirstStringChanged
+
+ALIAS PROPERTIES
+----------------
+holds reference to another property
+They are very useful
+
+property alias myTextField : textId.text
+
+PROPERTY SCOPE
+--------------
+later loaded docs can look in earlier ones - but it's a bad idea !!!
+The alias property can forward a property to an outer scope.
+
+GROUPED PROPERTIES
+------------------
+using in line group notation
+Text{
+	font {pixelSize : 0; italic: true}
+}
+
+using dot notation
+Text{
+	font.pixelSize : largeFont
+	font.italic: true
+}
+
+using block group notation
+Text{
+	font{
+		pixelSize: 0
+		italic: true
+	}
+}
+
+signals
+signal handlers
+methods
+attached properties
+
+QML Visual Types
+----------------
+All visual type in QML derives from item object
+
+Geometry
+x - left position
+y - top position
+width - horizontal extent
+height - vertical extent
+z - stacking order
+
+Layout 
+anchors - position relative to a parent or sibling
+margins = anchor specific
+
+Key handling
+allows you to write handlers for keys being pressed
+
+Keys - Keys.onPressed
+KeyNavigation - move between focusable items
+focus - true/false
+
+Transformation
+gives us the ability to scale,rotate transform and set the transform origin point
+
+transform - Rotation,Scale and Translate
+transformOrigin - the origin point for scaling and rotation
+rotation- rotation in degrees(no z-axis)
+scale - reduce (>0 and <1)
+		enlarge(>1), mirror(<0)
+
+Visual
+allows us to make elements visible or invisible		
+
+opacity - transparent(0),opaque(1)
+visible - true or false 
+clip - true or false 
+smooth - true or false (leave it true)
+
+States 
+are very useful and easily abused
+you can associate a list of states with an object 
+and each state can define multiple property changes.
+
+states can also be used for:
+run scripts
+modify anchors 
+reparent an item 
+override a Signal handler 
+
+states - a set of property configurations per state.
+
+Rectangle
+---------
+border
+color
+radius
+gradient
+
+Text
+----
+color
+font
+style
+unicode
+<b>html</b>
+
+Image
+-----
+source - Resource,File,internet
+display - mirror,fillMode, alignment
+performance - asynchronous,cache, smooth
+
+BorderImage
+AnimatedImage
+Screen
+
+JAVASCRIPT
+----------
+Property Assignment
+
+color: width < 200 ? "red":"blue"
+color: if(width<200) "red"; else "blue"
+
+color:{
+	if(width<200) "red";
+	else "blue";
+}
+
+Rectangle{
+	id:rectId
+	function setColor()
+	{
+		if(width<200) return "red"
+		else return "blue"
+	}
+	
+	color:recId.setColor();
+}
+

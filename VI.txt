@@ -1,0 +1,35 @@
+VI Commands
+-----------
+yy -> copy a line
+p -> paste a line
+dd -> delete a line
+o -> insert a new line below
+shift + o -> insert a new line above
+:[line number] -> jumps to that line number
+:$ -> goes to last line.
+[number of words to replace from cursor] wc
+shift + r -> replace mode
+u -> undo
+ 	
+Navigation
+
+j -> goes down
+h -> goes left
+l -> goes right
+k -> goes up
+
+ctrl+d -> down 12 lines
+ctrl+u -> up 12 lines
+
+shift+g -> goes to last line.
+line number then shift + g -> goes to that line number.
+
+find
+
+/[word] -> finds the word in the doc.
+n -> find next
+
+save
+shift + zz -> saves and exit
+:w -> only saves
+:wq -> saves and exit
