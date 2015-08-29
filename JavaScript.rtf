@@ -1,5 +1,5 @@
 {\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
-{\colortbl ;\red0\green0\blue255;\red0\green77\blue187;\red192\green80\blue77;\red155\green0\blue211;\red255\green255\blue255;\red255\green0\blue0;\red128\green100\blue162;\red155\green187\blue89;\red255\green255\blue0;\red0\green0\blue0;\red247\green150\blue70;\red0\green255\blue0;\red0\green176\blue80;}
+{\colortbl ;\red0\green0\blue255;\red0\green77\blue187;\red192\green80\blue77;\red155\green0\blue211;\red255\green255\blue255;\red255\green0\blue0;\red128\green100\blue162;\red155\green187\blue89;\red255\green255\blue0;\red0\green0\blue0;\red247\green150\blue70;\red0\green255\blue0;\red0\green176\blue80;\red75\green172\blue198;}
 {\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\ltrpar\sl276\slmult1\lang9\ul\b\f0\fs28 JAVASCRIPT\par
 \ulnone\b0\fs22{\field{\*\fldinst{HYPERLINK "http://eloquentjavascript.net"}}{\fldrslt{\ul\cf1 http://eloquentjavascript.net}}}\f0\fs22\par
 {\field{\*\fldinst{HYPERLINK "http://developer.mozilla.org/en-US/docs/Web/JavaScript"}}{\fldrslt{\ul\cf1 http://developer.mozilla.org/en-US/docs/Web/JavaScript}}}\f0\fs22\par
@@ -137,6 +137,45 @@ while \cf0\b0 (*some expression is true*)\{\par
 \cf4\b\i Complex Conditionals\cf0\b0\i0\par
 \cf3\b && \cf0\b0 - Binary 'And' returns \b TRUE if BOTH\b0  values are true.\par
 \cf3\b ||\cf0\b0    - Binary 'OR' returns true If \b EITHER \b0 value is true.\par
+\par
+\cf4\b\i Ternary Conditional\cf0\b0\i0\par
+someCondition \cf3\b ?\cf0\b0  pickThisIfTrue \cf3\b :\cf0\b0  pickThisIfFalse;\par
+\cf3\b var \cf0\b0 weapon = isArthur \cf3\b ?\cf0\b0  "excalibur" \cf3\b :\cf0\b0  "Longsword";\par
+\par
+\b if we only need the result once, we can even eliminate the assignment !\b0\par
+console.log("Current weapon: " + (isArthur ? "Excalibur" : "longsword"));\par
+\par
+\b we even can call functions:\b0\par
+isArthur \cf3\b && \cf0\b0 isKing \cf3\b ?\cf0\b0  \cf2\b function \cf0\b0 ()\{\par
+\tab\tab\tab alert("Hail Arthur !");\par
+\tab\tab\tab console.log("current weapon: Excalibur");\par
+\tab\tab        \}()\par
+\tab\tab        \cf3\b :\cf0\b0\par
+\tab\tab        \cf2\b function \cf0\b0 ()\{\par
+\tab\tab\tab alert("Charge on");\par
+\tab\tab\tab console.log("current weapon: Longsword");\par
+\tab\tab        \}();\tab\tab\tab\par
+\par
+\b multiple actions in ternaries:\b0\par
+isArthur \cf3\b && \cf0\b0 isKing \cf3\b ?\cf0\b0  (weapon = "Excalibur", helmet = "Goosewhite")\par
+\tab\tab        \cf3\b :\cf0\b0\par
+\tab\tab        (weapon = "Longsword", helmet = "Iron Helm");\par
+\par
+\b Ternaries can be nested:\b0\par
+isArthur \cf3\b && \cf0\b0 isKing \cf3\b ?\cf0\b0  (weapon = "Excalibur", helmet = "Goosewhite")\par
+\tab\tab        \cf3\b :\cf0\b0\par
+\tab\tab       isArcher \cf3\b ?\cf0\b0   (weapon = "Longbow", helmet = "Mail Helm")\par
+\tab\tab\tab        \cf3\b :\cf0\b0   (weapon = "Longsword", helmet = "Iron Helm");\par
+\par
+\par
+\cf2\ul\b\i\fs20 SWITCH BLOCK\cf0\ulnone\b0\i0\fs22\par
+switch (some variable) \{\par
+\tab case 1:\par
+\tab     this.weapon = "Broadsword";\par
+\tab     break;\par
+\tab default:\par
+\tab    alert ( "no match");\par
+\}\par
 \par
 \cf2\ul\b\i\fs20 BUILT-IN FUNCTIONS\cf3\ulnone\i0\fs22\par
 alert("Message")\cf0\b0  -> Send message to the user in a small pop-up window.(msgbox)\par
@@ -38335,13 +38374,37 @@ fbf8dffef8d2fcf7ccf4ebbce9d797bba561977f368457057d4f017e4f0788551c915d29986333
 (Tornado prototype)\par
 Object (\cf3 valueOf\cf0 : function, \cf3 toString\cf0 : function\}\par
 \par
+\cf2\ul\b\i\fs20 ASSIGNMENTS WITH LOGICAL OPERATORS\tab\cf0\ulnone\b0\i0\fs22\par
+\cf3\par
+\cf14\b\i OR ||\cf3\b0\i0\par
+var \cf0 armory = \{ \cf11\b addSword\cf0\b0 : \cf2\b function \cf0\b0 (\cf11\b sword\cf0\b0 ) \{\par
+\tab\tab this.swords = this.swords \cf3\b ||\cf0\b0   [ ];\par
+\tab\tab this.swords.push(sword);\par
+\tab               \}\par
+\tab            \};\par
 \par
+if swords property doesn't exists it will create one and return empty array and then\par
+will push the sword into it !\par
 \par
+\highlight9 WHEN used in assignment, the \b OR \b0 operator will try to select the first value it \par
+encounters that is not "falsy".\par
+\highlight0\par
+\cf3\b var \cf0\b0 result = 42 \cf3\b ||\cf0\b0  undefined; --> 42 (undefined is \b NEVER \b0 examined).\par
 \par
+\cf5\highlight6 WHEN ALL ELEMENTS ARE "\b FALSY\b0 " WE WILL RETURN THE \b LAST \b0 "\b FALSY\b0 " VALUE FOUND!\cf0\highlight0\par
 \par
+\cf14\b\i AND &&\cf0\b0\i0\par
+the && operator takes the rightmost "truthy" value or the first "falsy" value.\par
 \par
+\cf3\b var \cf0\b0 result = undefined \cf3\b && \cf0\b0 42; -- > undefined (42 never examined).\par
 \par
+\cf5\highlight6 WHEN ALL ELEMENTS ARE "\b TRUTHY\b0 " WE WILL RETURN THE \b LAST \b0 "\b TRUTHY\b0 " VALUE FOUND!\cf0\highlight0\par
 \par
+\cf3\b var \cf0\b0 result = "king" \cf3\b && \cf0\b0 "Arthur"; --> Arthur\par
+\par
+\cf5\highlight6 WHEN ALL ELEMENTS ARE "\b FALSY\b0 " WE WILL RETURN THE \b FIRST \b0 "\b FALSY\b0 " VALUE FOUND!\cf0\highlight0\par
+\par
+var result = undefined && ""; --> undefined.\par
 \par
 \par
 \par
