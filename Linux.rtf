@@ -1,5 +1,5 @@
 {\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
-{\colortbl ;\red0\green77\blue187;\red192\green80\blue77;\red255\green255\blue0;\red155\green0\blue211;\red255\green0\blue0;\red255\green128\blue255;\red0\green255\blue255;\red247\green150\blue70;\red0\green176\blue80;\red0\green0\blue255;}
+{\colortbl ;\red0\green77\blue187;\red192\green80\blue77;\red255\green255\blue0;\red155\green0\blue211;\red255\green0\blue0;\red255\green128\blue255;\red0\green255\blue255;\red247\green150\blue70;\red0\green176\blue80;\red0\green0\blue255;\red209\green99\blue73;}
 {\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\ltrpar\sl276\slmult1\lang9\ul\b\f0\fs36 LINUX\ulnone\b0\fs22\par
 \par
 \cf1\b\i\fs24 Quickstart Commands\cf0\b0\i0\fs22\par
@@ -14,6 +14,9 @@
 \cf2\b info \cf0\i command \b0\i0 -> read info pages on command\par
 \cf2\b which \cf0 filename \b0 -> returns the pathnames of the filename\par
 \cf2\b apropos \cf0\i string \b0\i0 -> search the whatis database for strings\par
+\cf2\b who \cf0\b0 -> shows on which terminal someone is connected\par
+\cf2\b write \cf0\b0 -> send message to another terminal\par
+\cf2\b mesg  \cf0\b0 -> not to recieve messages except from the administrator\par
 \par
 \cf1\b\i\fs24 Key combinations in Bash\cf0\b0\i0\fs22\par
 \cf2\b Ctrl+A\cf0\b0  -> Move cursor to the beginning of the command line.\par
@@ -196,6 +199,90 @@ head works the same \par
 \cf2\b ln -s <targetfile> linkname\cf0\b0\par
 \par
 The application of symbolic links is widespread. They are often used to save disk space, to make a copy of a file in order to satisfy installation requirements of a new program that expects the file to be in another location, they are used to fix scripts that suddenly have to run in a new environment and can generally save a lot of work. A system admin may decide to move the home directories of the users to a new location, disk2 for instance, but if he wants everything to work like before, like the /etc/passwd file, with a minimum of effort he will create a symlink from /home to the new location /disk2/home.\par
+\par
+\cf1\b\i\fs24 FILE SECURITY\cf0\b0\i0\fs22\par
+On a Linux system, every file is owned by a \b user \b0 and a \b group user\b0 .\par
+For each category of users, \b read\b0 , \b write \b0 and \b execute \b0 permissions can be granted or denied.\par
+\par
+\cf2\b -rw-rw-r-- 1 marise  users      5 Jan 15 12:39 To_Do\cf0\b0\par
+First three characters display access rights for the\b  actual user \b0 that owns the file.\par
+Next three are for the \b group owner \b0 of the file\par
+Last three for \b other users\b0\par
+\par
+the first is the type --> \cf2\b -\cf0\b0  (regular file)\par
+Users with username \b\i marise \b0\i0 or users belonging to the group \b\i users\b0\i0  ->\par
+ \cf2\b rw-\cf0\b0  read and write but can't execute.\par
+All other users can only read -> \cf2\b r--\cf0\b0\par
+\par
+You should know what your user name is. If you don't, it can be displayed using\par
+the \cf2\b id\cf0\b0  command, which also displays the default group you belong to and eventually other groups of which you are a member.\par
+\par
+Your user name is also stored in the environment variable \cf2\b USER\cf0\b0 :\par
+\cf2\b echo $USER\cf0\b0\par
+\par
+\cf4\b\i\fs24 chmod command\cf0\b0\i0\fs22\par
+The chmod command can be used with alphanumeric or numeric options.\par
+\par
+\cf2\b chmod u+x <filename>\cf0\b0  -> will add execution permission to current user on filename.\par
+The \b +\b0  and \b -\b0  operators are used to grant or deny a given right to a given group\par
+\par
+\cf2\b chmod u+rwx,go-rwx <filename> \cf0\b0 ->\par
+ will grant the user all permission but removes all permissions to user group and others.\par
+\par
+\cf2\b chmod \cf0 400 \b0 file -> To protect a file against accidental overwriting.\par
+\cf2\b chmod \cf0 500 \b0 directory -> To protect yourself from accidentally removing, renaming or moving files \par
+\tab\tab               from this directory.\par
+\cf2\b chmod \cf0 600 \b0 file -> A private file only changeable by the user who entered this command.\par
+\cf2\b chmod \cf0 644 \b0 file -> A publicly readable file that can only be changed by the issuing user.\par
+\cf2\b chmod \cf0 660 \b0 file -> Users belonging to your group can change this file, others don't have any access \par
+\tab\tab    to it at all.\par
+\cf2\b chmod \cf0 700 \b0 file -> Protects a file against any access from other users, while the issuing user still has \par
+\tab\tab    full access.\par
+\cf2\b chmod \cf0 755 \b0 directory -> For files that should be readable and executable by others, but only \par
+\tab\tab              changeable by the issuing user.\par
+\cf2\b chmod \cf0 775 \b0 file -> Standard file sharing mode for a group.\par
+\cf2\b chmod \cf0 777 \b0 file -> Everybody can do everything to this file.\par
+\par
+\par
+\cf4\b\i\fs24 Logging on to another group\cf0\b0\i0\fs22\par
+By default, this active or \b primary group\b0  is the one that you get assigned\par
+from the \cf2\b /etc/passwd\cf0\b0  file. The fourth field of this file holds users' primary group ID, which is looked up in the \cf2\b /etc/group\cf0\b0  file.\par
+\par
+To log to another group you belongs to:(use \cf2\b gpasswd \cf0\b0 for setting the \b group password \b0 first)\par
+\cf2\b newgrp <groupname>\cf0\b0\par
+\par
+\cf4\b\i\fs24 The file Mask\cf0\b0\i0\fs22\par
+When a new file is saved somewhere, it is first subjected to the \b standard security \b0 procedure.\par
+Files without permissions don't exist on Linux. The standard file permission is determined by the \b mask \b0 for new file creation. \par
+\par
+The value of this mask can be displayed using the umask command:\par
+\cf2\b umask\cf0\b0\par
+\par
+\highlight3 before the mask applies:\par
+\highlight0 a new directory has permissions \b 777 \b0 or \b rwxrwxrwx\b0\par
+a new plain file \b 666 \b0 or \b rw-rw-rw-\b0\par
+\par
+\highlight3 after the mask applies:(0002)\highlight0\par
+a new directory has permissions \b 775 \b0 or \b rwxrwxr-x\b0\par
+a new plain file \b 664 \b0 or \b rw-rw-r--\b0\par
+\par
+These \b defaults \b0 are set system-wide in the shell resource configuration files, \par
+for instance \cf2\b /etc/bashrc\cf0\b0  or \cf2\b /etc/profile\cf0\b0\par
+\par
+\cf4\b\i\fs24 Changing user and group ownership\cf0\b0\i0\fs22\par
+When a file is owned by the wrong user or group, the error can be repaired with:\par
+\par
+The \b chown \b0 command can be applied to change both \b user \b0 and \b group \b0 ownership of a file\par
+\cf2\b chown newuser <filename>\cf0\b0  -> change owner\par
+\par
+If you use a \b colon \b0 after the user name, \b group ownership \b0 will be changed as well\par
+\cf2\b chown newuser: <filename>\cf0\b0  -> will change the group ownership too (primary group).\par
+\par
+\cf2\b chgrp <newgroup> \cf0\b0 -> change group\par
+\par
+Both chown and chgrp can be used to change ownership \b recursively\b0 ,\par
+ using the \b -R\b0  option.\par
+\par
 \par
 \cf1\b\i\fs24 PARATITIONS\cf0\b0\i0\fs22\par
 There are two kinds of major partitions on a Linux system:\par
@@ -35140,7 +35227,8 @@ most configuration files are stored in the \b /etc\b0  directory\par
 \cf2\b lilo.conf, silo.conf, aboot.conf\cf0\b0  -> Boot information for the LInux LOader, the system\par
 \tab\tab\tab\tab    for booting that is now gradually being replaced with GRUB.\par
 \cf2\b logrotate.*\cf0\b0  -> \b Rotation \b0 of the \b logs\b0 , a system preventing the collection of huge amounts of log files.\par
-\cf2\b mail \cf0\b0 -> Directory containing instructions for the behavior of the \b mail server\b0 .\par
+\cf2\b mail \cf0\b0 -> Directory containing instructions for the behavior of the \b mail server\b0 .local mailbox in   \par
+             \cf1\b  /var/spool/mail/<your_username>\cf0\b0\par
 \cf2\b modules.conf\cf0\b0  -> Configuration of modules that enable \b special features\b0  (drivers).\par
 \cf2\b motd\cf0\b0  -> \b Message Of The Day\b0 : Shown to everyone who connects to the system (in text mode).\par
 \cf2\b mtab \cf0\b0 -> Currently mounted file systems. \cf5\b It is advised to never edit this file\cf0\b0 .\par
@@ -35201,6 +35289,157 @@ Temp:\par
 \par
 Logs:\par
 \cf2\b /var/log\cf0\b0\par
+\par
+\cf1\b\i\fs24 PROCESSES\cf0\b0\i0\fs22\par
+\par
+\cf4\b\i\fs24 Interactive processes\cf0\b0\i0\fs22\par
+Interactive processes are initialized and controlled through a terminal session.\par
+The shell offers a feature called \b\i job control\b0\i0  which allows easy handling of multiple processes.\par
+\par
+\b Controlling processes\b0\par
+regular_command -> Runs this command in the \b foreground\b0 .\par
+command \cf2\b &\cf0\b0  -> Run this command in the \b background \b0 (release the terminal)\par
+\cf2\b jobs \cf0\b0 -> \b Show \b0 commands running in the background.\par
+\cf2\b Ctrl+Z\cf0\b0  -> \b Suspend \b0 (stop, but not quit) a \b process \b0 running in the foreground (suspend).\par
+\cf2\b Ctrl+C\cf0\b0  -> \b Interrupt \b0 (terminate and quit) a process running in the foreground.\par
+\cf2\b %n\cf0\b0  -> Every process running in the background gets a number assigned to it.\par
+           By using the \b %\b0  expression a job can be referred to using its number, for instance fg %2.\par
+\cf2\b bg \cf0\b0 -> \b Reactivate \b0 a suspended program in the background.\par
+\cf2\b fg \cf0\b0 -> Puts the job back in the \b foreground\b0 .\par
+\cf2\b kill \cf0\b0 -> \b End \b0 a process (also see Shell Builtin Commands in the Info pages of bash)\par
+\par
+\cf4\b\i\fs24 Automatic processes\cf0\b0\i0\fs22\par
+Automatic or batch processes are not connected to a terminal.\par
+Rather, these are tasks that can be queued into a spooler area, \par
+where they wait to be executed on a \b FIFO \b0 (first-in, first-out) basis. \par
+Such tasks can be executed using one of two criteria:\par
+\par
+- At a certain \b date and time\b0 : done using the \cf2\b at\cf0\b0  command\par
+- At \b times \b0 when the total \b system load\b0  is \b low\b0  enough to accept extra jobs\par
+\par
+\cf4\b\i\fs24 Deamons\cf0\b0\i0\fs22\par
+Daemons are server processes that run \b continuously\b0 . Most of the time, they are initialized at system startup and then wait in the background until their service is required. A typical example is the networking daemon, xinetd, which is started in almost every boot procedure. After the system is booted, the network daemon just sits and waits until a client program, such as an FTP client, needs to connect.\par
+\par
+\cf4\b\i\fs24 Process attributes\cf0\b0\i0\fs22\par
+A process has a series of characteristics, which can be viewed \par
+with the \cf2\b ps \cf0 command\b0 :\par
+\par
+\cf2\b ps -af:\cf0\b0  \par
+\par
+* \cf2\b The Process ID or PID:\cf0\b0  a \b unique identification number \b0 used to refer to the process.\par
+* \cf2\b The parent process ID or PPID:\cf0\b0  the \b number of the process \b0 (PID) that started this process.\par
+* \cf2\b Nice number:\cf0\b0   the degree of \b friendliness \b0 of this process toward other processes\par
+* \cf2\b Terminal or TTY:\cf0\b0  terminal to which the process is connected.\par
+* \cf2\b User name if the real effective user (RUID and EUID):\cf0\b0\par
+            the \b owner of the process\b0 . The real owner is the user issuing the command, the effective \par
+             user is the one determining access to system resources.\par
+\par
+\cf4\b\i\fs24 Displaying process information\cf0\b0\i0\fs22\par
+select particular processes out of the list of all processes, using the grep command\par
+\par
+\cf2\b ps -ef | grep username\cf0\b0\par
+\par
+The \cf2\b top \cf0\b0 program displays a more precise view by updating the results given by ps (with a bunch of options) once every five seconds, generating a new list of the processes causing the heaviest load periodically, meanwhile integrating more information about the swap space in use and the state of the CPU, from the proc file system:\par
+\par
+The \b relations \b0 between processes can be visualized using the \cf2\b pstree \cf0\b0 command.\par
+The \cf2\b -u\cf0\b0  and \cf2\b -a\cf0\b0  options give additional information.\par
+\par
+\cf4\b\i\fs24 Signals\cf0\b0\i0\fs22\par
+Processes end because they receive a signal. There are multiple signals that you can send to a process. Use the \cf2\b kill \cf0\b0 command to send a signal to a process\par
+\par
+\b SIGTERM    \b0 15\tab Terminate the process in an orderly way.\par
+\b SIGINT\b0\tab        2\tab Interrupt the process. A process can ignore this signal.\par
+\b SIGKILL\b0\tab        9\tab Interrupt the process. A process can not ignore this signal.\par
+\b SIGHUP\b0\tab        1\tab For daemons: reread the configuration file.\par
+\par
+\cf4\b\i\fs24 SUID and SGID\cf0\b0\i0\fs22\par
+These modes exist to provide normal users the ability to execute tasks they would normally not be able to do because of the tight file permission scheme used on UNIX based systems.\par
+\par
+\cf4\b\i\fs24 Boot Process\cf0\b0\i0\fs22\par
+The kernel, once it is loaded, finds \b init \b0 in \cf1\b sbin \cf0\b0 and executes it.\par
+The first thing \b init \b0 does, is reading its initialization file, \cf1\b /etc/inittab\cf0\b0 .\par
+\par
+Use the \b who \b0 to check what your current \cf1\b run level\cf0  \b0 is.\par
+\cf2\b who -r\cf0\b0\par
+\par
+After having determined the default run level for your system, \b init \b0 starts all of the background processes necessary for the system to run by looking in the appropriate \cf1\b rc \cf0\b0 directory for that run level.\par
+you can execute these same scripts manually:\par
+\cf11\b /etc/init.d/httpd stop\cf0\b0  \par
+Or \par
+\cf11\b service httpd stop\cf0\b0\par
+\par
+You can \b change the order \b0 in which the \b services start up \b0 or are killed by changing the name of the \b symbolic link\b0  that refers to the script that actually controls the service.\par
+On most RPM-based systems the graphical login screen is started in run level 5, where \cf1\b /etc/inittab \cf0\b0 runs a script called \cf1\b /etc/X11/prefdm\cf0\b0 . The prefdm script runs the preferred X display manager, based on the contents of the \cf1\b /etc/sysconfig/desktop\cf0\b0  directory. This is typically gdm if you run GNOME or kdm if you run KDE, but they can be mixed, and there's also the xdm that comes with a standard X installation.\par
+The /\cf1\b etc/default \cf0\b0 and/or \cf1\b /etc/sysconfig\cf0\b0  directories contain entries for a range of functions and services, these are all read at boot time. The location of the directory containing system defaults might be somewhat different depending on your Linux distribution.\par
+\par
+you should be looking at a \b login prompt\b0  or \b login screen\b0  when the boot process has finished.\par
+\par
+\cf4\b\i\fs24 Tools\cf0\b0\i0\fs22\par
+\cf2\b chkconfig \cf0\b0 - utility that provides simple command-line tool for maintainning the\par
+\tab      \cf1\b  /etc/init.d \cf0\b0 directory hierarchy.\par
+\cf2\b update-rc.d\cf0\b0  - The same as above.\par
+\cf2\b ntsysv \cf0\b0 - provides text-based interface.\par
+\cf2\b yast \cf0\b0 - other tool do the same.\par
+\cf2\b insserv \cf0\b0 - other tool do the same.\par
+\par
+\cf4\b\i\fs24 Shutdown\cf0\b0\i0\fs22\par
+\cf2\b shutdown -h\cf0\b0  --> will halt the system.\par
+\cf2\b shutdown -r\cf0\b0  --> will reboot the system\par
+\par
+\cf4\b\i\fs24 Manipulating processes\cf0\b0\i0\fs22\par
+\cf2\b time \cf0\b0 <\b command\b0 > -> will display how long a command takes to execute\par
+\cf2\b /usr/bin/time\cf0\b0  <\b command\b0 > -> display MORE information like exit statusand total elapsed time.\par
+\par
+Defining the priority of a program is done with the \cf2\b nice \cf0\b0 or \cf2\b renice \cf0\b0 command.\par
+The \cf2\b top \cf0\b0 command can be used to display memory and swap use. \par
+Systems using glibc offer the \cf2\b memusage \cf0\b0 and \cf2\b memusagestat \cf0\b0 commands to visualize memory \b usage\b0 .\par
+\par
+The \cf2\b ps\cf0\b0 , \cf2\b vmstat \cf0\b0 and \cf2\b top \cf0\b0 tools give some indication about \b how many programs are waiting for I/O\b0 ; \cf2\b netstat \cf0\b0 displays \b network interface statistics\b0 , but there are virtually no tools available to measure the I/O response to system load, and the \cf2\b iostat \cf0\b0 command gives a \b brief overview of general I/O \b0 usage. \par
+\par
+\cf4\b\i\fs24 Schedualing processes\cf0\b0\i0\fs22\par
+\par
+\b\i The Sleep Command\b0\i0\par
+All sleep does is wait, the time to wait is in seconds.\par
+\par
+Reminder:\par
+\cf2\b (sleep 1800;echo "Lunch time..") &\cf0\b0\par
+\par
+\b\i The At Command\b0\i0\par
+The at command \b executes commands at a given time\b0 ,\par
+using your default shell unless you tell the command otherwise\par
+\par
+\cf2\b at tomorrow + 2 days\cf0\b0  -> Pressing \b Ctrl+D\b0  quites the at utility.\par
+\cf2\b at 0237\cf0\b0\par
+\cf2\b -m\cf0\b0  option \b sends e-mail\b0  when the job is done.\par
+\cf2\b atq \cf0\b0 -> \b List the jobs\b0\par
+\cf2\b atrm \cf0\b0 -> \b Remove scheduled jobs \b0\par
+you may also use the \cf2\b batch \cf0\b0 command, which queues processes and feeds\par
+the work in the queue to the system in an evenly balanced way.\par
+\par
+\b\i Cron and crontab\b0\i0\par
+The cron system is managed by the \b cron daemon\b0 . It gets information about which programs and when they should run from the system's and \b users' crontab entries\b0 . Only the \b root \b0 user has access to the system crontabs\par
+At system startup the cron daemon searches \cf1\b /var/spool/cron/\cf0\b0  for crontab entries which are named after accounts in \cf1\b /etc/passwd\cf0\b0 , it searches \cf1\b /etc/cron.d/\cf0\b0  and it searches \cf1\b /etc/crontab\cf0\b0 , then uses this information every minute to check if there is something to be done. It executes commands as the user who owns the crontab file and mails any output of commands to the owner.\par
+\par
+\b\i display the crontab list:\b0\i0\par
+\cf2\b crontab -l\cf0\b0\par
+\par
+first field -> minutes\par
+second field -> hour\par
+third field -> day of the month\par
+forth field -> month\par
+fifth field -> day of the week\par
+\par
+\b edit crontab:\b0\par
+\cf2\b crontab -e\cf0\b0\par
+\par
+This crontab entry reminds billy to go to his sports club every Thursday night:\par
+\cf2\b 38 16 * * 3 mail -s "sports evening" billy\cf0\b0\par
+\par
+\cf1\b\i\fs24 I/O redirection\cf0\b0\i0\fs22\par
+\par
+\par
+\par
+\par
 \par
 \par
 \par
