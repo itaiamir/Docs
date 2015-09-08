@@ -1,5 +1,5 @@
 {\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
-{\colortbl ;\red0\green77\blue187;\red192\green80\blue77;\red255\green255\blue0;\red155\green0\blue211;\red255\green0\blue0;\red255\green128\blue255;\red0\green255\blue255;\red247\green150\blue70;\red0\green176\blue80;\red0\green0\blue255;\red209\green99\blue73;}
+{\colortbl ;\red0\green77\blue187;\red192\green80\blue77;\red255\green255\blue0;\red155\green0\blue211;\red255\green0\blue0;\red255\green128\blue255;\red0\green255\blue255;\red247\green150\blue70;\red0\green176\blue80;\red0\green0\blue255;\red209\green99\blue73;\red255\green255\blue255;}
 {\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\ltrpar\sl276\slmult1\lang9\ul\b\f0\fs36 LINUX\ulnone\b0\fs22\par
 \par
 \cf1\b\i\fs24 Quickstart Commands\cf0\b0\i0\fs22\par
@@ -161,6 +161,18 @@ Locate output is based on a file index database that is updated only once every 
 \par
 \cf4\b\i Grep command\cf0\b0\i0\par
 \b grep \b0 is used for filtering input lines and returning certain patterns to the output.\par
+grep scans the output line per line, searching for matching patterns.\par
+All lines containing the pattern will be printed to standard output.\par
+This behavior can be reversed using the \cf2\b -v\cf0\b0  option.\par
+\par
+suppose we want to know which files in a certain directory\par
+have been modified in February:\par
+\cf2\b ls -la | grep \cf0 Feb\b0\par
+\par
+\cf2\b -i \cf0\b0 No CaseSensetive\par
+\cf2\b --colour\cf0\b0  Will highlight searchterms in long lines\par
+\cf2\b --after-context\cf0\b0  Will print the number of lines after the last matching line.\par
+\cf2\b -r\cf0\b0  Will issue a recursive grep that searches all subdirectories.\par
 \par
 All linuxs has a dictionary located in \cf2\b /usr/share/dict/words\cf0\b0  so checking for spelling:\par
 \cf2\b grep \cf0\b0 pinguin /usr/share/dict/words -> if it returns penguin you spell it right !\par
@@ -35436,6 +35448,109 @@ This crontab entry reminds billy to go to his sports club every Thursday night:\
 \cf2\b 38 16 * * 3 mail -s "sports evening" billy\cf0\b0\par
 \par
 \cf1\b\i\fs24 I/O redirection\cf0\b0\i0\fs22\par
+\cf12\highlight5\b Redirecting output to existing files will replace the content of those files.\cf0\highlight0\b0\par
+\par
+\cf4\b\i\fs24 Output redirection with > and |\cf0\b0\i0\fs22\par
+cat test1 --> some words\par
+cat test2 --> some other words\par
+\par
+\b redirect the cat to a file:\b0\par
+\cf2\b cat \cf0\b0 tes1 test2 \cf2\b >\cf0\b0  test3\par
+\par
+Be careful not to overwrite existing (important) files when redirecting output. \par
+In Bash, you would want to add the \cf2\b set -o noclobber \cf0\b0 command to your\par
+\b .bashrc\b0  configuration file in order to prevent accidental overwriting of files.\par
+\par
+Redirecting "\b nothing\b0 " to an existing file is equal to\b  emptying the file\b0 :\par
+ \cf2\b > \cf1 list \cf0\b0 --> will empty the file named list if exists, if not will create empty file named list.\par
+\par
+To \b find a word within some text\b0 , display all lines matching "pattern1", and exclude lines also matching "pattern2" from being displayed:\par
+\cf2\b grep \cf0\i pattern1 \cf1\i0 file_name\cf0\b0  \cf2\b |\cf0\b0  \cf2\b grep -v\cf0\b0  \b\i pattern2\b0\i0\par
+\par
+To display output of a directory listing one page at a time:\par
+\cf2\b ls -la | less\cf0\b0\par
+\par
+To find a file in a directory:\par
+\cf2\b ls -l | grep\cf0\b0  \cf1\b <part_of_file_name>\cf0\b0\par
+\par
+\cf4\b\i\fs24 Input redirection\cf0\b0\i0\fs22\par
+If you want a file to be input for a command is done using <\par
+\par
+\b sending a file to someone:\b0\par
+mail itaiamir@013.net.il \cf2\b <\cf0\b0  to_do\par
+\par
+\cf4\b\i\fs24 Combining redirection\cf0\b0\i0\fs22\par
+The following example combines input and output redirection.\par
+The file text.txt is first checked for spelling mistakes, and the output is redirected \par
+to an error log file:\par
+\cf2\b spell <\cf0\b0  text.txt \cf2\b >\cf0\b0  error.log\par
+\par
+The following command lists all commands that you can issue\par
+to examine another file when using less:\par
+\cf2\b less \cf0\b0 --help \cf2\b |\cf0\b0  \cf2\b grep -i\cf0\b0  examine\cf2\b  > \cf1 examine-files-in-less\cf0\b0\par
+\par
+ \cf2\b -i\cf0\b0  is for No case sensetive.\par
+\par
+The \cf2\b >> \cf0\b0 operator\par
+Instead of overwriting file data, you can also append text to an existing file\par
+ using \b >>\b0 .\par
+\cf2\b cat \cf0\b0 wishlist -->\par
+more money\par
+\cf2\b date >> \cf0\b0 wishlist --> \par
+more moeny\par
+Thu Feb 28 20:23:07 CET 2002\par
+\par
+\cf4\b\i\fs24 Advance redirection features\cf0\b0\i0\fs22\par
+There are three types of I/O, which each have their own identifier, called a file descriptor:\par
+standard input: 0\par
+standard output: 1\par
+standard error: 2\par
+\par
+The \cf2\b &\cf0\b0  serves as an indication that the number that follows is not a file name, but rather a location that the data stream is pointed to !\par
+\par
+\b Will direct both standard output and standard error to the file dirlist:\b0\par
+\cf2\b ls > \cf1 dirlist \cf2 2>&1\cf0\b0\par
+\par
+\b Will only direct standard output to dirlist.This is useful for programmers.\b0\par
+\cf2\b ls 2>&1 >\cf0\b0  \cf1\b dirlist\cf0\b0\par
+\par
+\b If your process generates a lot of errors this way to thoroughly examine them:\b0\par
+command \cf2\b 2>&1 | less\cf0\b0\par
+\par
+\b Separating standard output from standard error:\b0\par
+(make sure you are issuing the tty command)\par
+\cf2\b make \cf0\b0 all \cf2\b 2> \cf0\b0 /dev/pts/7\par
+\par
+\b Writing to output and files simultaneously\b0 :\par
+Use the \cf2\b tee \cf0\b0 command to copy input to standard output and one or more output files.\par
+Using \cf2\b -a\cf0\b0  option to tee will append input to the file(s).\par
+\par
+\cf2\b date |\cf0\b0  \cf2\b tee \cf1 file1 file2\cf0\b0\par
+cat file1\par
+Thu Jun 10 11:10:34 CEST 2004\par
+cat file2\par
+Thu Jun 10 11:10:34 CEST 2004\par
+\par
+\cf4\b\i\fs24 Filters\cf0\b0\i0\fs22\par
+When a program performs operations on input and writes the result to the\par
+ standard output, it is called a filter.\par
+\b\par
+grep is a filter\b0\par
+\par
+Filtering output\par
+The command \cf2\b sort \cf0\b0 arranges lines in alphabetical order by default:\par
+\cf2\b cat \cf1 people-I-Like\cf0\b0  \cf2\b | sort\cf0\b0\par
+\par
+Looking at the file size Directory content is sorted smallest files first, biggest files last:\par
+\cf2\b ls -la | sort -nk\cf0\b0  5\par
+\par
+The \cf2\b sort \cf0\b0 command is also used in combination with the \cf2\b uniq \cf0\b0 program\par
+(or \cf2\b sort -u\cf0\b0 ) to \b sort output and filter out double entries:\b0\par
+\par
+\cf2\b sort \cf1 itemlist \cf2 | uniq\cf0\b0\par
+\par
+\par
+\par
 \par
 \par
 \par
