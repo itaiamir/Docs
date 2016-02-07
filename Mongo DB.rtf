@@ -1,0 +1,305 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;\red155\green0\blue211;\red192\green80\blue77;\red0\green77\blue187;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\ltrpar\sl276\slmult1\lang9\ul\b\f0\fs36 MONGO DB\par
+\ulnone\b0\fs22\par
+To Download : {\field{\*\fldinst{HYPERLINK "http://www.mongodb.org"}}{\fldrslt{\ul\cf1 http://www.mongodb.org}}}\f0\fs22\par
+\par
+\cf2\b\fs28 Installing\cf0\b0\fs22\par
+The default location of Mongo is c:\\data\\db\par
+\par
+To lunch \cf3 mongod\cf0\par
+To Exit \cf3\b Ctrl+C\cf0\b0\par
+\par
+mongod --help | more\par
+\par
+\cf2\b\fs28 Mongo As A Service\cf0\b0\fs22\par
+\b On windows:\b0\par
+mongod - f c:\\mongod.conf --\cf3\b install \cf0\b0\par
+net  start mongodb\par
+\par
+\cf2\b\fs28 Configuration File\cf0\b0\fs22\par
+\cf3\b mongod.conf\cf0\b0\par
+\par
+\b for example :\b0\par
+dbpath=/MyDBs/db\par
+logpath/MyDBs/mongo-server.log\par
+verbose=vvvvv ( 1v is least verbose 5v highest verbose)\par
+\par
+\cf2\b\fs28 Mongo Shell\cf0\b0\fs22\par
+The mongo shell is a \cf4\b JavaScript \cf0\b0 Shell\par
+\par
+\cf4\b\i To show all Db's:\cf0\b0\i0\par
+\cf3\b show dbs\cf0\b0\par
+\par
+\cf4\b\i Current DB:\cf0\b0\i0\par
+\cf3\b db\cf0\b0\par
+\par
+\cf4\b\i Switch DB:\cf0\b0\i0\par
+\cf3\b use \cf0\b0 <DB Name>\par
+\par
+\cf4\b\i To connect the shell on different port:\cf0\b0\i0\par
+\cf3\b mongo --port \cf0\b0 <port number>\par
+\par
+\cf4\b\i more commands:\cf0\b0\i0\par
+\b help\b0\par
+\par
+\cf4\b\i "Blind" Command\cf0\b0\i0\par
+To execute a single command and return to windows shell use eval.\par
+\par
+\cf4\b\i To rotate the log:\cf0\b0\i0\par
+mongo server1/admin --eval "printjson(db.runCommand(\{logRotate:1\}))"\par
+\par
+\cf4\b\i run a script file:\cf0\b0\i0\par
+mongo server1 myDailyChores.js\par
+\par
+\cf4\b\i clear the shell screen:\cf0\b0\i0\par
+\cf3\b Ctrl+L\cf0\b0\par
+ \par
+\cf4\b\i To change the editor from the shell:\cf0\b0\i0\par
+set EDITOR="mySuperEditor.exe"\par
+\par
+\cf4\b\i to call it just type:\cf0\b0\i0\par
+\cf3\b  edit \cf0\b0 myFunction\par
+\par
+\cf4\b\i to run a script AUTOMATICALLY each time the shell is executed:\par
+we need to save the script in:\cf0\b0\i0\par
+\cf3\b c:\\users\\\{User Name\}\\.mongorc.js\cf0\b0\par
+\par
+\cf4\b to disable the scripts:\cf0\b0\par
+\cf3\b mongo --norc\cf0\b0\par
+\par
+\par
+\par
+\cf2\b\fs28 Replication\cf0\b0\fs22\par
+We need 3 directories for the replica server\par
+\par
+StartReplica.bat\par
+md c:\\MyDBs\\db1\par
+md c:\\MyDBs\\db2\par
+md c:\\MyDBs\\db3\par
+\par
+start "a" mongod --dbpath ./db1 --port 30000 --replSet "demo"\par
+start "b" mongod --dbpath ./db2 --port 40000 --replSet "demo"\par
+start "c" mongod --dbpath ./db3 --port 50000 --replSet "demo"\par
+\par
+\b connect to a and execute commands:\b0\par
+\par
+var demoConfig = \{\par
+\tab  _id: "demo",\par
+\tab  members:[\{_id:0, host:'localhost: 30000',priority:10\},\par
+\tab\tab       \{_id:1, host:'localhost: 40000'\},\par
+\tab\tab       \{_id:2, host:'localhost: 50000',arbiterOnly:true \}];\par
+rs.initiate(democonfig)\par
+\par
+\b To be able to read from the secondary:\b0\par
+mongo --port 40000 (connect to it)\par
+\cf3\b db.setSlaveOk()\cf0\b0\par
+\par
+\b To get Help\b0\par
+\cf3\b rs.help()\cf0\b0\par
+\par
+\cf2\b\fs28 Storing Data\cf0\b0\fs22\par
+\par
+\cf4\b\i To Show all collections:\cf0\b0\i0\par
+\cf3\b show collections\cf0\b0\par
+\par
+\cf4\b\i To Save A Document into A Collection:\cf0\b0\i0\par
+\cf3\b db.foo.save\cf0\b0 (\{_id:1, x:10\})\par
+\par
+\cf4\b\i To Show All data:\cf0\b0\i0\par
+\cf3\b db.foo.find()\cf0\b0\par
+\par
+\cf4\b\i To override an document:\cf0\b0\i0\par
+db.foo.\cf3\b save\cf0\b0 (\{_id:1, price:10\})\par
+\par
+\cf4\b\i To make sure no duplication on insertion:\cf0\b0\i0\par
+db.foo.\cf3\b insert\cf0\b0 (\{_id:1, x:10\}) -> will result an error if id 1 already exists\par
+\par
+\cf4\b To display the results in a pretty way:\cf0\b0\par
+db.foo.\cf3\b find().pretty()\cf0\b0\par
+\par
+\cf2\b\fs28 Update Data\cf0\b0\fs22\par
+\par
+db.foo.update (query, update, options);\par
+\par
+\b foo \b0 - collection name\par
+\b query \b0 - which document?\par
+\b update \b0 - what change?\par
+\cf4\b options:\cf0\b0\par
+\b one \b0 -> only the first match\par
+\b many \b0 -> all the matches\par
+\b Upsert \b0 -> if not found insert as a new document.\par
+\par
+\cf4\b\i To increment users by 1:\cf0\b0\i0\par
+db.a.save(\{_id:1, users:1\})\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1\}, \{\cf3\b $inc\cf0\b0 : \{users:1\}\}) --> users = 2\par
+\par
+\cf4\b To add a field\cf0\b0\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1\}, \{\cf3\b $set\cf0\b0 : \{powerUsers:1\}\})\par
+\par
+\cf4\b To Remove a field\cf0\b0\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1, \{\cf3\b $unset\cf0\b0 :\{powerUsers:1\}\})\par
+\par
+To Rename a field\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1, \{\cf3\b $rename\cf0\b0 :\{ 'users': 'Users' \}\})\par
+\par
+\cf2\b ARRAYS\cf0\b0\par
+\par
+\cf4\b Add An Item to an array:\cf0\b0\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1\} , \{\cf3\b $push\cf0\b0 : \{ things: 'one' \}\})\par
+\par
+\cf4\b\i Remove An Item from array:\cf0\b0\i0\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1\} , \{\cf3\b $pull\cf0\b0 : \{ things: 'one' \}\})\par
+\par
+\cf4\b\i Remove the LAST element in an array:\cf0\b0\i0\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1\} , \{\cf3\b $pop\cf0\b0 : \{ things: \b 1\b0  \}\})\par
+\par
+\cf4\b\i Remove the FIRST element in an array:\cf0\b0\i0\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1\} , \{\cf3\b $pop\cf0\b0 : \{ things: \b -1\b0  \}\})\par
+\par
+\cf4\b\i Add An Item only\cf0\b0\i0  \b ONCE\b0 :\par
+db.a.\cf3\b update\cf0\b0 (\{_id:1\} , \{\cf3\b $addToSet\cf0\b0 : \{ things: 'one' \}\})\par
+\par
+\cf4\b\i To Update Multiple Fields:\cf0\b0\i0\par
+db.a.\cf3\b update\cf0\b0 (\{\} , \{\cf3\b $push\cf0\b0 : \{ things: 'two' \}\}, \{\b multi\b0 :true\});\par
+\par
+\cf4\b\i If we want to modify only 1 record\cf0\b0\i0\par
+db.foo.\cf3\b findAndModify \cf0\b0 ( \{\par
+\tab query: <document>,\par
+\tab update: <document>,\par
+\tab upsert: <boolean>,\par
+\tab remove: <boolean>,\par
+\tab new: <boolean>, (return the document before the change if set to false)\par
+\tab sort: <document>, \par
+\tab fields: <document> \} ); (return what?)\par
+\par
+\cf2\b\fs28 Finding Data\cf0\b0\fs22\par
+db.foo.find ( query, projection)\par
+\par
+query - > filter\par
+projection -> which fields?\par
+\par
+\cf4\b\i find only 1 Document\cf0\b0\i0\par
+db.animals.\cf3\b findone\cf0\b0 (\{_id:1\})\par
+\par
+\cf4\b\i find a document by ID\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 ( \{_id:1\})\par
+\par
+\cf4\b\i find a document but return only field\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id:1\} , \{_id:1\})\par
+\par
+\cf4\b\i find documents with ID GREATER than 5\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id: \{\cf3\b $gt\cf0\b0 :5\} \} , \{_id:1\})\par
+\par
+\cf4\b\i find documents with ID GREATER And EQUAL 5\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id: \{\cf3\b $gte\cf0\b0 :5\} \} , \{_id:1\})\par
+\par
+\cf4\b\i find documents with ID LESS than 5\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id: \{\cf3\b $lt\cf0\b0 :5\} \} , \{_id:1\})\par
+\par
+\cf4\b\i find documents with ID LESS And EQUAL 5\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id: \{\cf3\b $lte\cf0\b0 :5\} \} , \{_id:1\})\par
+\par
+\cf4\b\i find documents within a RANGE\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id: \{\cf3\b $gt\cf0\b0 :2 , \cf3\b $lt\cf0\b0 :4\} \} , \{_id:1\})\par
+\par
+\cf4\b\i find documents with NOT \cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id: \{\cf3\b $not\cf0\b0 : \{ \cf3\b $gt\cf0\b0 :5\} \}\} , \{_id:1\})\par
+\par
+\cf4\b\i find documents with ID 1 OR 3\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id: \{\cf3\b $in:\cf0\b0  [1,3] \}\} , \{_id:1\})\par
+\par
+\cf4\b\i find documents that are NOT ID 1 OR 3\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id: \{\cf3\b $nin:\cf0\b0  [1,3] \}\} , \{_id:1\})\par
+\par
+\cf2\b ARRAY\cf0\b0\par
+\par
+\cf4\b\i find documents that are 'cute' OR in the 'ocean'\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{ tags: \{\cf3\b $in:\cf0\b0  ['cute' , 'ocean'] \}\} , \{name:1\})\par
+\par
+\cf4\b\i find documents that are 'cute' AND in the 'ocean'\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{ tags: \{\cf3\b $all:\cf0\b0  ['cute' , 'ocean'] \}\} , \{name:1\})\par
+\par
+"info" : \{\par
+\tab "type" :  "mammal",\par
+\tab "color": "red"\par
+\}\par
+\par
+\cf4\b\i to find documents with the color red in the info\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 ( \{"info.color": "red"\})\par
+\par
+\cf4\b\i to find by 2 fields\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 ( \{ info: \{ type: 'bird', canFly: true \} \}, \{name:1\})\par
+db.animals.\cf3\b find\cf0\b0 ( \{ "info.canFly": true , "info.type": 'bird' \}, \{name:1\})\par
+\par
+\cf4\b\i NULL value\par
+if we search a document with a field = NULL but the field is not there it is still NULL\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 ( \{ "info.canFly": \b null \b0\}, \{name:1\})\par
+\par
+\cf4\b\i If we want only document that has this field set to NULL and exists\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 ( \{ "info.canFly": \{ \cf3\b $exists\cf0\b0  : true \}\} ,  \{name:1\})\par
+\par
+\cf2\b\fs24 Projection\cf0\b0\fs22\par
+\par
+\cf4\b\i To Exclude fields:\cf0\b0\i0\par
+db.animals.\cf3\b find \cf0\b0 ( \{_id:1\} , \{_id:0, name:1\})\par
+\par
+\cf2\b\fs28 Cursor\cf0\b0\fs22\par
+var c = db.animals.find(\{\} , \{name:1\})\par
+\par
+\cf4\b\i To Check The Cursor Size\cf0\b0\i0\par
+c.\cf3\b size\cf0\b0 ()\par
+\par
+\cf4\b\i To Check if the cursor has next document\cf0\b0\i0\par
+c.\cf3\b hasNext\cf0\b0 ()\par
+\par
+\cf4\b\i To Loop through the cursor items\cf0\b0\i0\par
+c.\cf3\b foreach\cf0\b0 (function (d) \{print(d.name)\})\par
+\par
+\cf4\b\i To sort by field\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 ( \{\} , \{name:1\}).\cf3\b sort \cf0\b0 ( \{name:1\})\par
+\b 1\b0   ->  Acending\par
+\b -1\b0  -> Decending\par
+\par
+\cf4\b\i To Limit the results\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 (\{\}, \{_id:1\}.\cf3\b sort\cf0\b0 (\{_id:-1\}).\cf3\b limit\cf0\b0 (3)\par
+\par
+\cf4\b\i To skip results\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 (\{\}, \{_id:1\}.\cf3\b sort\cf0\b0 (\{_id:-1\}).\cf3\b skip\cf0\b0 (1).\cf3\b limit\cf0\b0 (2)\par
+\par
+\cf2\b\fs28 Indexing\cf0\b0\fs22\par
+\par
+db.foo.ensureIndex(keys, options)\par
+\par
+\cf3\b foo \cf0\b0 - the collection\par
+\cf3\b keys \cf0\b0 - Which fields? \par
+            In what order ?\par
+            Geo/ Text\par
+\b options :\b0\par
+            \cf3\b Name \cf0\b0 ?\par
+            \cf3\b Build now\cf0\b0 ?\par
+            \cf3\b Unique\cf0\b0\par
+            \cf3\b Sparse\cf0\b0 ?\par
+            \cf3\b TTL\cf0\b0 ?\par
+             \cf3\b Language\cf0\b0 ?\par
+\par
+\cf4\b\i To check which indexes are set to our DB\cf0\b0\i0\par
+db.\cf3\b system.indexes\cf0\b0 .find(\{ns:'test.animals'\}, \{key:1\})\par
+\par
+\cf4\b\i To show what is mongo using to find a document\cf0\b0\i0\par
+db.animals.\cf3\b find\cf0\b0 (\{name: 'cat'\}).explain()\par
+\par
+\cf4\b\i To Create an index\cf0\b0\i0\par
+db.animals.\cf3\b ensureIndex\cf0\b0 (\{name:1\})\par
+\par
+\cf4\b\i To Delete an index\cf0\b0\i0\par
+db.animals.\cf3\b dropIndex\cf0\b0 ("name_1")\par
+\par
+\par
+\par
+\par
+\par
+\par
+\ul\b\fs36\par
+}
+ 

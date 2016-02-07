@@ -1,4 +1,4 @@
-{\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
 {\colortbl ;\red0\green77\blue187;\red192\green80\blue77;\red255\green255\blue0;\red155\green0\blue211;\red255\green0\blue0;\red255\green128\blue255;\red0\green255\blue255;\red247\green150\blue70;\red0\green176\blue80;\red0\green0\blue255;\red209\green99\blue73;\red255\green255\blue255;}
 {\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\ltrpar\sl276\slmult1\lang9\ul\b\f0\fs36 LINUX\ulnone\b0\fs22\par
 \par
@@ -35548,6 +35548,126 @@ The \cf2\b sort \cf0\b0 command is also used in combination with the \cf2\b uniq
 (or \cf2\b sort -u\cf0\b0 ) to \b sort output and filter out double entries:\b0\par
 \par
 \cf2\b sort \cf1 itemlist \cf2 | uniq\cf0\b0\par
+\par
+\cf4\b\i\fs24 House keeping\cf0\b0\i0\fs22\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\ltrpar\fi-360\li720\sl276\slmult1 Make a \cf2\b bin \cf0\b0 directory for your program files and scripts\par
+{\pntext\f1\'B7\tab}Organize \b NON-executable\b0  files in appropriate directories\par
+{\pntext\f1\'B7\tab}Make directories private with \cf2\b chmod 700\cf0\b0  \b dirname \b0\par
+{\pntext\f1\'B7\tab}Give files \b sensible names \b0 even long\par
+{\pntext\f1\'B7\tab}Use Symbilic Links\par
+\pard\ltrpar\sl276\slmult1\par
+\b\i Checking how much space is left:\b0\i0\par
+\cf2\b quota -v\cf0\b0\par
+\par
+\b\i Redirect mail\b0\i0\par
+\cf2\b procmail\cf0\b0\par
+\par
+\b\i Forward mail \b0\i0\par
+\cf2\b cat \cf0\b0 .forward\par
+\par
+\b\i Limit file sizes\b0\i0\par
+\cf2\b ulimit\cf0\b0\par
+\par
+\b\i Compressing files\b0\i0  \par
+most of these wil uncompress only in memory \par
+\cf2\b zgrep\cf0\b0 , \cf2\b zcat\cf0\b0 , \cf2\b bzless\cf0\b0\par
+\par
+\b\i All trash goes to \b0\i0\par
+\cf1\b /dev/null \cf0\b0 if the user doesn't change this setting\par
+\par
+\cf4\b\i\fs24 Environment variables\cf0\b0\i0\fs22\par
+What other information do programs need apart from \cf2\b PATH \cf0\b0 and \cf2\b HOME \cf0\b0 directories?\par
+\par
+The kind of terminal is stored in:\par
+\cf2\b TERM \cf0\b0 variable\par
+\par
+A list of all variables currently defined for your session:\par
+\cf2\b printenv\cf0\b0\par
+\par
+Usually to display variables content use:\par
+\cf2\b echo \cf0\b0 $PATH\par
+\par
+YOU MUST \b EXPORT \b0 THE VARIABLE TO BE AVAILABLE TO OTHER ENVIRONMENTS:\par
+\cf2\b export \cf0\b0 PATH\par
+\par
+\b\i Common environment variables\b0\i0 :\par
+\cf2\b DISPLAY\cf0\b0\tab used by the X Window system to identify the \b display server\b0\par
+\cf2\b DOMAIN\cf0\b0\tab\b domain \b0 name\par
+\cf2\b EDITOR\cf0\b0\tab\tab stores your favorite \b line editor\b0\par
+\cf2\b HISTSIZE\cf0\b0\tab\b size of the shell history \b0 file in number of lines\par
+\cf2\b HOME\cf0\b0\tab\tab path to your \b home directory\b0\par
+\cf2\b HOSTNAME\cf0\b0\tab local \b host name\b0\par
+\cf2\b INPUTRC\cf0\b0\tab location of definition file for \b input devices \b0 such as keyboard\par
+\cf2\b LANG\cf0\b0\tab\tab preferred \b language\b0\par
+\cf2\b LD_LIBRARY_PATH\cf0\b0  paths to \b search \b0 for libraries\par
+\cf2\b LOGNAME\cf0\b0\tab\b login \b0 name\par
+\cf2\b MAIL\cf0\b0\tab\tab location of your \b incoming mail folder\b0\par
+\cf2\b MANPATH\cf0\b0\tab paths to search for \b man pages\b0\par
+\cf2\b OS\cf0\b0\tab\tab string describing the \b operating system\b0\par
+\cf2\b OSTYPE\cf0\b0\tab\tab more information about \b version \b0 etc.\par
+\cf2\b PAGER\cf0\b0\tab\tab used by programs like man which need to know what to do in case output is more \par
+\tab\tab than one terminal window.\par
+\cf2\b PATH\cf0\b0\tab\tab\b search paths \b0 for commands\par
+\cf2\b PS1\cf0\b0\tab\tab primary \b prompt\b0\par
+\cf2\b PS2\cf0\b0\tab\tab secondary \b prompt\b0\par
+\cf2\b PWD\cf0\b0\tab\tab present \b working directory\b0\par
+\cf2\b SHELL\cf0\b0\tab\tab current \b shell\b0\par
+\cf2\b TERM\cf0\b0\tab\tab terminal \b type\b0\par
+\cf2\b UID\cf0\b0\tab\tab user ID\par
+\cf2\b USER\cf0\b0 (NAME)\tab user name\par
+\cf2\b VISUAL\cf0\b0\tab\tab your favorite \b full-screen editor\b0\par
+\cf2\b XENVIRONMENT \cf0\b0 location of your \b personal settings\b0  for X behavior\par
+\cf2\b XFILESEARCHPATH \cf0\b0 paths to search for \b graphical libraries\b0\par
+\par
+When logging into an interactive login shell, login will do the authentication, set the environment and start your shell. In the case of bash, the next step is reading the general profile from /etc, if that file exists. bash then looks for \cf2\b ~/.bash_profile\cf0\b0 , \cf2\b ~/.bash_login \cf0\b0 and \cf2\b ~/.profile\cf0\b0 , in that order, and reads and executes commands from the first one that exists and is readable. If none exists, \cf2\b /etc/bashrc\cf0\b0  is applied.\par
+\par
+When a login shell exits, bash reads and executes commands from the file \cf2\b ~/.bash_logout\cf0\b0 , if it exists.\par
+\par
+\par
+\cf4\b\i\fs24 Setup files configs\cf0\b0\i0\fs22\par
+Under \b /etc/profile\b0  all the important variables such as PATH, USER and HOSTNAME are set.\par
+All trash goes to \b /dev/null\b0  by default.\par
+All readable shell scripts from the \b /etc/profile.d\b0  directory are read and executed.\par
+The \b ~/.bash_login\b0  file defines default file protection by setting the umask value.\par
+The \b ~/.bashrc\b0  file is used to define a bunch of user-specific aliases and functions and personal environment variables.If no \b ~/.bashrc\b0  exists,\b  /etc/bashrc\b0  is read by default.\par
+Upon logout, the commands in \b ~/.bash_logout\b0  are executed,\par
+\par
+\cf4\b\i\fs24 The Bash Prompt\cf0\b0\i0\fs22\par
+The prompt can display much more info than user and hotname:\par
+\b BEFORE TRYING SAVE CURRENT PROMPT IN DIFFRENT VARIABLE\b0\par
+\cf2\b MYPROMPT=$PS1\cf0\b0\par
+\par
+\cf2\b export PS1="[\\t \\j] "\cf0\b0  -> Displays time of day and number of running jobs\par
+\cf2\b export PS1="[\\d][\\u@\\h \\w] : "\cf0\b0  -> Displays date, user name, host name and current working \par
+\tab\tab\tab\tab   directory. Note that \\W displays only base names of the present \par
+\tab\tab\tab\tab   working directory.\par
+\cf2\b export PS1="\{\\!\} "\cf0\b0  -> Displays history number for each command.\par
+\cf2\b export PS1="\\[\\033[1;35m\\]\\u@\\h\\[\\033[0m\\] "\cf0\b0  -> Displays user@host in pink.\par
+\cf2\b export PS1="\\[\\033[1;35m\\]\\u\\[\\033[0m\\] \\[\\033[1;34m\\]\\w\\[\\033[0m\\] "\cf0\b0  -> \par
+Sets the user name in pink and the present working directory in blue.\par
+\cf2\b export PS1="\\[\\033[1;44m\\]$USER is in \\w\\[\\033[0m\\] "\cf0\b0  ->\par
+Prompt for people who have difficulties seeing the difference between the prompt and what they type.\par
+\cf2\b export PS1="\\[\\033[4;34m\\]\\u@\\h \\w \\[\\033[0m\\]"\cf0\b0  -> Underlined prompt.\par
+\cf2\b export PS1="\\[\\033[7;34m\\]\\u@\\h \\w \\[\\033[0m\\] "\cf0\b0  -> White characters on a blue background.\par
+\cf2\b export PS1="\\[\\033[3;35m\\]\\u@\\h \\w \\[\\033[0m\\]\\a"\cf0\b0  -> Pink prompt in a lighter font that alerts \par
+\tab\tab\tab\tab\tab\tab\tab you when your commands have finished.\par
+\b export PS1=...\b0\par
+\par
+If we like other prompt we need to save it in the shell configuration file:\par
+\cf2\b ~/.bashrc\cf0\b0\par
+\par
+\cf4\b\i\fs24 Shell Scripts\cf0\b0\i0\fs22\par
+Executing a Shell script :\par
+\cf2\b filename ARGUMENTS\cf0\b0\par
+\par
+If the first line of a script begins with the two characters \b "#!"\b0\par
+the rest of the line states the interperter for the program like bash, awk, perl.\par
+\cf2\b #! /bin/bash\cf0\b0\par
+\par
+The \cf2\b /etc/rc.d/init.d\cf0\b0  directory contains\b  loads of examples\b0 .\par
+\par
+\cf4\b\i\fs24 The Graphical Environment\cf0\b0\i0\fs22\par
+\par
 \par
 \par
 \par

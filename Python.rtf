@@ -1,0 +1,1323 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0{\fonttbl{\f0\fnil\fcharset0 Courier New;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset0 Calibri Light;}{\f3\froman\fcharset0 CenturySchoolbook;}}
+{\colortbl ;\red155\green0\blue211;\red247\green150\blue70;\red192\green80\blue77;\red0\green77\blue187;\red209\green99\blue73;\red255\green255\blue0;\red255\green255\blue255;\red255\green0\blue0;\red255\green0\blue128;\red255\green192\blue0;\red0\green0\blue255;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\ltrpar\lang1033\ul\b\f0\fs32 PYTHON\ulnone\b0\fs22\par
+\par
+\cf1\ul\b\f1\fs24 Argparse\cf0\ulnone\b0\f0\fs22\par
+Handles argument from the console\par
+\par
+\cf2\b import argparse\cf0\b0\par
+\par
+parser = argparse.\cf3\b ArgumentParser\cf0\b0 ()\par
+parser = \cf3\b add_argument\cf0\b0 ("\b num\b0 ",help="The Fibo Number",type=int)\par
+args = parser.\cf3\b parse_args\cf0\b0 ()\par
+\par
+result = fib(args.\b num\b0 )\par
+\par
+\cf4\b Optional Arguments\b0 :\cf0\par
+parser.\cf3\b add_argument\cf0\b0 ("\b -o\b0 ","\b --output\b0 ",help="Output the result to a \tab\tab\tab\tab     file",action="store_true")\par
+\par
+if \b args.\cf3 output\cf0\b0 :\par
+\tab f = open("file.txt.", "a")\par
+\tab f.write(str(result))\par
+\par
+\par
+\cf4\b Mutually Exclusive Arguments\b0 :\cf0\par
+When you can select only 1 option and not both\par
+\par
+group = parser.\cf3\b add_mutually_execlusive_group()\cf0\b0\par
+group.\cf3\b add_argument\cf0\b0 ("-v","--verbose",action="store_true")\par
+group.\cf3\b add_argument\cf0\b0 ("-q","--quiet",action="store_true")\par
+\par
+\par
+\cf1\ul\b\f1\fs24 Math\cf0\ulnone\b0\f0\fs22\par
+\par
+\cf5\b +\cf0\b0 ,\cf5\b -\cf0\b0 ,\cf5\b *\cf0\b0 ,\cf5\b /\cf0\b0\par
+18\cf5\b /\cf0\b0 7 = 2\par
+18.0\cf5\b /\cf0\b0 7 = 2.571428...\par
+\par
+\cf4\b\i\fs20 Reminder\cf0\b0\i0\fs22\par
+9\cf3\b %\cf0\b0 4 = 1\par
+8.75\cf3\b %\cf0\b0 .5 = 0.25\par
+6\cf3\b *\cf0\b0 7 = 42\par
+\par
+\cf4\b\i\fs20 Exponent\cf0\b0\i0\fs22\par
+8\cf3\b **\cf0\b0 3 = 512\par
+-5\cf3\b **\cf0\b0 4 = -625\par
+\par
+\cf1\ul\b\f1\fs24 Variables\cf0\ulnone\b0\f0\fs22\par
+\par
+\cf4\b\i\fs20 Assignment\cf0\b0\i0\fs22\par
+x\cf3\b =\cf0\b0 18\par
+will stay this value \par
+\par
+\b g\b0  \cf3\b = input\cf0\b0 ("Enter number here: ")\par
+Enter number here: 43\par
+now \b g\b0  \cf3\b =\cf0\b0  43\par
+\par
+\b for strings\b0\par
+name=\cf3\b raw_input\cf0\b0 ("Enter your name: ")\par
+\par
+\b Variables with no value - none\b0\par
+we can also assign nothing, or an empty value.\par
+myVal = \cf3\b None\cf0\b0\par
+\par
+\par
+\cf1\ul\b\f1\fs24 If Statement\cf0\ulnone\b0\f0\fs22\par
+\par
+\highlight6\b indentation\highlight0  is IMPORTENT\par
+\cf3 if\cf0\b0  tuna \cf3\b ==\cf0\b0  "fish":\par
+\tab print 'this is a fish alright'\par
+\cf3\b elif\cf0\b0  tuna \cf3\b ==\cf0\b0  "salmon":\par
+\tab print 'this is a fish'\par
+\cf3\b else\cf0\b0 :\par
+\tab print 'this is not a fish'\par
+\par
+\cf4\b\i nesting \cf0\b0\i0\par
+\cf3\b if\cf0\b0  thing \cf3\b ==\cf0\b0  "1":\par
+\tab\cf3\b if\cf0\b0  thing \cf3\b ==\cf0\b0 "2":\par
+\par
+\cf1\ul\b\f1\fs24 Comparison Operators\cf0\ulnone\b0\f0\fs22\par
+\par
+9\cf3\b <\cf0\b0 7 9\cf3\b <=\cf0\b0 9 \cf3\b !=\cf0\b0  \par
+\par
+\cf3\b is\cf0\b0  --> only if it the same object\par
+\par
+\cf3\b if\cf0\b0  'p' \cf3\b in\cf0\b0  pizza:\par
+\tab print 'It\\'s true'\par
+\par
+\cf4\b\i And & Or\cf0\b0\i0\par
+"dog" \cf3\b <\cf0\b0  "cat" \cf3\b =\cf0\b0  false  --> alpha numeric compare\par
+\par
+example \cf3\b =\cf0\b0  5\par
+\cf3\b if\cf0\b0  example \cf3\b <\cf0\b0  3\cf3\b :\cf0\b0\par
+\tab print "true"\par
+\tab\par
+\cf3\b if\cf0\b0  example \cf3\b >\cf0\b0  3 \cf3\b and\cf0\b0  example \cf3\b <\cf0\b0  10\cf3\b :\cf0\b0\par
+\tab print 'number is between 3 and 10'\par
+\tab\par
+\cf3\b if\cf0\b0  example \cf3\b >\cf0\b0  3 \cf3\b or\cf0\b0  example \cf3\b <\cf0\b0  4\cf3\b :\cf0\b0\par
+\tab print 'this works'\par
+\par
+\cf1\ul\b\f1\fs24 For & While\cf0\ulnone\b0\f0\fs22\par
+\tab\tab\par
+b = 1\par
+\cf3\b while \cf0\b0 b \cf3\b <=\cf0\b0  10:\par
+\tab print b\par
+\tab b\cf3\b +=\cf0\b0 1\par
+\par
+\cf4\b\i Infinit Loop Break\cf0\b0\i0\par
+\cf3\b while \cf0\b0 1:\par
+\tab name = \cf3\b raw_input\cf0\b0 ('Enter name: ')\par
+\tab if name \cf3\b ==\cf0\b0  'quit': \cf3\b break\cf0\b0\par
+\tab\par
+\b For loop\b0\tab\par
+\par
+\par
+gl =['bread','milk','meat','beef']\par
+\cf3\b for \cf0\b0 food \cf3\b in \cf0\b0 gl:\par
+\tab print 'I want ' + food\par
+\par
+ages=\{'dad':42,'mom':48,'lisa':7\}\par
+\par
+print the keys -->\par
+\cf3\b for \cf0\b0 item \cf3\b in \cf0\b0 ages:\par
+\tab print item\tab\par
+\par
+print the values -->\par
+\cf3\b for \cf0\b0 item \cf3\b in \cf0\b0 ages:\par
+\tab print item, ages[item]\par
+\par
+\cf3\b Range\cf0\b0 ()\par
+\cf3\b for \cf0\b0 i \cf3\b in range\cf0\b0 (10):\par
+\tab print i          --> 0-9\par
+\par
+\par
+\cf1\ul\b\f1\fs24 Modules & Functions\cf0\ulnone\b0\f0\fs22\par
+\tab\par
+\cf3\b pow\cf0\b0 (5,4) - power the number = 625\par
+\cf3\b abs\cf0\b0 (-18) = 18 - absolute\par
+\par
+\b import a module:\b0  module.functionName\par
+\par
+\cf3\b import \cf4\b0 math\cf0\par
+\cf4 math\cf0 .\cf3\b floor\cf0\b0 (18.7) = 18.0\par
+\cf4 math\cf0 .\cf3\b sqrt\cf0\b0 (81) = 9.0\par
+\par
+\b you can assign a function to a variable !\b0\par
+\par
+bucky = \cf4 math\cf0 .\cf3\b sqrt \cf0\b0\par
+bucky(81) = 9.0\par
+\par
+\cf4\b\i Functions\cf0\b0\i0\par
+\par
+\cf3\b def \cf0\b0 whatsup(x):\par
+\tab return 'whats up ' + x\par
+\par
+print whatsup('itai') --> whats up itai\tab\par
+\par
+\b Default Paremeters\b0\par
+\par
+\cf3\b def \cf0\b0 name(first\cf3\b =\cf0\b0 'tom',last\cf3\b =\cf0\b0 'smith'):\par
+\tab print '%s %s' % (first, last)\par
+\par
+\b Multiple Parameters\b0\par
+\par
+treat *food as a tuple\par
+\par
+\cf3\b def \cf0\b0 list(*food):\par
+\tab print food\par
+\par
+\cf3\b list\cf0\b0 ('apples') -> ('apples',) \par
+\cf3\b list\cf0\b0 ('apples','peaches','beef')) --> ('apples','peaches','beef')\par
+\par
+\cf3\b def \cf0\b0 profile(name,*ages):\par
+\tab\cf3\b print \cf0\b0 name\par
+\tab\cf3\b print \cf0\b0 ages\par
+\tab\par
+profile('bucky',42,43,76,54,98) -->\par
+\par
+bucky\par
+(42,43,76,54,98)\tab\par
+\par
+\b Parameter Types\b0\par
+\par
+\cf3\b def \cf0\b0 cart (**items):\par
+\tab\cf3\b print \cf0\b0 items\par
+\par
+cart (apples=4,peaches=6,beef=60) -->\par
+\{'peaches': 6,'apples': 4,'beef': 60\}\par
+\par
+\cf3\b def \cf0\b0 profile(first,last,*ages,**items):\par
+\tab\cf3\b print \cf0\b0 first, last\par
+\tab\cf3\b print \cf0\b0 ages\par
+\tab\cf3\b print \cf0\b0 items\par
+\tab\par
+profile('bucky','roberts',32,43,76,bacon=4,saus=64) -->\par
+bucky roberts\par
+(32,43,76)\par
+\{'saus': 64, 'bacon': 4\}\par
+\par
+\par
+\cf4\b\i Modules\cf0\b0\i0\par
+Modules are used to group functions,variables and other things.\par
+\par
+for example : the \cf3\b time \cf0\b0 module\par
+\cf3\b import time\cf0\b0\par
+print(\cf3\b time.asctime()\cf0\b0 ) -> will return the current date and time.\par
+\par
+the \cf3\b sys \cf0\b0 module (system)\par
+\cf3\b import sys\cf0\b0\par
+print(\cf3\b sys.stdin.readline()\cf0\b0 ) -> will read line from the user.\par
+\par
+\par
+\cf1\ul\b\f1\fs24 Built-in Functions\cf0\ulnone\b0\f0\fs22\par
+\par
+\b\i abs\b0\i0\par
+Absolute value of a number:\par
+\cf3\b abs\cf0\b0 (10) = 10\par
+\cf3\b abs\cf0\b0 (-10) = 10\par
+\par
+\b\i bool\b0\i0\par
+0 will return False any other will return True:\par
+\cf3\b bool\cf0\b0 (0) = False\par
+\cf3\b bool\cf0\b0 (1) = True\par
+\cf3\b bool\cf0\b0 (None) = False\par
+\cf3\b bool\cf0\b0 ('a') = True\par
+\par
+\f1\fs23 The \cf3\b\fs22 bool \cf0\b0\fs23 function will also return \b\fs22 False \b0\fs23 for lists, tuples, and\par
+maps that do not contain any values.\par
+\f0\fs22\par
+myList=[]\par
+\cf3\b bool\cf0\b0 (myList) = False\par
+\par
+\b rstrip\b0\par
+Removes any spaces and Enter characters from string.\par
+year = \cf3\b input\cf0\b0 ("Year of birth: ')\par
+if not \cf3\b bool \cf0\b0 (year.\cf3\b rstrip\cf0\b0 ()):\par
+\tab print('you need to enter a value')\par
+\par
+\b eval\b0\par
+Takes a string and runs it as an expression\par
+\cf3\b eval\cf0\b0 ('10*5') = 50\par
+\par
+\b exec\b0\par
+exec can run more complicate programs than eval\par
+and it does not return a value\par
+my_small_program = ''' print('ham')\par
+print ('sandwich')'''\par
+\cf3\b exec\cf0\b0 (my_small_program) -> \par
+ham \par
+sandwich\par
+\par
+\b float\b0\par
+Converts a string or number to float\par
+\cf3\b float\cf0\b0 ('12') = 12.0\par
+\par
+\b int\b0\par
+Converts a string or number into int\par
+\cf3\b int\cf0\b0 ('123.456') = ERROR can't convert float\par
+\cf3\b int\cf0\b0 (123.456) = 123\par
+\cf3\b int\cf0\b0 ('123') = 123\par
+\par
+\b len\b0\par
+Returns the length of an object or a string\par
+\cf3\b len\cf0\b0 ('this is a test string') = 21\par
+myList = ['one','two','three']\par
+\cf3\b len\cf0\b0 (myList) = 3 (elements)\par
+very usefull in loops:\par
+\cf3\b for \cf0\b0 x \cf3\b in range\cf0\b0 (0, \cf3\b len\cf0\b0 (fruit)):\par
+\par
+\b max & min\b0\par
+max returns the largest item in a list,tuple or string\par
+numbers = [5, 4, 10, 30, 22]\par
+\cf3\b max\cf0\b0 (numbers) = 30\par
+\cf3\b min\cf0\b0 (numbers) = 4\par
+\par
+\b range\b0\par
+\cf3\b range \cf0\b0 (start ,stop ,step)\par
+\cf3\b list\cf0\b0 (\cf3\b range\cf0\b0 (0,5)) = [0, 1, 2, 3, 4, 5]\par
+count_by_two = \cf3\b list\cf0\b0 (\cf3\b range\cf0\b0 (0,30,2)) =\par
+[0, 2, 4, 6, 8, .... 28] \par
+count_down_by_two = \cf3\b list\cf0\b0 (\cf3\b range\cf0\b0 (30, 10, -2)) = \par
+[28, 26, 24, 22, ...12]\par
+\par
+\b sum\b0\par
+Adds items in a list and return the total\par
+my_list_of_numbers = list(range(0, 500, 50))\par
+\cf3\b sum \cf0\b0 (my_list_of_numbers) = 2250\par
+\par
+\cf1\ul\b\f1\fs24 Strings\cf0\ulnone\b0\f0\fs22\par
+\par
+\cf3\b ""\cf0\b0  or \cf3\b ''\cf0\b0  same!\par
+he's a jerk --> "he's a jerk" --> 'he\cf3\b\\\cf0\b0 's a jerk'\par
+x = "itai"\par
+y = "amir"\par
+x+y = "itaiamir"\par
+\par
+\b multiline string\b0\par
+in order to create multiline string we use : \cf3\highlight6\b '''\cf0\highlight0\b0\par
+\par
+var1 = \cf3\b '''\cf0\b0 this is the first line\par
+this is the second one\cf3\b '''\cf0\b0\par
+\par
+the ''' will solve the problem with words like:\par
+shouldn't can't and even quotes "I am" \par
+\par
+\b convert to string\b0  : \cf3\b str\cf0\b0 (18)\par
+or\par
+num = 32 number --> \cf3\b `\cf0\b0 num\cf3\b `\cf0\b0  = "32"\par
+or\par
+\cf3\b repr\cf0\b0 () \par
+\par
+\b convert to int :\b0  \cf3\b int\cf0\b0 ('20')\par
+\b convert to float :\b0  \cf3\b float\cf0\b0 ('20.5')\par
+\par
+\par
+\b Format A String\b0\par
+\par
+bucky = "Hey there \cf3\b %s\cf0\b0 ,hows your \cf3\b %s\cf0\b0 "\par
+varb = ('betty','foot')\par
+\cf3\b print \cf0\b0 bucky \cf3\b %\cf0\b0  varb\par
+"Hey there betty, hows your foot"\par
+\par
+Or we don't need to use a variable\par
+\cf3\b print\cf0\b0 ("Hi there, \cf3\b %s\cf0\b0  \cf3\b %s\cf0\b0 !" \cf3\b %\cf0\b0  ('itai','amir'))\par
+"Hi there, itai Amir!"\par
+\par
+\b return the starting position of the searched item\b0\par
+example = "Hey now itai"\par
+example.\cf3\b find\cf0\b0 ('itai') = 8\par
+\par
+sequence=['hey','there','bessie','hoss']\par
+glue='hoss'\par
+glue.\cf3\b join\cf0\b0 (sequence) = 'heyhosstherehossbessiehosshoss'\par
+\par
+randstr = "I wish i Had NO"\par
+randstr.\cf3\b lower() \cf0\b0 = 'i wish i had no'\par
+\par
+truth="I love old women"\par
+truth.\cf3\b replace\cf0\b0 ('old','young') = 'I love young women'\par
+\par
+\b counting words in string using split\b0\par
+\cf3\b len\cf0\b0 (my_string.\cf3\b split\cf0\b0 (' '))\par
+\par
+\cf1\ul\b\f1\fs24 Templates\cf0\ulnone\b0\f0\fs22\par
+Allows for data to change without having to edit the application.\par
+\par
+\cf2\b from string import Template\cf0\b0\par
+\par
+cart=[]\par
+cart.\cf3\b append\cf0\b0 (\cf2\b dict\cf0\b0 (item="Coke",price=5, qty=3))\par
+\par
+t = \cf3\b Template \cf0\b0 ("\b $\b0 qty x \b $\b0 item = \b $\b0 price")\par
+total = 0\par
+\par
+for data in cart:\par
+\tab print t.\cf3\b substitute\cf0\b0 (data)\par
+\tab total += data["price"]\par
+\par
+\par
+\cf1\ul\b\f1\fs24 Dictionary or Map\cf0\ulnone\b0\f0\fs22\par
+\cf7\b\f2\fs23\par
+\highlight8 you can\rquote t join maps with the plus operator(\fs20 +\fs23 ).\cf0\highlight0\b0\f0\fs22\par
+\par
+\b Define Dictionary\b0\par
+book=\cf3\b\{\cf0\b0 'dad':'bob','mom':'Lisa','Bro':'Joe'\cf3\b\}\cf0\b0\par
+\par
+\b Access Dictionary\b0\par
+book['dad'] = 'bob'\par
+\par
+\b Replace A Value In Dictionary\b0\par
+ages = \cf3\b\{\cf0\b0 'dad':'42','mom':'87'\cf3\b\}\cf0\b0\par
+ages['dad'] = '36'\par
+\par
+\b Delete A Value From Dictionary\b0\par
+\cf3\b del \cf0\b0 ages['dad']\par
+\par
+book.\cf3\b clear\cf0\b0 () --> empty the dictionary\par
+\par
+tuna=ages.\cf3\b copy\cf0\b0 () --> will copy ages to tuna\par
+\par
+tuna.\cf3\b has_key\cf0\b0 ('mom') = true \par
+\par
+\cf1\ul\b\f1\fs24 Sequences & Lists\cf0\ulnone\b0\f0\fs22\par
+\par
+family = ['mom','dad','bro','sis','dog']\par
+family[3] = 'sis'\par
+family[-2] = 'sis'\par
+\par
+\b strings are also an array\b0\par
+\par
+'bucky'[3] = 'k'\par
+\par
+\b Adding items to a list\b0\par
+myList.\cf3\b append\cf0\b0 ('bear')\par
+\par
+\b Removing items from a list\b0\par
+\cf3\b del \cf0\b0 myList[3]\par
+\cf3\b del \cf0\b0 numbers\cf3\b [3]\cf0\b0  = deletes the forth number from the list\par
+\par
+\b List arithmetic\b0\par
+we can join lists by adding them \cf3\b +\cf0\b0\par
+list1 = [1,2]\par
+list2 = ['Itai','Amir']\par
+print( list1 \cf3\b +\cf0\b0  list2 )\par
+[1,2,'Itai','Amir']\par
+\par
+we even can \b multiply a list\b0\par
+print (list1 \cf3\b *\cf0\b0  3)\par
+[1,2,1,2,1,2]\par
+\par
+\b List Functions\b0\par
+numbers = [8,1,4,17,28,165,7]\par
+\par
+\cf3\b len\cf0\b0 (numbers) = 7 (elements)\par
+\cf3\b max\cf0\b0 (numbers) = 165 the biggest number in the list\par
+\cf3\b min\cf0\b0 (numbers) = 1 the lowest number in the list\par
+\cf3\b list\cf0\b0 ('itai') = ['i','t','a','i']\par
+\cf3\b list\cf0\b0 (\cf3\b range\cf0\b0 (0,100)) = [0,1,2,3,4,5,6...,100]\par
+\par
+numbers\cf3\b [3]\cf0\b0  = 77 will change the forth number in the list\par
+\par
+\cf1\ul\b\f1\fs24 Slicing (substring)\cf0\ulnone\b0\f0\fs22\par
+\par
+example = [0,1,2,3,4,5,6,7,8,9]\par
+example\cf3\b [4:8]\cf0\b0  = 4,5,6,7\par
+\par
+\b backwards\b0 :\par
+\par
+example\cf3\b [-5:-1]\cf0\b0  = 5,6,7,8  !! THE 9 IS MISSING\par
+example\cf3\b [-5:]\cf0\b0  = 5,6,7,8,9 continue until the last item\par
+example\cf3\b [:7]\cf0\b0  = 0,1,2,3,4,5,6\par
+\par
+example\cf3\b [:]\cf0\b0  = gets the entire list\par
+\par
+\b staring,ending,how many to skip\b0\par
+\par
+example\cf3\b [1:8:2]\cf0\b0  = 1,3,5,7\par
+\par
+example\cf3\b [10:0:-2]\cf0\b0  = 9,7,5,3,1\par
+\par
+example\cf3\b [::-2]\cf0\b0  = 9,7,5,3,1 Same !\par
+\par
+\par
+\b Slicing Lists\b0\par
+\par
+example = list('easyhoss')\par
+example\cf3\b [4:]=\cf0\b0 list('baby')\par
+['e','a','s','y','b','a','b','y']\par
+\par
+\b NO NEED FOR SAME AMOUNT\b0\par
+\par
+example = [7,8,9]\par
+example\cf3\b [1:1]\cf0\b0  = [3,3,3]\par
+[7,3,3,3,8,9]\par
+\par
+example\cf3\b [1:5]\cf0\b0  =\cf3\b []\cf0\b0  --> to delete elements in a list using slicing\par
+[7,9]\par
+\par
+\b Editing Sequences\b0\par
+\par
+[7,4,5] \cf3\b +\cf0\b0  [4,6,5] \cf3\b =\cf0\b0  [7,4,5,4,6,5]\par
+'bucky'\cf3\b *\cf0\b0 10 repeat it 10 times\par
+'buckybuckybucky.....'\par
+[21]\cf3\b *\cf0\b0 10 = [21,21,21,21,21,21,21,21...]\par
+\par
+\b like InStr\b0\par
+name='roastbeef'\par
+'z' \cf3\b in\cf0\b0  name = false \par
+'r' \cf3\b in\cf0\b0  name = true \par
+\par
+\b is element in a sequence\b0\par
+\par
+\cf1\ul\b\f1\fs24 Methods\cf0\ulnone\b0\f0\fs22\par
+\par
+face = [21,18,30]\par
+face.\cf3\b append\cf0\b0 (45) --> append an element at the end\par
+[21,18,30,45]\par
+\par
+apples=['i','love','apples','apples','now]\par
+apples.\cf3\b count\cf0\b0 ('apples') = 2\par
+apples.\cf3\b count\cf0\b0 ('bow') = 0\par
+\par
+one=[1,2,3]\par
+two=[4,5,6]\par
+\par
+one.\cf3\b extend\cf0\b0 (two) = [1,2,3,4,5,6]\par
+if I wrote :\par
+one.\cf3\b append\cf0\b0 (two) = [1,2,3,[4,5,6]] \b AHAH\b0\par
+\par
+say=['hey','now','brown','cow']\par
+say.\cf3\b index\cf0\b0 ('brown') = 2\par
+\par
+say.\cf3\b insert\cf0\b0 (2,'hoss') = say=['hey','now',,'hoss','brown','cow']\par
+x = say.\cf3\b pop\cf0\b0 (1) = ['hey','brown','cow'] returns the deleted item also\par
+x ='now'\par
+\par
+say.\cf3\b remove\cf0\b0 ('brown') = ['hey','now','cow']\par
+\par
+say.\cf3\b reverse\cf0\b0 () = ['cow','now','hey']\par
+\par
+new=[32,54,22,7,98,1]\par
+new.\cf3\b sort\cf0\b0 () = [1,7,22,32,54,98]\par
+sorted('Easyhoss') = ['E','a','h','o','s','s','s','y']\par
+\par
+\cf1\ul\b\f1\fs24 Tuples\cf0\ulnone\b0\f0\fs22\par
+\par
+Like a list but it \b can't be changed\b0\par
+\par
+41,42,32,54  = (41,42,32,54)\par
+\par
+\b WE CAN ONLY GET OUR VALUES CAN'T CHANGE IT\b0\par
+\par
+\b Tuples as Parameters\b0\par
+\par
+\cf3\b def \cf0\b0 example(a,b,c):\par
+\tab return a+b*c\par
+\tab\par
+tuna=(5,7,3)\par
+\par
+\highlight6\b * - indicates you are working with a tuple\par
+** - indicates you are working with dictionary\highlight0\b0\par
+\par
+example(*tuna) --> 26\par
+\par
+\cf3\b def \cf0\b0 example2(**this):\par
+\tab print this\par
+bacon=\{'mom':32,'dad':54\}\par
+\par
+example2(**bacon) --> \{'dad':54, 'mom':32\}\par
+\tab\par
+\cf1\ul\b\f1\fs24 Object Oriented Program\cf0\ulnone\b0\f0\fs22\par
+\par
+\b Constructor \b0\par
+\par
+\cf3\b class \cf0\b0 new:\par
+\tab\cf3\b def \cf0 __init__\b0 (self):\par
+\tab\tab\cf3\b print \cf0\b0 "this is a constructor"\par
+\tab\tab\cf3\b print \cf0\b0 "this will happen once we create the object"\par
+\tab\tab\par
+newobj\cf3\b =\cf0\b0 new() -->\par
+this is a constructor\par
+this also print out\par
+\par
+\b Class\b0\par
+\par
+\cf3\b class \cf0\b0 Things:\par
+\tab\cf3\b pass\cf0\b0\par
+\par
+\cf3\b pass \cf0\b0 is when we don't want to fill in the details at the moment.\par
+\tab\tab\par
+\cf2\b self \cf0\b0 = the object itself\par
+\par
+\cf3\b class \cf0\b0 exampleClass:\par
+\tab eyes="blue"\par
+\tab age=22\par
+\tab\cf3\b def \cf0\b0 thisMethod(\cf2\b self\cf0\b0 ):\par
+\tab\tab return 'hey this method worked'\par
+\tab\tab\par
+exampleObject=exampleClass()\par
+exampleObject.eyes --> 'blue'\par
+exampleObject.age --> 22\par
+exampleObject.thisMethod() --> 'hey this method worked'\par
+\par
+\cf3\b class \cf0\b0 className:\par
+\tab\cf3\b def \cf0\b0 createName(\cf2\b self\cf0\b0 ,name):\par
+\tab\tab\cf2\b self\cf0\b0 .name=name\par
+\tab\cf3\b def \cf0\b0 displayName(\cf2\b self\cf0\b0 ):\par
+\tab\tab return \cf2\b self\cf0\b0 .name\par
+\tab\cf3\b def \cf0\b0 saying(\cf2\b self\cf0\b0 ):\par
+\tab\tab print "hello %s" % self.name\par
+\tab\tab\par
+first=className()\par
+second=className()\par
+\par
+first.createName('itai')\par
+print first.displayName --> 'itai'\par
+\tab\tab\par
+\b Subclass and Superclasses - inhertance\b0\par
+\par
+\cf3\b class \cf0\b0 parentClass:\par
+\tab var1="i am var1"\par
+\tab var2="i am var2"\par
+\tab\par
+\cf3\b class \cf0\b0 childClass(parentClass):\par
+\tab pass\par
+\tab\par
+parentObject=parentClass()\par
+parentObject.var1 --> 'i am var1'\par
+\par
+childObject=childClass()\par
+childObject.var1 --> 'i am var1'\par
+\par
+\b Overwrite Variable Sub\b0\par
+\par
+\cf3\b class \cf0\b0 parent:\par
+\tab var1="bacon"\par
+\tab var2="snuage"\par
+\tab\par
+\cf3\b class \cf0\b0 child(parent):\par
+\tab var2="toast"\par
+\tab\par
+pob=parent()\par
+cob=child()\par
+\par
+pob.var1 --> 'bacon'\par
+pob.var2 --> 'snuage'\par
+\par
+cob.var1 --> 'bacon'\par
+cob.var2 --> 'toast'\par
+\par
+\b Multiple Parent Classes\b0\par
+\par
+\cf3\b class \cf0\b0 Mom:\par
+\tab var1="hey im mom"\par
+\tab\par
+\cf3\b class \cf0\b0 Dad:\par
+\tab var2="hey there son i am dad"\par
+\tab\par
+\cf3\b class \cf0\b0 child(Mom,Dad):\par
+\tab var3='i am a new variable'\par
+\tab\par
+childObject = child()\par
+childObject.var1 --> 'hey i am mom'\par
+childObject.var2 --> 'hey there son i am dad'\par
+childObject.var3 --> 'i am a new variable'\par
+\par
+\b Import Modules\b0\par
+\par
+\cf3\b def \cf0\b0 testmod():\par
+\tab print 'this baby worked'\par
+\tab\par
+you need to save the module in the python directory\par
+the name --> swineflu.py\par
+\par
+\cf3\b import \cf0\b0 swineflu\par
+\par
+swineflu.testmod() --> this baby worked\par
+\par
+\b YOU CAN IMPORT ONLY ONCE IN IDLE\b0\par
+\par
+\b Reload Modules\b0\par
+\par
+baby =swineflu.testmod\par
+baby() --> this baby worked\par
+\par
+\cf3\b reload\cf0\b0 (swineflu) --> this will reload the module if you changed it :)\par
+\par
+\b Getting Module Info\b0\par
+\cf3\b import \cf0\b0 math\par
+\par
+\cf3\b dir\cf0\b0 (math) -->\par
+['__doc__', '__name__', '__package__', 'acos', 'acosh',\par
+ 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign',\par
+ 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1',\par
+ 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']\par
+\par
+\cf3\b help\cf0\b0 (math) --> better help on the moudle\par
+\par
+math\cf3\b .__doc__\cf0\b0  --> will give you a quick summary\par
+\par
+\cf1\ul\b\f1\fs24 Useful python modules\cf0\ulnone\b0\f0\fs22\par
+\par
+\cf4\b\fs24 import copy\cf0\b0\fs22\par
+Contains functions for creating copies of objects.\par
+harry=Animal('cat',4,'gray')\par
+harriet = \b copy\b0 .\cf3\b copy\cf0\b0 (harry) ->change in harry will affect harriet\par
+harriet = \b copy\b0 .\cf3\b deepcopy\cf0\b0 (harry) -> completly different objects\par
+now we have 2 same objects using copy\par
+\par
+\cf4\b\fs24 import keyword\cf0\b0\fs22\par
+\b keyword\b0 .\cf3\b iskeyword\cf0\b0 ('if') = True\par
+\b keyword\b0 .\cf3\b kwlist \cf0\b0 = Prints all keywords.\par
+\par
+\cf4\b\fs24 import random\cf0\b0\fs22\par
+The randint picks a random number btw a range\par
+\b random\b0 .\cf3\b randint\cf0\b0 (1,100) = 58\par
+\par
+\b For picking random item from a list\b0\par
+desserts = ['ice cream','pancackes','brownies']\par
+\b random\b0 .\cf3\b choice\cf0\b0 (desserts) = brownies\par
+\par
+For shuffling items in a list\par
+\b random\b0 .\cf3\b shuffle\cf0\b0 (desserts) = ['brownies','pancackes','ice cream'] \par
+\par
+\cf4\b\fs24 import sys\cf0\b0\fs22\par
+The sys module contains system functions to control the shell.\par
+\par
+\b sys\b0 .\cf3\b exit\cf0\b0 () = Will be stopping the shell\par
+v = \b sys\b0 .\cf3\b stdin\cf0\b0 .\cf3\b readline\cf0\b0 () -> will read user input from the shell\par
+Or if you want specific num of characters\par
+v = \b sys\b0 .\cf3\b stdin\cf0\b0 .\cf3\b readline\cf0\b0 (13) -> wil read 13 characters.\par
+\par
+\b sys\b0 .\cf3\b stdout\cf0\b0 .\cf3\b write\cf0\b0 ("Hey!") -> will write to the shell\par
+when write finished it writes the numbers of characters at the end.\par
+\par
+\b sys\b0 .\cf3\b version \cf0\b0 -> pyhton version\par
+\par
+\cf4\b\fs24 import time\cf0\b0\fs22\par
+\b time\b0 .\cf3\b time\cf0\b0 () -> 1300139149.34\par
+returns the number of seconds from jan 1 1970 00am\par
+\par
+\b to mesure time of a function:\b0\par
+t1 = \b time\b0 .\cf3\b time\cf0\b0 ()\par
+function\par
+t2 = \b time\b0 .\cf3\b time\cf0\b0 ()\par
+print ('it took %s seconds' % (t2-t1))\par
+\par
+\b to return the current date:\b0\par
+\b time\b0 .\cf3\b asctime\cf0\b0 () -> Mon Mar 11 22:03:41 2015\par
+\par
+we need a tuple to work with date:\par
+t = (2020,2,23,10,30,48,6,0,0)\par
+(year,month,days,hours,minutes,seconds,dayofweek,dayofyear,daylight saving)\par
+\par
+\b time\b0 .\cf3\b asctime\cf0\b0 (t) -> Sun Feb 23 10:30:48 2020 \par
+\par
+\b To return the current date and time as object:\b0\par
+t = \b time\b0 .\cf3\b localtime\cf0\b0 ()\par
+time.struct_time(tm_year=2020, tm_mon=2,tm_mday=23,\par
+\tab\tab\tab  tm_hour=22, tm_min=18, tm_sec=39,\par
+\tab\tab\tab  tm_wday=0, tm_yday=73, tm_isdst=0)\par
+year = t[0]\par
+month = t[1]\par
+\par
+\b To slow or wait:\b0\par
+\b time\b0 .\cf3\b sleep\cf0\b0 (num_of_sec) - waits num_of_sec seconds\par
+\par
+\cf4\b\fs24 import pickle\cf0\b0\fs22\par
+Used to convert objects into something that can be written into a file and then easily read back out.\par
+\par
+\cf9\ul\b Save Data\cf0\ulnone\b0\par
+\cf2\b\i game_data\cf0\b0\i0  = \{'player-position' : 'N23 E45',\par
+\tab\tab   'pockets' : ['keys','pocket knife',polished stone']\}\par
+save_file = open('save.dat', 'wb')\par
+\b pickle\b0 .\cf3\b dump\cf0\b0 (\cf2\b\i game_data\cf0\b0\i0 , save file)\par
+save_file.close()\par
+\par
+\cf9\ul\b Load Data\cf0\ulnone\b0\par
+load_file = open('save.dat', 'rb')\par
+loaded_game_data = \b pickle\b0 .\cf3\b load\cf0\b0 (load_file)\par
+load_file.close()\par
+\par
+\par
+\cf1\ul\b\f1\fs24 Working With Files\cf0\ulnone\b0\f0\fs22\par
+\par
+\b open a windows file\b0\par
+test_file = open('c:\\\\users\\\\iamir\\\\test.txt')\par
+\par
+\b open a linux file\b0\par
+test_file = open('/home/jacob/test.txt')\par
+\par
+\b write to file:\b0\par
+fob=\cf3\b open\cf0\b0 ('c:/test/a.txt','\cf3\b w\cf0\b0 ') or '\cf3\b r\cf0\b0 '\par
+fob.\cf3\b write\cf0\b0 ('hey now i am in the file')\par
+fob.\cf3\b close\cf0\b0 ()\par
+\par
+\b read from file:\b0\par
+fob=\cf3\b open\cf0\b0 ('c:/test/a.txt,'r')\par
+fob.\cf3\b read\cf0\b0 (3) --> 3 bytes means 3 chars\par
+\par
+fob.\cf3\b read\cf0\b0 () --> reads the whole file.\par
+\par
+\b reading line by line:\b0\par
+fob=\cf3\b open\cf0\b0 ("c:/test/a.txt")\par
+fob.\cf3\b readline\cf0\b0 ()\par
+\par
+fob.\cf3\b readlines\cf0\b0 () --> enters the lines to a list\par
+\par
+\b writing lines:\b0\par
+fob.\cf3\b write\cf0\b0 ('this is  a new line\\n')\par
+\par
+\b modifying lines:\b0\par
+listme=fob.\cf3\b readlines\cf0\b0 ()\par
+fob.\cf3\b close\cf0\b0\par
+listme[2] = 'changed line'\par
+fob.\cf3\b writelines\cf0\b0 (listme)\par
+\par
+\cf1\ul\b\f1\fs24 Regular Expressions\cf0\ulnone\b0\f0\fs22\par
+\par
+\cf2\b import re\cf0\b0\par
+\par
+.    -> Matches any single character\par
+        ".at" would match cat, hat, rat\par
+[]   -> Matches a single character containes with the brackests\par
+ \tab    "[ch]at" would match cat,hat NOT rat\par
+[^ ] -> Matches a single character NOT contained within the \tab\tab    brackets "[^c]at" would match hat,rat but NOT cat\par
+^    -> Matches the expression if at the START of the string\par
+        "^.at" would match cat,hat,rat if located at the start of  \par
+        the string\par
+$    -> Same as above however at the END of a string\par
+\tab   ".at$" would match cat,hat,rat if located at the end of \par
+\tab    the string\par
+()   -> Contains sub expressions\par
+\tab    (Think BODMAS/BOMDAS)\par
+*    -> Matches the preceding element zero or more times\par
+\tab   "c.*" would match any word starting with c ,cat,coat,class\par
+\par
+\cf3\b match\cf0\b0 ()  -> Checks to see if the expression matches the entire \par
+\tab        string\par
+\cf3\b search\cf0\b0 () -> Checkes to see if there is a match somewhere in the \par
+\tab        string \par
+\par
+\par
+line = "I think of something"\par
+\par
+matchResult = re.match(r'think',line,re.M|re.I)\par
+if matchResult:\par
+\tab print("Match Found:" matchResult.group()\par
+\par
+searchResult = re.search(\cf3\b r\cf0\b0 'think',line,re.M|re.I)\par
+\par
+\cf4\b Option Flags\cf0\b0\par
+re.\cf3\b I\cf0\b0  -> Ignore case matching\par
+re.\cf3\b M \cf0\b0 -> Makes $ match the end of a line and ^ the start of a line\par
+re.\cf3\b S \cf0\b0 -> Makes .(dot) Match any character even the new line \par
+\tab    character\par
+re.\cf3\b U \cf0\b0 -> Interpates in Unicode\par
+re.\cf3\b X \cf0\b0 -> Ignores whitespace within the pattern\par
+\par
+\cf4\b Replace \cf0\b0\par
+sub(pattern,repl,string,max=0)\par
+\par
+\cf1\ul\b\f1\fs24 MultiThreading\cf0\ulnone\b0\f0\fs22\par
+\par
+\cf2\b from threading import Thread\cf0\b0\par
+\par
+def timer (name, delay, repeat):\par
+\tab print "Timer:" + name + " started"\par
+\tab while repeat > 0:\par
+\tab\tab time.sleep(delay)\par
+\tab\tab print name + ": " + str(time.ctime(time.time())\par
+\tab\tab repeat-=1\par
+\tab print "Timer:" + name + " Completed"\par
+\par
+def Main():\par
+\tab t1 = \cf3\b Thread\cf0\b0 (\cf1\b target\cf0\b0 =timer, \cf1\b args\cf0\b0 =("Timer1",1,5))\par
+\tab t2 = \cf3\b Thread\cf0\b0 (\cf1\b target\cf0\b0 =timer, \cf1\b args\cf0\b0 =("Timer2",2,5))\par
+\par
+\tab t1.\cf3\b start\cf0\b0 ()\par
+\tab t2.\cf3\b start\cf0\b0 ()\par
+\par
+\b Custom Thread\b0\par
+\par
+class AsyncWrite(threading.Thread):\par
+\tab def __init__(self, text, out):\par
+\tab\tab\cf3\b threading.Thread\cf0\b0 .__init__(self)\par
+\tab\tab self.text = text\par
+\tab\tab self.out = out\par
+\par
+\tab def run(self):\par
+\tab\tab f = open(self.out,"a")\par
+\tab\tab f.write(self.text + "\\n")\par
+\tab\tab f.close()\par
+\par
+\par
+def Main()\par
+\tab message = raw_input("Enter a String to Store:")\par
+\tab background = AsyncWrite(message,"out.txt")\par
+\tab background.start()\par
+\tab\par
+\tab print ("The program can continue to run whule it write in \par
+\tab\tab    another thread"\par
+\tab background.\cf3\b join()\cf0\b0  --> \highlight6\b waits for the thread to finish\highlight0\b0\par
+\tab print("Waited until thread was complete")\par
+\par
+if __name__ == '__main__':\par
+\tab Main()\par
+\par
+\b Thread Lock\b0\par
+\par
+tLock = threading.\cf3\b Lock\cf0\b0 ()\par
+\par
+tLock.\cf3\b aquire\cf0\b0 ()\par
+\tab Block Of CODE\par
+tLock.\cf3\b release\cf0\b0 ()\par
+\par
+\par
+\cf1\ul\b\f1\fs24 Networking\cf0\ulnone\b0\f0\fs22\par
+\par
+\b Socket Methods\b0\par
+\par
+The constructor creates a new socket ->\par
+\cf3\b socket \cf0\b0 (\b socket_family\b0 , \b socket_type\b0 )\par
+\par
+Bind takes a tuple of a host address and a port\par
+\cf3\b bind\cf0\b0 ((\b hostname\b0 , \b port\b0 ))\par
+\par
+Starts listening for TCP connections\par
+\cf3\b listen\cf0\b0 ()\par
+\par
+Accepts a connection when found (returns a new socket)\par
+\cf3\b accept\cf0\b0 ()\par
+\par
+Takes a tuple of the addtess and port\par
+\cf3\b connect\cf0\b0 ((\b hostname\b0 ,\b port\b0 ))\par
+\par
+Tries to grab data from a TCP connection.\par
+\cf3\b recv\cf0\b0 (\b buffer\b0 )\par
+\par
+attempts to send the bytes given to it\par
+\cf3\b send\cf0\b0 (\b bytes\b0 )\par
+\par
+Closes a socket/connection and frees the port\par
+\cf3\b close\cf0\b0 ()\par
+\par
+\b Server Example\b0\par
+\par
+\cf2\b import socket\cf0\b0\par
+\par
+def Main():\par
+\tab host = '127.0.0.1'\par
+\tab port = 5000\par
+\tab\par
+\tab s = socket.socket()\par
+\tab s.bind((host, port))\par
+\par
+\tab s.listen(1) - > 1 connection at a time\par
+\tab c, addr = s.accept()\par
+\tab print "Connection from : " + str(addr)\par
+\par
+\tab while True:\par
+\tab\tab data = c.recv(1024)\par
+\tab\tab if not data : -> if the client disconnect\par
+\tab\tab\tab break\par
+\tab\tab print "from connected user: " + str(data)\par
+\tab\tab data = str(data).uppser()\par
+\tab\tab print "sending: " + str(data)\par
+\tab\tab c.send(data)\par
+\tab c.close()\par
+\par
+\b Client Example\b0\par
+\par
+\cf2\b import socket \cf0\b0\par
+\par
+def Main():\par
+\tab host = '127.0.0.1'\par
+\tab port = 5000\par
+\tab\par
+\tab s = socket.socket()\par
+\tab s.connect((host,port))\par
+\tab\par
+\tab message = raw_input("-> ")\par
+\tab while message != 'q':\par
+\tab\tab s.send(message)\par
+\tab\tab data = s.recv(1024)\par
+\tab\tab print "Recieved from server : " + str(data)\par
+\tab\tab message = raw_input("-> ")\par
+\tab s.close()\par
+\par
+\b UDP Connections\b0\par
+Udp uses recvfrom() and sendto()\par
+\par
+\b\i server:\b0\i0\par
+s = socket.socket(\b socket.AF_INET\b0 , \b socket.SOCK_DGRAM\b0 )\par
+data, addr = s.\cf3\b recvfrom\cf0\b0 (1024)\par
+s.\cf3\b sendto\cf0\b0 (data, addr)\par
+\par
+\b\i client:\b0\i0\par
+s = socket.socket(\b socket.AF_INET\b0 , \b socket.SOCK_DGRAM\b0 )\par
+s.\cf3\b sendto\cf0\b0 (message, server)\par
+data, addr = s.\cf3\b recvfrom\cf0\b0 (1024)\par
+\par
+\par
+\cf1\ul\b\f1\fs24 Database Interaction\cf0\ulnone\b0\f0\fs22\par
+\par
+\b Methods\b0\par
+\par
+To connect to the DB\par
+\cf3\b connect\cf0\b0 (info)\par
+\par
+Will get a cursor object ready to execute queries\par
+\cf3\b cursor\cf0\b0 ()\par
+\par
+an SQL query\par
+\cf3\b execute\cf0\b0 (sql)\par
+\par
+Return just 1 Row\par
+\cf3\b fetchone\cf0\b0 ()\par
+\par
+Return a list of lists\par
+\cf3\b fetchall\cf0\b0 ()\par
+\par
+Saves the changes on the DB\par
+\cf3\b commit\cf0\b0 ()\par
+\par
+Rolls all temporary changes back\par
+\cf3\b rollback\cf0\b0 ()\par
+\par
+Close the connection\par
+\cf3\b close\cf0\b0 ()\par
+\par
+Execute a parameterized query\par
+\cf3\b executemany\cf0\b0 ()\par
+\par
+Execute a string of multiple SQL statements separated by a ;\par
+\cf3\b executescript\cf0\b0 ()\par
+\par
+\b SQL Lite\b0\par
+\par
+\cf2\b import sqlite3\cf0\b0\par
+\par
+def Main():\par
+\tab try:\par
+\tab\tab con = sqlite3.\cf3\b connect\cf0\b0 ('test.db')\par
+\tab\tab cur = con.\cf3\b cursor\cf0\b0 ()\par
+\tab\tab cur = \cf3\b execute\cf0\b0 ('CREATE TABLE Pets(id INT, Name TEXT, \tab\tab\tab\tab\tab    \tab\tab\tab\tab Price INT')\par
+\tab\par
+\tab\tab cur = \cf3\b execute\cf0\b0 ("INSERT INTO Pets VALUES=(1,'Cat',400)")\par
+\tab\tab cur = \cf3\b execute\cf0\b0 ("INSERT INTO Pets VALUES=(2,'Dog',600)")\par
+\tab\tab\par
+\tab\tab con.\cf3\b commit\cf0\b0 ()\par
+\tab\tab cur = \cf3\b execute\cf0\b0 ('SELECT * FROM Pets")\par
+\tab\tab data = cur.\cf3\b fetchall\cf0\b0 ()\par
+\tab\par
+\tab\tab for row in data:\par
+\tab\tab\tab print row\par
+\tab\tab\par
+\tab except sqlite3.Error, e:\par
+\tab\tab if con:\par
+\tab\tab\tab con.\cf3\b rollback\cf0\b0 ()\par
+\tab finally:\par
+\tab\tab if con:\par
+\tab\tab\tab con.\cf3\b close\cf0\b0 ()\par
+\par
+\b Multiple Queries\b0\par
+\par
+def Main():\par
+\tab try:\par
+\tab\tab con = sqlite3.\cf3\b connect\cf0\b0 ('test.db')\par
+\tab\tab cur = con.\cf3\b cursor\cf0\b0 ()\par
+\tab\tab cur = \cf3\b executescript\cf0\b0 ("""DROP TABLE IF EXISTS Pets;\par
+\tab\tab\tab CREATE TABLE Pets(id INT, Name TEXT,Price INT);\par
+\tab\tab\tab INSERT INTO Pets VALUES=(1,'Cat',400);\par
+\tab\tab\tab INSERT INTO Pets VALUES=(2,'Dog',600);""")\par
+\tab\tab\par
+\tab\tab\cf4\b pets\cf0\b0 ((3,'Rabbit',200),\par
+\tab\tab\tab (4,'Bird',60),\par
+\tab\tab\tab (5,'Goat',500))\par
+\par
+\tab\tab cur.\cf3\b executemany\cf0\b0 ("INSERT INTO Pets VALUES(?,?,?)", \tab\tab\tab\tab\tab\tab\cf4\b pets\cf0\b0 )\par
+\tab\tab con.\cf3\b commit\cf0\b0 ()\par
+\tab\tab cur = \cf3\b execute\cf0\b0 ('SELECT * FROM Pets")\par
+\tab\tab data = cur.\cf3\b fetchall\cf0\b0 ()\par
+\tab\par
+\tab\tab for row in data:\par
+\tab\tab\tab print row\par
+\tab\tab\par
+\tab except sqlite3.Error, e:\par
+\tab\tab if con:\par
+\tab\tab\tab con.\cf3\b rollback\cf0\b0 ()\par
+\tab finally:\par
+\tab\tab if con:\par
+\tab\tab\tab con.\cf3\b close\cf0\b0 ()\par
+\par
+\par
+\cf1\ul\b\f1\fs24 PyCrypto\cf0\ulnone\b0\f0\fs22\par
+\par
+\b Encrypt\b0\par
+\par
+\cf10\b import os, random\par
+from Crypto.cipher import AES\par
+from Crypto.Hash import SHA256\cf0\b0\par
+\par
+def encrypt(key, filename):\par
+\tab chunksize = 64*1024\par
+\tab outputFile = "(encrypted)" + filename\par
+\tab filesize = str(os.path.getsize(filename)).zfill(16)\par
+\tab IV = ''\par
+\par
+\tab for i in range(16):\par
+\tab\tab IV += chr(random.randint(0,0xFF))\par
+\tab\par
+\tab encryptor = AES.new(key, AES.MODE_CBC, IV)\par
+\par
+\tab with open(filename, 'rb') as infile:\par
+\tab\tab with open(outputFile, 'wb') as outfile:\par
+\tab\tab\tab outfile.write(filesize)\par
+\tab\tab\tab outfile.write(IV)\par
+\tab\tab\tab\par
+\tab\tab\tab while True:\par
+\tab\tab\tab\tab chunk = infile.read(chunksize)\par
+\tab\tab\tab\tab if len(chunk) == 0:\par
+\tab\tab\tab\tab\tab break\par
+\tab\tab\tab\tab elif len(chunk) % 16 != 0:\par
+\tab\tab\tab\tab\tab chunk += ' ' * (16 - (len(chunk)%16))\par
+ \tab\tab\tab\tab\par
+\tab\tab\tab\tab outfile.write(encryptor.encrypt(chunk))\par
+\par
+\b Decrypt\b0\par
+\par
+def decrypt(key, filename):\par
+\tab chunksize = 64*1024\par
+\tab outputfile = filename[11:]\par
+\par
+\tab with open(filename, 'rb') as infile:\par
+\tab\tab filesize = long(infile.read(16))\par
+\tab\tab IV = infile.read(16)\par
+\par
+\tab\tab decryptor = AES.new(key, AES.MODE_CBC, IV)\par
+\tab\par
+\tab\tab with open(outputFile, 'wb') as outfile\par
+\tab\tab\tab while True:\par
+\tab\tab\tab\tab chunk = infile.read(chunksize)\par
+\tab\tab\tab\tab\par
+\tab\tab\tab\tab if len(chunk) == 0:\par
+\tab\tab\tab\tab\tab break\par
+\tab\tab\tab\tab\par
+\tab\tab\tab\tab outfile.write(decryptor.decrypt(chunk))\par
+\tab\tab\tab outfile.truncate(filesize)\par
+\par
+def getKey(password):\par
+\tab hasher = SHA256.new(password)\par
+\tab return hasher.digest()\par
+\par
+def Main():\par
+\tab password = raw_input("Password:")\par
+\tab encrypt(getKey(password), filename)\par
+\tab decrypt(getKey(password), filename)\par
+\par
+\cf1\ul\b\f1\fs24 -m\cf0\ulnone\b0\f0\fs22  \par
+\par
+\b -m\b0  lets you run modules as scripts\par
+\par
+\b Simple Http Server\b0\par
+python \cf3\b -m\cf0\b0  SimpleHTTPServer 8000 \par
+\par
+\b Open a WebPage\b0\par
+python \cf3\b -m\cf0\b0  webbrowser \cf3\b -n\cf0\b0  {\field{\*\fldinst{HYPERLINK "http://www.google.co.il"}}{\fldrslt{\ul\cf11 http://www.google.co.il}}}\f0\fs22\par
+\par
+it'll indent nicely an JSON input in the standard output\par
+curl -sL {\field{\*\fldinst{HYPERLINK "http://j.mp/1IuxaLD"}}{\fldrslt{\ul\cf11 http://j.mp/1IuxaLD}}}\f0\fs22  | python -m json.tool\par
+\par
+\par
+\cf3\b filecmp \cf0\b0 - Compare two directories.\par
+$ python -m filecmp /tmp/a /tmp/b\par
+\par
+\cf3 zipfile \cf0 will let you view, extract and create zip files\par
+\par
+python -m zipfile -h\par
+Usage:\par
+    zipfile.py -l zipfile.zip        # Show listing of a zipfile\par
+    zipfile.py -t zipfile.zip        # Test if a zipfile is valid\par
+    zipfile.py -e zipfile.zip target # Extract zipfile into target dir\par
+    zipfile.py -c zipfile.zip src ... # Create zipfile from sources\par
+\par
+python -m calendar\par
+\par
+\cf1\ul\b\f1\fs24 Using Python Turtle Module\cf0\ulnone\b0\f0\fs22\par
+\f1\fs23 The \b\fs22 turtle \b0\fs23 module is a way of programming vector graphics,\par
+which is basically just drawing with simple lines, dots, and curves.\f0\fs22\par
+\par
+first we need to import the turtle module:\par
+\cf3\b import \cf0 turtle\b0\par
+\par
+\b Creating a canvas\b0\par
+t = \cf3\b turtle.Pen()\cf0\b0\par
+\par
+\b Moving the turtle\b0\par
+t.\cf3\b forward\cf0\b0 (num_of_pixels)\par
+t.\cf3\b backward\cf0\b0 (num_of_pixels)\par
+t.\cf3\b left\cf0\b0 (degrees)\par
+t.\cf3\b right\cf0\b0 (degrees)\par
+\par
+\b Lifting or putting the pen\b0\par
+t.\cf3\b up()\cf0\b0  -> Lifts the pen from canvas (not drawing)\par
+t.\cf3\b down()\cf0\b0  -> puts the pen down to the canvas\par
+\par
+\b Erasing the canvas\b0\par
+t.\cf3\b reset()\par
+\cf0\b0 t.\cf3\b clear()\cf0\b0\par
+\par
+\b Objects and classes in pictures\b0\par
+avery = turtle.pen()\par
+kate = turtle.pen()\par
+\par
+\b Drawing a Square\b0\par
+for x in range(1,5):\par
+\tab t.\cf3\b forward\cf0\b0 (50)\par
+\tab t.\cf3\b left\cf0\b0 (90)\par
+\par
+\b Drawing a Star\b0\par
+for x in range(1, 9):\par
+\tab t.\cf3\b forward\cf0\b0 (100)\par
+\tab t.\cf3\b left\cf0\b0 (225)\par
+\par
+\b A spiral star\b0\par
+for x in range(1, 20):\par
+\tab t.\cf3\b forward\cf0\b0 (100)\par
+\tab t.\cf3\b left\cf0\b0 (95)\par
+\par
+\b Drawing a Sun\b0\par
+for x in range(1,38):\par
+\tab t.\cf3\b forward\cf0\b0 (100)\par
+\tab t.\cf3\b left\cf0\b0 (175)\par
+\par
+\b Coloring Things\b0\par
+t.\cf3\b color\cf0\b0 (R,G,B)\par
+t.\cf3\b color\cf0\b0 (1,0,0) -> use 100% Red\par
+\par
+t.\cf3\b color\cf0\b0 (1,1,0) -> yellow\par
+t.\cf3\b begin_fill\cf0\b0 ()\par
+t.\cf3\b circle\cf0\b0 (50)\par
+t.\cf3\b end_fill\cf0\b0 ()\par
+\par
+t.\cf3\b color\cf0\b0 (0.9, 0.75 ,0) - > gold\par
+\par
+\cf1\ul\b\f1\fs24 Using Python tkinter graphics\cf0\ulnone\b0\f0\fs22\par
+from Tkinter import *\par
+\par
+\b\i BUTTON\b0\i0\par
+tk = \cf3\b Tk\cf0\b0 ()\par
+btn = \cf3\b Button\cf0\b0 (tk, text="Click Me", command=(function))\par
+btn.\cf3\b pack\cf0\b0 ()\par
+\par
+\b\i CANVAS (Like Window)\b0\i0\par
+tk = \cf3\b Tk\cf0\b0 ()\par
+canvas = \cf3\b Canvas\cf0\b0 (tk,width=500,height=500)\par
+canvas.\cf3\b pack\cf0\b0 ()\par
+\par
+\cf4\b Changing Canvas Proprties:\cf0\b0\par
+canvas = Canvas(tk, width=500,height=400,\par
+\tab\tab      \cf3\b bd\cf0\b0 =0,\cf3\b highlightthickness\cf0\b0 =0)\par
+\cf3\b bd \cf0\b0 -> no border around the outside of the canvas\par
+tk.\cf3\b title\cf0\b0 ("Game") -> changes the title of Canvas\par
+tk.\cf3\b resizable\cf0\b0 (0,0) -> Fixed size\par
+tk.\cf3\b wm_attributes\cf0\b0 ("-topmost",1) -> Make it top most\par
+\par
+canvas.\cf3\b winfo_height\cf0\b0  -> the canvas height\par
+canvas.\cf3\b winfo_width\cf0\b0  -> the canvas width\par
+\par
+\cf4\b making the canvas continue drawing until closed:\cf0\b0\par
+While 1:\par
+\tab tk.\cf3\b update_idletasks\cf0\b0 ()\par
+\tab tk.\cf3\b update\cf0\b0 ()\par
+\tab time.\cf3\b sleep\cf0\b0 (0.01)\par
+\par
+\cf4\b drawing lines on canvas:\cf0\b0\par
+canvas.\cf3\b create_line\cf0\b0 (0, 0, 500, 500)\par
+\par
+\cf4\b drawing boxes:\cf0\b0\par
+canvas.\cf3\b create_rectangle\cf0\b0 (10,10,50,50)\par
+\par
+\cf4\b setting the color:\cf0\b0\par
+canvas.\cf3\b create_rectangle\cf0\b0 (x1,y1,x2,y2,fill='red')\par
+Or\par
+fill='#ffd800'\par
+\par
+\cf4\b color chooser:\cf0\b0\par
+c = \cf3\b colorchooser.askcolor\cf0\b0 ()\par
+when pressed OK a tupple will be created\par
+c[1] -> will bring the color in the first place\par
+\par
+\cf4\b drawing arcs:\cf0\b0\par
+canvas.\cf3\b create_arc\cf0\b0 (10,10,200,100,extent=180,style=ARC)\par
+to draw a circle use 359 degrees not 360 which equals to 0\par
+\par
+\cf4\b drawing ploygons:\cf0\b0\par
+\b\i triangle\b0\i0 ->\par
+canvas.\cf3\b create_polygon\cf0\b0 (10,10,100,10,100,110,\b fill\b0 ="",\par
+\tab\tab\tab\tab\b outline\b0 ="black")\par
+\par
+\cf4\b displaying text:\cf0\b0\par
+canvas.\cf3\b create_text\cf0\b0 (150,100,text="Hi Text",fill='red')\par
+\par
+\b changing font:\b0\par
+canvas.\cf3\b create_text\cf0\b0 (10,10,\b text\b0 ="New Font",\par
+\tab\tab\tab    \b font\b0 =('Times',15))\par
+\par
+\cf4\b displaying images:\cf0\b0\par
+Tkinter only supports GIF images\par
+If you want JPG etc.. use PIL module.\par
+\f3\fs23 ({\field{\*\fldinst{HYPERLINK "http://www.pythonware.com/products/pil/"}}{\fldrslt{\ul\cf11 http://www.pythonware.com/products/pil/}}}\f0\fs22 )\par
+\par
+my_image=\cf3\b PhotoImage\cf0\b0 (file='c:\\\\test.gif')\par
+canvas.\cf3\b create_image\cf0\b0 (0,0,anchor=NW,image=my_image)\par
+\par
+\cf4\b creating basic animation:\cf0\b0\par
+to move a triangle ->\par
+canvas.\cf3\b create_polygon\cf0\b0 (10,10,10,60,50,35)\par
+for x in range(0,60):\par
+\tab canvas.\cf3\b move\cf0\b0 (1,5,0)\par
+\tab tk.\cf3\b update\cf0\b0 ()\par
+\tab time.sleep(0.05)\par
+\par
+canvas.move(ID of the shape,x,y)\par
+\par
+\cf4\b making an object react to something:\cf0\b0\par
+we are using events\par
+\par
+def movetraingle(event):\par
+\tab canvas.\cf3\b move\cf0\b0 (1,5,0)\par
+\par
+to bind the event:\par
+canvas.\cf3\b bind_all\cf0\b0 ('<KeyPress-Return>',movetraingle)\par
+\par
+def movetriangle(event):\par
+\tab if event.\cf3\b keysym \cf0\b0 == 'Up':\par
+\tab\tab canvas.\cf3\b move\cf0\b0 (1,0,-3)\par
+\tab elif event.\cf3\b keysym \cf0\b0 == 'Down:\par
+\tab\tab canvas.\cf3\b move\cf0\b0 (1,0,3)\par
+\par
+canvas.\b bind_all\b0 ('<KeyPress-Up>',movetriangle)\par
+canvas.\b bind_all\b0 ('<KeyPress-Down>',movetriangle)\par
+\par
+\cf4\b more ways to use identifiers:\cf0\b0\par
+To change shape parameters\par
+mytriangle=canvas.\cf3\b create_polygon\cf0\b0 (10,10,10,60,50,35,fill='red')\par
+canvas.\cf3\b itemconfig\cf0\b0 (mytriangle,fill='blue')\par
+\par
+\cf4\b get the coordinates of object by identifier:\cf0\b0\par
+canvas.\cf3\b coords\cf0\b0 (Object_Id) ->\par
+[255.0, 29.0, 270.0, 44.0]\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 
