@@ -1,0 +1,270 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green77\blue187;\red155\green0\blue211;\red192\green80\blue77;\red0\green0\blue255;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\ltrpar\sl276\slmult1\lang9\ul\b\f0\fs36 OBJECTIVE C\par
+\cf1\ulnone\i\fs22\par
+\cf2\i0\fs28 Variables\par
+\cf0\b0\fs22\par
+\b String:\b0\par
+\cf3\b NSString \cf0\b0 *firstName = @"Hello World";\par
+\b\par
+\tab NSLog\b0 (@"Itai");\par
+\b\tab NSLog\b0 (firstName);\par
+\b\tab NSLog\b0 (@"Hello there, %@.",firstName);\par
+\b\tab NSLog\b0 (@"%@ %@",firstname, lastName);\par
+\par
+\fs24 - Creating an \b NSString \b0 with a \b message\fs22\par
+       NSString \b0 *emptyString = [\b NSString \b0 string];\par
+\par
+\b Number: \b0\par
+\cf3\b NSNumber \cf0\b0 *age =  @40;\par
+\tab\b NSLog\b0 (age)\b\par
+\par
+Integer:\par
+\cf3 NSUInteger \cf0\b0 cityLength = [city length];\b\par
+\tab NSLog\b0 (@"City has %lu characters", cityLength);\b\par
+\par
+Array:\b0\par
+Array size can't be changed !!!\par
+\par
+\cf3\b NSArray \cf0\b0 *apps = @[@"AngryFowl", @"Lettertouch", @"Tweetrobot"];\par
+\par
+\par
+\b Dictionary:\b0\par
+Dictionaries can contain multiple key/value pairs, separated by a comma. \par
+\par
+\cf3\b NSDictionary \cf0\b0 *appRatings = @\{@"AngryFowl": @3, @"Lettertouch": @5\};\par
+\par
+\b NSLog\b0 (@"%@", appRatings[@"AngryFowl"]);\par
+\par
+\cf2\b\fs28 NSLog\cf0\b0\fs22\par
+\par
+To See All Sepcifiers : {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html#//apple_ref/doc/uid/TP40004265-SW1"}}{\fldrslt{\ul\cf4 https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html#//apple_ref/doc/uid/TP40004265-SW1}}}\f0\fs22\par
+\par
+\cf2\b\fs28 Sending A Message / Calling A Method\cf0\b0\fs22\par
+Sending Message is how you tell an object to perform some action or to give you some piece of information.\par
+\par
+[objectName \b messageName\b0 ];\par
+\par
+\cf1\b\fs28 description\cf0\b0\fs22\par
+If you send description to an NSString object, you\rquote ll get the characters in that string, but if you send it to an NSArray you\rquote ll get a string containing all of the values in that array.\par
+\par
+\b NSArray \b0 *foods = @[@"tacos", @"burgers"];\par
+\b\tab NSLog\b0 (@"%@", [foods description]);\par
+\par
+Most objects in Objective-C have a description method that returns a string that represents the data in the object.\par
+\par
+\b NSString \b0 *result = [myArrayObject description];\par
+\par
+\cf1\b\fs28 length\cf0\b0\fs22\par
+NSString objects accept a message called length that returns the number of characters in the string.\par
+\par
+\b NSUInteger \b0 cityLength = [city length];\par
+\par
+\cf2\b\fs28 Operating On NSNumbers\cf0\b0\fs22\par
+\par
+\cf1\b\fs28 Multiply\cf0\fs22 :\b0\par
+YOU CAN"T MULTIPLY LIKE ANY OTHER LANGUAGE !!!\par
+(NSNumber *product = higgiesAge * phoneLives;) * WRONG *\par
+\par
+\b NSNumber \b0 *higgiesAge = @6;\par
+\b NSNumber \b0 *phoneLives = @3;\par
+\par
+\b NSUInteger \b0 higgiesAgeInt = [higgiesAge \b unsignedIntegerValue\b0 ];\par
+\b NSUInteger \b0 phoneLivesInt = [phoneLives \b unsignedIntegerValue\b0 ];\par
+\par
+\b NSUInteger \b0 higgiesRealAge = higgiesAgeInt * phoneLivesInt;\par
+\par
+\tab\b NSLog\b0 (@"Higgie is actually %lu years old.", higgiesRealAge );\par
+\par
+\cf2\b\fs28 Appending 2 Strings\cf0\b0\fs22\par
+(NSString *newString = @"Hello" + @"World";) WRONG !!!\par
+\par
+\cf1\b\fs28 stringByAppendingString:\cf0\b0\fs22\par
+takes a single NSString argument and appends it to the NSString object that received the stringByAppendingString: message, returning the full string. \par
+\par
+[firstName \b stringByAppendingString:\b0 lastName];\par
+\par
+\tab\b NSLog\b0 (@"%@", [firstName stringByAppendingString:lastName]);\par
+\par
+\cf1\b\fs24 Nesting Messages:\cf0\b0\fs22\par
+NSString *fullName = [[firstName \b stringByAppendingString\b0 :@" "] \b stringByAppendingString\b0 :lastName];\par
+\par
+\cf1\b\fs24 Working with long message names\cf0\b0\fs22\par
+[fullName \b stringByReplacingOccurrencesOfString\b0 :@"Eric" \b withString\b0 :@"Derrick"];\par
+\par
+\cf1\b\fs24 Create a copy of the string\cf0\b0\fs22\par
+NSString *firstName = @"Itai";\par
+NSString *copy = [NSString \b stringWithString\b0 :firstName];\par
+\tab\b NSLog\b0 (@"%@ is a copy of %@", copy, firstName);\par
+\par
+\cf1\b\fs24 Creating an NSString with alloc/init\cf0\b0\fs22\par
+NSString *emptyString = [[NSString \b alloc\b0 ] \b init\b0 ];\par
+NSArray *emptyArray = [[NSArray \b alloc\b0 ] \b init\b0 ];\par
+NSDictionary *emptyDictionary = [[NSDictionary \b alloc\b0 ] \b init\b0 ];\par
+\par
+same copy a string:\par
+NSString *copy = [[NSString \b alloc\b0 ] \b initWithString\b0 :otherString]; \par
+\par
+\cf1\b\fs24 StringWithFormat\cf0\b0\fs22\par
+A Much better way !!!!\par
+NSString *fullname = [NSString \b stringWithFormat\b0 :@"%@ %@", firstName, lastName];\par
+\par
+\cf2\b\fs28 Equal Strings\cf0\b0\fs22\par
+\cf1\b\fs24 isEqualToString\cf0\b0\fs22 : message, which will compare two NSString objects. If they have exactly the same characters then the message will return YES, and otherwise it will return NO. \par
+\par
+if([\cf3\b myString \cf0 isEqualToString\b0 :\cf3\b otherString\cf0\b0 ]) \{\par
+  NSLog(@"Hello from inside the if!");\par
+\}\par
+\par
+\cf2\b\fs28 ENUMS\cf0\b0\fs22\par
+\b typedef NS_ENUM\b0 (\cf3\b NSInteger\cf0\b0 , DayOfWeek) \{\par
+    DayOfWeekMonday = 1,\par
+    DayOfWeekTuesday = 2,\par
+    DayOfWeekWednesday = 3,\par
+    DayOfWeekThursday = 4,\par
+    DayOfWeekFriday = 5,\par
+    DayOfWeekSaturday = 6,\par
+    DayOfWeekSunday = 7\par
+\};\par
+\par
+\cf2\b\fs28 FOR IN ( Like ForEach )\cf0\b0\fs22\par
+\par
+\cf1\b On Arrays:\cf0\b0\par
+NSArray *funnyWords = @[@"Schadenfreude", @"Portmanteau", @"Penultimate"];\par
+\par
+\b for \b0 (NSString *word \b in \b0 funnyWords) \{\par
+  NSLog(@"%@ is a funny word", word);\par
+\}\par
+\par
+\cf1\b On Dictionaries:\cf0\b0\par
+\cf3\b NSDictionary \cf0\b0 *funnyWords = @\{\par
+  @"Schadenfreude": @"pleasure derived by someone from another person's misfortune.",\par
+  @"Portmanteau": @"consisting of or combining two or more separable aspects or qualities",\par
+  @"Penultimate": @"second to the last"\par
+\};\par
+\par
+\b for \b0 (NSString *word \b in \b0 funnyWords)\{\par
+  NSString *definition = funnyWords[word];\par
+  NSLog(@"%@ is defined as %@", word, definition);\par
+\}\par
+\par
+\cf2\b\fs28 BLOCKS\cf0\b0\fs22\par
+Blocks are groups of code that can be treated like normal Objective-C objects meaning they can be passed to methods or included in collections like NSArray or NSDictionary. They are very powerful: they can accept arguments and return results, just like a message. A block can be created with ^\{\}, like so:\par
+\par
+\b ^\b0\{\par
+  NSLog(@"Hello from inside the block");\par
+\};\par
+\par
+\b void \b0 (^logMessage)(\b void\b0 ) = ^\{\par
+  NSLog(@"Hello from inside the block");\par
+\};\par
+\par
+To Call It :\par
+logMessage();\par
+\par
+\cf1\b\fs28 Blocks with arguments\cf0\b0\fs22\par
+Blocks are a little like messages in that you can pass arguments to them. That means that each time we invoke a block, we can pass in different objects for that block to have access to\par
+\par
+\b void \b0 (^sumNumbers)(\cf3\b NSUInteger\cf0\b0 , \cf3\b NSUInteger\cf0\b0 ) = ^(\cf3\b NSUInteger \cf0 num1\b0 , \cf3\b NSUInteger \cf0 num2\b0 )\{\par
+  NSLog(@"The sum of the numbers is %lu", \b num1 \b0 + \b num2\b0 );\par
+\};\par
+\par
+\cf1\b\fs28 Enumerate With Blocks\cf0\b0\fs22\par
+The vast majority of the time, you won\rquote t be assigning a block to a variable and invoking it yourself. Instead, you\rquote ll be passing a block as an argument to a message, like the \b enumerateObjectsUsingBlock\b0 : message on \cf3\b NSArray\cf0\b0 .\par
+\par
+\b enumerateObjectsUsingBlock\b0 : can be used as a replacement for fast enumeration since it does basically the same thing: executes a block of code for each object in an array. But instead of using special syntax, it uses normal message sending and blocks.\par
+\par
+\b enumerateObjectsUsingBlock:^(\b0 NSString *hat, NSUInteger index, BOOL *stop)\{\par
+\par
+So you could replace this fast enumeration code:\par
+\par
+for (NSString *word in \b funnyWords\b0 ) \{\par
+  NSLog(@"%@ is a funny word", word);\par
+\}\par
+\par
+With this:\par
+\par
+[funnyWords \b enumerateObjectsUsingBlock\b0 :\par
+  ^(NSString *word, NSUInteger index, BOOL *stop)\{\par
+    NSLog(@"%@ is a funny word", word);  \par
+  \}\par
+];\par
+\par
+\cf2\b\fs28 CLASSES\cf0\b0\fs22\par
+\par
+\cf1\b\fs28 Interface\cf0\b0\fs22\par
+A class interface is like a menu in a restaurant: a public list of what is available, but instead of meals it is a list of methods and properties. \ldblquote Customers\rdblquote  of this class can look at the interface and know what messages they can send to an object created with that class.\par
+\par
+@\b interface \b0 Phone\par
+@end\par
+\par
+\cf1\b\fs28 Inheritance\cf0\b0\fs22\par
+The concrete restaurants inherit their menu from this root base restaurant. Concrete classes inherit their common methods from a root base class. In Objective-C, the root base class is NSObject, and classes like NSDictionary, NSString, NSArray, and Phone all should inherit from NSObject to respond to a common set of messages.\par
+\par
+@\b interface \b0 Phone : \cf3\b NSObject\cf0\b0\par
+@end\par
+\par
+Now \ldblquote Customers\rdblquote  of Phone will see that it inherits from NSObject and can assume that Phone will respond to all the messages an NSObject can respond to, like class, init, copy, description, etc. Learn all the messages NSObject provides by checking out the NSObject class reference.\par
+{\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html"}}{\fldrslt{\ul\cf4 https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html}}}\f0\fs22\par
+\par
+\cf1\b\fs28 Defining a class property\cf0\b0\fs22\par
+@interface Phone : NSObject\par
+\par
+@\b property \b0 NSString *phoneName;\par
+\par
+@end\par
+\par
+\cf1\b\fs28 Class implementation\cf0\b0\fs22\par
+Before we implement the Phone class, there is one more thing we have to cover: file organization and importing. When you\rquote re creating a class, you don\rquote t want to put the header and the implementation in the same file. That would be like keeping the menus in the kitchen - how would customers ever know what to order?\par
+\par
+#import "Phone.h"\par
+@\b implementation \b0 Phone\par
+@end\par
+\par
+\cf1\b\fs28 Methods\cf0\b0\fs22\par
+Method declarations start with a dash (-) followed by the type (in parentheses) of the value returned by the method. (void) means that the speak message will not return anything.\par
+\par
+@interface Phone : NSObject\par
+\par
+// list of properties\par
+\par
+-(void)\b speak\b0 ;\par
+\par
+@end\par
+\par
+\cf2\b\fs28 Response To Message\cf0\b0\fs22\par
+We can always ask an object if it can respond to a message before we send it. For example, we can ask the talkingiPhone object if it responds to the decreaseBatteryLife: message like this:\par
+\par
+if([talkingiPhone \b respondsToSelector\b0 :@selector(decreaseBatteryLife:)])\{\par
+  NSLog(@"Yup, talkingiPhone responds to the decreaseBatteryLife: message");\par
+\}\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 
