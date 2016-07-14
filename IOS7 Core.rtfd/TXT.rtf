@@ -4,8 +4,10 @@
 {\colortbl;\red255\green255\blue255;\red0\green77\blue187;\red155\green0\blue211;\red75\green172\blue198;
 \red0\green0\blue255;\red0\green186\blue251;\red71\green204\blue252;\red102\green177\blue50;\red255\green0\blue0;
 \red0\green255\blue0;\red198\green50\blue253;\red160\green114\blue253;\red114\green44\blue253;\red0\green145\blue206;
-\red74\green0\blue230;\red85\green142\blue40;\red174\green0\blue240;}
-\paperw11900\paperh16840\vieww20180\viewh25860\viewkind0
+\red74\green0\blue230;\red85\green142\blue40;\red174\green0\blue240;\red63\green105\blue30;\red0\green121\blue165;
+\red153\green102\blue51;\red255\green0\blue255;\red133\green0\blue175;\red128\green0\blue128;\red128\green0\blue128;
+\red0\green0\blue0;\red255\green255\blue0;}
+\paperw11900\paperh16840\vieww20420\viewh26200\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \ul \ulc0 I
@@ -419,6 +421,7 @@ Both for your UINavigationBar, UIToolbar or UITabBar\
 
 \b ViewController1.m
 \b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf6 UIImage
 \b0 \cf0  *
@@ -428,7 +431,6 @@ Both for your UINavigationBar, UIToolbar or UITabBar\
 \b0 \cf0 :
 \b \cf5 @\'93ios_icon\'94
 \b0 \cf0 ];\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 self
 \b0 \cf0 .
@@ -494,9 +496,11 @@ To create a Font in iOS :\
 \b \cf5 @\'93Helvetica Neue\'94
 \b0 \cf0 \}];\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b this is just the base font if i want it italic: 
+\b \cf0 this is just the base font if i want it italic: 
 \b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf6 UIFontDescriptor
 \b0 \cf0  *
@@ -509,9 +513,11 @@ To create a Font in iOS :\
 \b UIFontDescriptorTraitItalic
 \b0 ];\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b and finally when i create my font call fontWithDescriptor :
+\b \cf0 and finally when i create my font call fontWithDescriptor :
 \b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf6 UIFont
 \b0 \cf0  *font = [
@@ -561,7 +567,6 @@ if we have an UILabel and the text returned from a server is too long we need to
 \b0 \cf0 (
 \b \cf6 UIFontDescriptorTraitsBold
 \b0 \cf0 )\};\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 self
 \b0 \cf0 .
@@ -691,7 +696,6 @@ So now to resize a label with font attributes and attributed strings:\
 \b \cf5 @
 \b0 \cf0 2.0\};\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 self
 \b0 \cf0 .
@@ -740,6 +744,7 @@ and we want to fit it in the text view WITHOUT scrolling:\
 
 \b \cf0 Layers of the textView
 \b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf14 textView
 \b0 \cf0 .
@@ -766,12 +771,14 @@ and we want to fit it in the text view WITHOUT scrolling:\
 \b lineFragmentPadding
 \b0  - The padding before each line (default is 5).\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b Resizing a UITextView with Text Kit
+\b \cf0 Resizing a UITextView with Text Kit
 \b0 \
 What we really need is the CGRect containing the text,\
 not the CGRect frame of the UITextView\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf16 //textView text updated from network response\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
@@ -813,8 +820,9 @@ return the frame used to draw the text container size\
 \b textContainer
 \b0 ]\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b So where we perform this sizing ?
+\b \cf0 So where we perform this sizing ?
 \b0 \
 Well unlike before where we\'92ve been resizing everything in 
 \b viewWillLayoutSubviews
@@ -920,8 +928,2004 @@ You can apply text styles to some text but not to others ( you can mix ).\
 
 \b \cf0 Assign Text Styles With Preferred font descriptors
 \b0 \
-UIFontDescriptor *body = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFont\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 UIFontDescriptor
+\b0 \cf0  *body = [
+\b \cf6 UIFontDescriptor
+\b0 \cf0  
+\b preferredFontDescriptorWithTextStyle
+\b0 :
+\b \cf6 UIFontTextStyleBody
+\b0 \cf0 ];\
+
+\b \cf6 UIFont
+\b0 \cf0  *font = [
+\b \cf6 UIFont
+\b0 \cf0  
+\b fontWithDescriptor
+\b0 :body 
+\b size
+\b0 :0];\
 \
+The size:0 Indicates that the size will be automatically set based on user preference\
+If we specified the size it would not be able to modify it.\
+\
+Using a font created with Text Styles in a Label\
+-(void) loadView\
+\{\
+      
+\b \cf5 self
+\b0 \cf0 .
+\b \cf5 label
+\b0 \cf0  = [
+\b \cf6 UILabel
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf6 init
+\b0 \cf0 ];\
+      
+\b \cf6 UIFontDescriptor
+\b0 \cf0  *baseFont = [
+\b \cf6 UIFontDescriptor
+\b0 \cf0  
+\b preferredFontDescriptorWithTextStyle
+\b0 :
+\b \cf6 UIFontTextStyleBody
+\b0 \cf0 ];\
+      
+\b \cf6 UIFontDescriptor
+\b0 \cf0  *boldBase = [baseFont
+\b \cf6  \cf0 fontDescriptorWithSymbolicTraits
+\b0 :
+\b \cf6 UIFontDescriptorTraitBold
+\b0 \cf0 ];\
+      
+\b \cf6 UIFont
+\b0 \cf0  *labelFont = [
+\b \cf6 UIFont
+\b0 \cf0  
+\b fontWithDescriptor
+\b0 :boldBase 
+\b size
+\b0 :0];\
+      
+\b \cf5 self
+\b0 \cf0 .
+\b \cf5 label
+\b0 \cf0 .
+\b font
+\b0  = labelFont;\
+      [view 
+\b \cf6 addSubview
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .
+\b \cf5 label
+\b0 \cf0 ];\
+\}\
+\
+Traits can be added to text styles Like Bold, Italic etc.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Listen for The Text Size Change Notification
+\b0 \
+-(
+\b \cf5 void
+\b0 \cf0 )viewDidLoad\
+\{\
+      [[
+\b \cf6 NSNotificationCenter
+\b0 \cf0  defaultCenter]\
+                    
+\b \cf14 addObserver
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 \
+	              
+\b \cf14 selector
+\b0 \cf0 :
+\b \cf5 @selector
+\b0 \cf0 (contentSizeChanged:)\
+	                  
+\b \cf14 name
+\b0 \cf0 :
+\b @\'93UIContentSizeCategoryDidChangeNotification\'94
+\b0 \
+	                 
+\b \cf14 object
+\b0 \cf0 :
+\b \cf5 nil
+\b0 \cf0 ];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 contentSizeChange:
+\b0 \cf0  will be called whenever a type size change is detected\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Reset the font whenever a text size change is detected
+\b0 \
+-(
+\b \cf5 void
+\b0 \cf0 ) contentSizeChanged:(
+\b \cf5 id
+\b0 \cf0 ) sender \
+\{\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6       UIFontDescriptor
+\b0 \cf0  *baseFont = [
+\b \cf6 UIFontDescriptor
+\b0 \cf0  
+\b preferredFontDescriptorWithTextStyle
+\b0 :
+\b \cf6 UIFontTextStyleBody
+\b0 \cf0 ];\
+      
+\b \cf6 UIFontDescriptor
+\b0 \cf0  *boldBase = [baseFont
+\b \cf6  \cf0 fontDescriptorWithSymbolicTraits
+\b0 :
+\b \cf6 UIFontDescriptorTraitBold
+\b0 \cf0 ];\
+      
+\b \cf6 UIFont
+\b0 \cf0  *labelFont = [
+\b \cf6 UIFont
+\b0 \cf0  
+\b fontWithDescriptor
+\b0 :boldBase 
+\b size
+\b0 :0];\
+      
+\b \cf5 self
+\b0 \cf0 .
+\b \cf5 label
+\b0 \cf0 .
+\b font
+\b0  = labelFont;\
+      \
+      [
+\b \cf5 self.
+\b0 \cf0 view 
+\b \cf14 setNeedsLayout
+\b0 \cf0 ]; 
+\b \cf18 // Calls \cf0 layoutSubviews\cf18  so the height can be re-calculated
+\b0 \cf0 \
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\f2\b\fs28 \cf3 Animated Presentation Transitions
+\f1\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Presenting a modal view without a customized transition
+\b0 \
+\
+-(
+\b \cf5 void
+\b0 \cf0 ) loginButtonTapped:(
+\b \cf5 id
+\b0 \cf0 ) sender\
+\{\
+     \cf6 LoginVC\cf0  *loginVC = [[\cf6 LoginVC alloc\cf0 ] \cf17 init\cf0 ];\
+     [\cf5 self\cf0  
+\b \cf14 presentViewController
+\b0 \cf0 :loginVC\
+	                       
+\b \cf19 animated
+\b0 \cf0 :YES\
+		    \cf11  
+\b \cf19 completion
+\b0 \cf0 :nil];\
+\}\
+\
+
+\b What do we need to do to customize?
+\b0 \
+1. Specify that the presentation should use a custom transition.\
+2. Adopt the Transitioning Delegate.\
+3. Create an Animated Transition class that will control the transition.\
+4. Implement the Transitioning Delegate.\
+5. Implement the Animation in the Animated Transition class.\
+\
+
+\b Step 1: Setup the custom modal presentation style
+\b0 \
+\
+in PathsViewController.m\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) loginButtonTapped:(
+\b \cf5 id
+\b0 \cf0 ) sender\
+\{\
+     \cf6 LoginVC\cf0  *loginVC = [[\cf6 LoginVC alloc\cf0 ] \cf17 init\cf0 ];\
+  \
+     loginVC.
+\b \cf19 modalPresentationStyle
+\b0 \cf0  = 
+\b \cf17 UIModalPresentationCustom
+\b0 \cf0 ;   \
+     loginVC.
+\b \cf19 transitioningDelegate
+\b0 \cf0  = 
+\b \cf5 self
+\b0 \cf0 ;\
+\
+     [
+\b \cf5 self
+\b0 \cf0  \cf17 presentViewController\cf0 :loginVC\
+	                       \cf17 animated\cf0 :YES\
+		    \cf11  completion\cf0 :nil];\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Note:
+\b0  Custom Transitions make heavy use of Protocols.\
+\
+
+\b Step 2: Adopt the Transition Delegate
+\b0 \
+\
+in PathsViewController.h\
+\
+
+\b \cf20 #import <Foundation/Foundation.h>
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  PathsViewController : 
+\b \cf14 UIViewController
+\b0 \cf0  <
+\b \cf17 UIViewControllerTransitioningDelegate
+\b0 \cf0 >\
+\'85\
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+The Transition Delegate defines which custom transitions should occur\
+\
+-(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+     
+\b \cf19 animationControllerForPresentedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presented\
+			   
+\b \cf19 presentingController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presenting\
+			          
+\b \cf19 sourceController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) source;\
+\
+The object (id) that is returned from this method must conform to the \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 UIViewControllerAnimatedTransitioning
+\b0  protocol, which will define how the transition animates.\
+\
+
+\b Step 3: Create an Animated Transition class
+\b0 \
+\
+in BouncyTransition.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 #import <Foundation/Foundation.h>
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  BouncyTransition : 
+\b \cf14 NSObject
+\b0 \cf0  <
+\b \cf17 UIViewControllerAnimatedTransitioning
+\b0 \cf0 >\
+\'85\
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+in BouncyTransition.m\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @implementation
+\b0 \cf0  BouncyTransition\
+-(
+\b \cf6 NSTimeInterval
+\b0 \cf0 ) transitionDuration:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+ 	
+\b \cf5 return
+\b0 \cf0  1.0f;\
+\}\
+\
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+    
+\b  Look At Step 5
+\b0 \
+\}\
+\
+Let\'92s create an instance of this class in the transitioning delegate\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Step 4: Implement The Transition Delegate
+\b0 \
+\
+in PathsViewController.m\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 #import <BouncyTransition.h>\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+     
+\b \cf19 animationControllerForPresentedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presented\
+			   
+\b \cf19 presentingController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presenting\
+			          
+\b \cf19 sourceController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) source \{\
+  \
+      
+\b \cf6 BouncyTransition
+\b0 \cf0  *transition = [[
+\b \cf6 BouncyTransition
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf5 init
+\b0 \cf0 ];\
+      
+\b \cf5 return
+\b0 \cf0  transition;\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Step 5: Implement The Animation
+\b0 \
+A. Insert the modal view into the \'93transition\'94 view hierarchy\
+B. Set the starting position of the modal view\
+C. Animate the modal view into position using UIView animations\
+D. Complete the transition\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 A. Insert the modal view into the \'93transition\'94 view hierarchy
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+    
+\b  \cf6 UIViewController
+\b0 \cf0  *toVC = [transitionContext\
+			          
+\b \cf19 viewControllerForKey
+\b0 \cf0 :UITransitionContext
+\b To
+\b0 ViewControllerKey];\
+\
+     
+\b \cf6 UIViewController
+\b0 \cf0  *fromVC = [transitionContext\
+			          
+\b \cf19 viewControllerForKey
+\b0 \cf0 :UITransitionContext
+\b From
+\b0 ViewControllerKey];\
+\
+     [[transitionContext 
+\b \cf5 containerView
+\b0 \cf0 ] 
+\b \cf19 addSubview
+\b0 \cf0 : toVC.view];\
+\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+The 
+\b \cf5 containerView
+\b0 \cf0  contains all the views in the transition\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 B. Set the starting position of the modal view before animating ( start position )
+\b0 \
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+	\'85\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0      
+\b \cf6 CGRect
+\b0 \cf0  fullFrame = [
+\b \cf14 transitionContext
+\b0 \cf0  
+\b \cf22 initialFrameForViewController
+\b0 \cf0 :fromVC];\
+     
+\b \cf6 CGFloat
+\b0 \cf0  height = 
+\b CGRectGetHeight
+\b0 (fullFrame);\
+\
+     toVC.view.
+\b \cf5 frame
+\b0 \cf0  = 
+\b \cf6 CGRectMake
+\b0 \cf0 ( fullFrame.origin.x + 20, 
+\b \cf8 // Move the x 20 points left
+\b0 \cf0 \
+				      height +16 + 20,  
+\b \cf8 // y = height + 36
+\b0 \cf0 \
+				      CGRectGetWidth ( fullFrame) - 40 ,  
+\b \cf8 // Width - 2*20
+\b0 \cf0 \
+				      height - 40  
+\b \cf8 // height - 40
+\b0 \cf0 \
+				     );\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 C. Animate the modal view into position using UIView animations ( end position )
+\b0 \
+\
+      [
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf22 animateWithDuration
+\b0 \cf0 :[
+\b \cf5 self
+\b0 \cf0  transitionDuration:transitionContext]\
+			        
+\b \cf22 delay
+\b0 \cf0 :0.0\
+	 
+\b \cf22 usingSpringWithDamping
+\b0 \cf0 :0.5f\
+                          
+\b \cf22 initialSpringVelocity
+\b0 \cf0 :0.6f\
+			    
+\b \cf22 options
+\b0 \cf0 :
+\b UIViewAnimationOptionCurveEaseInOut
+\b0 \
+                                         
+\b \cf22 animations
+\b0 \cf0 :^\{\
+				         \cf8  // 
+\b \cf8 toVC.view.frame = fullFrame; only if we wanted the fullFrame
+\b0 \cf0 \
+				          toVC.view.frame = 
+\b \cf6 CGRectMake
+\b0 \cf0 (20, 20,\
+								          
+\b \cf6 CGRectGetWidth
+\b0 \cf0 (fullFrame) - 40, \
+								          height - 40);\
+                                                                 \}\
+		             
+\b \cf22 completion
+\b0 \cf0 : nil\
+      ];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 D. Complete the transition
+\b0 \
+Instead of  
+\b \cf22 completion
+\b0 \cf0 : nil we will pass a completion Block\
+\
+ 
+\b \cf22 completion
+\b0 \cf0 : ^(
+\b \cf5 BOOL
+\b0 \cf0  finished) \{\
+    [transitionContext 
+\b \cf22 completeTransition
+\b0 \cf0 :YES];\
+\}\
+\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\f2\b\fs28 \cf3 Animated Dismissal Transitions
+\f1\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Plain Modal Dismissal
+\b0 \
+-(
+\b \cf14 IBAction
+\b0 \cf0 ) signIn:(
+\b \cf5 Id)
+\b0 \cf0 sender\
+\{\
+     [
+\b \cf5 self
+\b0 \cf0  
+\b \cf23 dismissViewControllerAnimated
+\b0 \cf0 :YES 
+\b \cf23 completion
+\b0 \cf0 :nil];\
+\}\
+\
+Dismisses the currently presented view controller\
+\
+
+\b Step to implementing the custom dismissal
+\b0 \
+1. Adopt the dismissal Transition Delegate Protocol.\
+2. Create an Animated Transition class for dismissal.\
+3. Implement the dismissal Transition Delegate method.\
+4. Implement the keyframe animation in the dismissal animated Transition class.\
+\
+
+\b Step 1: Adopt the dismissal Transition Delegate Protocol.
+\b0 \
+\
+in PathsViewController.m (Transition Delegate)\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 \ul This is for the Presentation
+\b0 \cf0 \ulnone \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+     
+\b \cf19 animationControllerForPresentedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presented\
+			   
+\b \cf19 presentingController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presenting\
+			          
+\b \cf19 sourceController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) source \{\
+  \
+      
+\b \cf6 BouncyTransition
+\b0 \cf0  *transition = [[
+\b \cf6 BouncyTransition
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf5 init
+\b0 \cf0 ];\
+      
+\b \cf5 return
+\b0 \cf0  transition;\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 \ul This is for the Dismissal
+\b0 \cf0 \ulnone \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+     
+\b \cf19 animationControllerForDismissedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) dismissed\
+\{\
+   
+\b   Look on step 3
+\b0 \
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Note: 
+\b0 Both transition objects conform to the same protocol.\
+\
+
+\b Step 2: Create dismissal animated transition class ( same setup as BouncyTransition )
+\b0 \
+\
+in TwoStepTransition.h\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 #import <Foundation/Foundation.h>
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  TwoStepTransition : 
+\b \cf14 NSObject
+\b0 \cf0  <
+\b \cf17 UIViewControllerAnimatedTransitioning
+\b0 \cf0 >\
+\'85\
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+in TwoStepTransition.m\
+\
+
+\b \cf5 @implementation
+\b0 \cf0  TwoStepTransition\
+-(
+\b \cf6 NSTimeInterval
+\b0 \cf0 ) transitionDuration:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+ 	
+\b \cf5 return
+\b0 \cf0  1.0f;\
+\}\
+\
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+    
+\b  Look At Step 4
+\b0 \
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Step 3: Implement the dismissal delegate method
+\b0 \
+\
+in PathsViewController.m ( Transition Delegate )\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 #import <TwoStepTransition.h>\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+-(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+     
+\b \cf19 animationControllerForPresentedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presented\
+			   
+\b \cf19 presentingController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presenting\
+			          
+\b \cf19 sourceController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) source \{\
+  \
+      
+\b \cf6 BouncyTransition
+\b0 \cf0  *transition = [[
+\b \cf6 BouncyTransition
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf5 init
+\b0 \cf0 ];\
+      
+\b \cf5 return
+\b0 \cf0  transition;\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+       
+\b \cf19 animationControllerForDismissedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) dismissed\
+\{\
+       
+\b \cf6 TwoStepTransition
+\b0 \cf0  *transition = [[
+\b \cf6 TwoStepTransition
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf5 init
+\b0 \cf0 ];\
+       
+\b \cf5 return
+\b0 \cf0  transition;	\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Step 4:Implement keyframe animations
+\b0 \
+\
+
+\b Note: 
+\b0 The \'93To\'94 and \'93From\'94 is flipped in dismissals\
+\
+in TwoStepTransition.m\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+    
+\b  Both the \'93to\'94 and \'93from\'94 views are already in the transitionContext\'92s containerView
+\b0 \
+\
+    
+\b \cf21 __block
+\b0 \cf0  
+\b \cf6 CGRect
+\b0 \cf0  presentedFrame = [
+\b \cf6 transitionContext
+\b0 \cf0  
+\b \cf17 initialFrameForViewController
+\b0 \cf0 :
+\b fromVC
+\b0 ];\
+     [
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf23 animateKeyframesWithDuration
+\b0 \cf0 :1.0f 
+\b \cf23 delay
+\b0 \cf0 :0.0 
+\b \cf23 options
+\b0 \cf0 :0 
+\b \cf23 animations
+\b0 \cf0 : ^\{\
+	[
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf23 addKeyframeWithRelativeStartTime
+\b0 \cf0 :0.0 
+\b \cf23 relativeDuration
+\b0 \cf0 :0.8 
+\b \cf23 animations
+\b0 \cf0 : ^\{\
+	        fromVC.
+\b \cf23 view
+\b0 \cf0 .
+\b \cf23 frame
+\b0 \cf0  = 
+\b \cf6 CGRectMake
+\b0 \cf0 (\
+					             presentedFrame.
+\b \cf23 origin.x
+\b0 \cf0 ,\
+					             
+\b \cf5 -20
+\b0 \cf0 ,\
+					             presentedFrame.
+\b \cf23 size.width
+\b0 \cf0 ,\
+					             presentedFrame.
+\b \cf23 size.height
+\b0 \cf0 );\
+	 \}];\
+\
+                [
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf24 addKeyframeWithRelativeStartTime
+\b0 \cf0 :0.8 
+\b \cf24 relativeDuration
+\b0 \cf0 :0.2 
+\b \cf24 animations
+\b0 \cf0 : ^\{\
+	        presentedFrame.
+\b \cf23 origin.y
+\b0 \cf0  += 
+\b \cf17 CGRectGetHeight
+\b0 \cf0 (presentedFrame) + 20;\
+	        fromVC.
+\b \cf23 view.frame
+\b0 \cf0  = presentedFrame;\
+	        fromVC.
+\b \cf23 view.transform
+\b0 \cf0  = 
+\b \cf17 CGAffineTransformMakeRotation
+\b0 \cf0 (0.2);\
+                 \}];\
+\
+       \} 
+\b \cf23 completion
+\b0 \cf0 : ^(
+\b \cf17 BOOL
+\b0 \cf0  finished) \{\
+               [transitionContext 
+\b \cf23 completeTransition
+\b0 \cf0 :YES];\
+          \}];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf21 __block
+\b0 \cf0  -> When modifying frame inside a Block you must declare it __block \
+	     (  
+\b presentedFrame
+\b0 .
+\b \cf24 origin.y
+\b0 \cf0  += 
+\b \cf17 CGRectGetHeight
+\b0 \cf0 (presentedFrame) + 20; )\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\f2\b\fs28 \cf3 Interactive Transitions
+\f1\b0\fs22 \cf0 \
+Takes advantage of powerful gesture recognizers\
+Allows the user to feel more in control of the transition experience.\
+\
+An Interactive Transition is made up of 2 parts:\
+1. Animated Transition\
+2. User Interaction \
+\
+Interaction doesn\'92t change the animation,It just defines how to \'93scrub\'94 through it.\
+\
+In Our Example: Allow the user to dismiss the LoginVC using a pan gesture from top to bottom.\
+		Tapping \'93Sign in\'94 should still dismiss the controller using the keyframe animation.\
+		we built in the Animated Transition.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 The 3 Phases of an Interactive Transition
+\b0 \
+1. Starting and Setting up\
+2. Update as interaction changes\
+3. Finish or Cancel the interactive transition\
+\
+
+\b\fs24 Step 1: Starting and Setting up
+\b0\fs22 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf5 A. Install gesture recognizer when modal finishes presenting
+\b0\fs22 \cf0 \
+\
+We need to install the gesture recognizer on the loginVC when the presentation finishes\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) loginButtonTapped:(
+\b \cf5 id
+\b0 \cf0 ) sender\
+\{\
+     \cf6 LoginVC\cf0  *loginVC = [[\cf6 LoginVC alloc\cf0 ] \cf17 init\cf0 ];\
+  \
+     loginVC.
+\b \cf19 modalPresentationStyle
+\b0 \cf0  = 
+\b \cf17 UIModalPresentationCustom
+\b0 \cf0 ;   \
+     loginVC.
+\b \cf19 transitioningDelegate
+\b0 \cf0  = 
+\b \cf5 self
+\b0 \cf0 ;\
+\
+     [
+\b \cf5 self
+\b0 \cf0  \cf17 presentViewController\cf0 :loginVC\
+	                       \cf17 animated\cf0 :YES\
+		   
+\b \cf16      //Instead of
+\b0 \cf11  completion\cf0 :nil\
+		        \cf11 completion\cf0 :^\{\
+	
+\b \cf6 UIPanGestureRecognizer
+\b0 \cf0  *
+\b gesture
+\b0 ;\
+	
+\b gesture
+\b0  = [[
+\b \cf6 UIPanGestureRecognizer
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf6 init
+\b0 \cf0 ];\
+	[
+\b gesture
+\b0  
+\b \cf14 addTarget
+\b0 \cf0 :self 
+\b \cf14 action
+\b0 \cf0 :
+\b \cf5 @selector
+\b0 \cf0 (handleGesture:)];\
+	[loginVC.view 
+\b \cf14 addGestureRecognizer\cf0 :gesture
+\b0 ];\
+     \}];\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+The gesture recognizer is added to LoginVC.view\
+But the method will be called in PathsViewController.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf5 B. When the gesture begins, start the transition by dismissing the view controller
+\b0\fs22 \cf0 \
+\
+Start dismissal when gesture begins\
+\
+in PathsViewController.m\
+\
+-(
+\b \cf5 void
+\b0 \cf0 ) handleGesture:(UIPanGestureRecognizer *) gesture\
+\{\
+     
+\b \cf5 switch
+\b0 \cf0   ( 
+\b gesture.\cf21 state
+\b0 \cf0 ) \{\
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateBegan:\{\
+	     
+\b \cf16 // Kicks off the dismissal transition
+\b0 \cf0 \
+	     [
+\b \cf5 self
+\b0 \cf0  
+\b \cf19 dismissViewControllerAnimated:
+\b0 \cf0 YES 
+\b \cf19 completion
+\b0 \cf0 :nil];\
+	     break;\
+	\} \
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateChanged: \{\'85\}\
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateEnded: \{\'85\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0      	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateCancelled: \{\'85\}\
+     \}\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf5 C. Return an Interactive transition object from the transition delegate
+\b0\fs22 \cf0 \
+\
+Return interactive object from delegate\
+\
+in PathsViewController.m\
+\
+-(
+\b \cf5 id
+\b0 \cf0  <
+\b UIViewControllerInteractiveTransitioning
+\b0 >)\
+        
+\b \cf14 interactionControllerForDismissal
+\b0 \cf0 :(
+\b \cf5 id
+\b0 \cf0 <
+\b UIViewControllerAnimatedTransitioning
+\b0 >) animator\
+\
+We need to return an object that conforms to the new interactive transitioning protocol\
+\
+Before we needed to implement the BouncyTransition and the twoStepTransition classed to conform the delegate.\
+\
+
+\b \cf5 UIKit
+\b0 \cf0  provides a class called 
+\b UIPercentDrivenInteractiveTransition
+\b0  that implements \
+the interactive transitioning protocol.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 EXAMPLE:
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 UIPercentDrivenInteractiveTransition\cf0  *transition = [[\cf6 UIPercentDrivenInteractiveTransition\cf0  \cf6 alloc\cf0 ] \cf6 init\cf0 ];\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf16 // Set the \'93scrubber\'94 position
+\b0 \cf0 \
+[
+\b transition
+\b0  
+\b \cf19 updateInteractiveTransition
+\b0 \cf0 :percentComplete];\
+\
+
+\b \cf16 // Finish the transition
+\b0 \cf0 \
+[
+\b transition
+\b0  
+\b \cf14 finishInteractiveTransition
+\b0 \cf0 ];\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf16 // Cancel the transition
+\b0 \cf0 \
+[
+\b transition
+\b0  
+\b \cf14 cancelInteractiveTransition
+\b0 \cf0 ];\
+\
+SO In PathsViewController.m\
+\
+-(
+\b \cf5 id
+\b0 \cf0  <
+\b UIViewControllerInteractiveTransitioning
+\b0 >)\
+        
+\b \cf14 interactionControllerForDismissal
+\b0 \cf0 :(
+\b \cf5 id
+\b0 \cf0 <
+\b UIViewControllerAnimatedTransitioning
+\b0 >) animator\
+\{\
+      
+\b \cf6 UIPercentDrivenInteractiveTransition\cf0  *transition = [[\cf6 UIPercentDrivenInteractiveTransition\cf0  \cf6 alloc\cf0 ] \cf6 init\cf0 ];\
+      \cf5 return\cf0  transition;
+\b0 \
+\}\
+\
+
+\b\fs24 Step 2: Update as interaction changes
+\fs22 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 Calculate a number between 0 and 1 based on gesture changes and update the interactive transition\
+\
+We need to Update the interactive transition object as finger pans\
+[
+\b transition
+\b0  
+\b \cf19 updateInteractiveTransition
+\b0 \cf0 :0.0];\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 [
+\b transition
+\b0  
+\b \cf19 updateInteractiveTransition
+\b0 \cf0 :0.129];\
+[
+\b transition
+\b0  
+\b \cf19 updateInteractiveTransition
+\b0 \cf0 :0.22];\
+[
+\b transition
+\b0  
+\b \cf19 updateInteractiveTransition
+\b0 \cf0 :0.345];\
+\
+Sets the timing of the animated transition.\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 For Example:
+\b0 \
+0.0 \'97> Animation at starting position\
+0.5 \'97> Animation halfway through\
+\
+in PathsViewController.m\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) handleGesture:(UIPanGestureRecognizer *) gesture\
+\{\
+     
+\b \cf5 switch
+\b0 \cf0   ( 
+\b gesture.\cf21 state
+\b0 \cf0 ) \{\
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateBegan:\{\
+	     
+\b \cf16 // Kicks off the dismissal transition
+\b0 \cf0 \
+	     [
+\b \cf5 self
+\b0 \cf0  
+\b \cf19 dismissViewControllerAnimated:
+\b0 \cf0 YES 
+\b \cf19 completion
+\b0 \cf0 :nil];\
+	     break;\
+	\} \
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateChanged: \{\
+	     
+\b \cf6 UIView
+\b0 \cf0  *view = gesture.
+\b \cf6 view
+\b0 \cf0 .
+\b \cf23 superview
+\b0 \cf0 ; 
+\b \cf16 // Will return the transition context containerView
+\b0 \cf0 \
+	     
+\b \cf6 CGPoint
+\b0 \cf0  
+\b translation
+\b0  = [gesture 
+\b \cf19 translationInView
+\b0 \cf0 :view];\
+	     
+\b \cf6 CGFloat
+\b0 \cf0  
+\b \cf5 percentTransitioned
+\b0 \cf0  = ( 
+\b translation
+\b0 .y / (CGRectGetHeight (
+\b \cf6 view
+\b0 \cf0 .
+\b \cf23 frame
+\b0 \cf0 )) );\
+	     [
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0  updateInteractiveTransition: 
+\b \cf5 percentTransitioned
+\b0 \cf0 ];\
+ 	     break;\
+         	\}\
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateEnded: \{\'85\}\
+     	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateCancelled: \{\'85\}\
+     \}\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 2 Problems are:
+\b0 \
+We need to figure out what number to pass into the updateInteractiveTransition\
+How do we access the transition object that we created in the InteractiveTransition delegate ?\
+\
+
+\b Solutions:
+\b0 \
+In PathsViewController.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  PathsViewController : 
+\b \cf14 UIViewController
+\b0 \cf0  <
+\b \cf17 UIViewControllerTransitioningDelegate
+\b0 \cf0 >\
+
+\b \cf23 @Property
+\b0 \cf0  (
+\b \cf23 strong
+\b0 \cf0 , 
+\b \cf23 nonatomic
+\b0 \cf0 ) 
+\b \cf6 UIPercentDrivenInteractiveTransition
+\b0 \cf0  *
+\b myInteractiveDismissal
+\b0 ;\
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+In PathsViewController.m\
+\
+-(
+\b \cf5 id
+\b0 \cf0  <
+\b UIViewControllerInteractiveTransitioning
+\b0 >)\
+        
+\b \cf14 interactionControllerForDismissal
+\b0 \cf0 :(
+\b \cf5 id
+\b0 \cf0 <
+\b UIViewControllerAnimatedTransitioning
+\b0 >) animator\
+\{\
+      
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0  = [[
+\b \cf6 UIPercentDrivenInteractiveTransition
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf6 init
+\b0 \cf0 ];\
+      
+\b \cf23 return
+\b0 \cf0  
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0 ;\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 NOW WE CAN ACCESS THE TRANSITION OBJECT FROM ANY METHOD
+\b0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf0 Step 3: Finish or Cancel the interactive transition
+\b0\fs22 \
+Finish -> View Continues its animation off the screen\
+Cancel -> View Reverses direction and returns to its starting position\
+\
+-(
+\b \cf5 void
+\b0 \cf0 ) handleGesture:(UIPanGestureRecognizer *) gesture\
+\{\
+     
+\b \cf5 switch
+\b0 \cf0   ( 
+\b gesture.\cf21 state
+\b0 \cf0 ) \{\
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateBegan:\{\
+	  \{\'85\}\
+	\} \
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateChanged: \{\
+	     
+\b \cf6 \{\'85\}
+\b0 \cf0 \
+	     [
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0  updateInteractiveTransition: 
+\b \cf5 percentTransitioned
+\b0 \cf0 ];\
+ 	     break;\
+         	\}\
+	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateEnded: \{\
+	     If(
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0 .
+\b \cf23 percentComplete
+\b0 \cf0  > 0.25) \{\
+	         [
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0  
+\b \cf23 finishInteractiveTransition
+\b0 \cf0 ];\
+	     \} else \{\
+	         [
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0  
+\b \cf23 cancelInteractiveTransition
+\b0 \cf0 ];\
+	     \}\
+               \}\
+     	
+\b \cf5 case
+\b0 \cf0  UIGestureRecognizerStateCancelled: \{\
+    	      
+\b \cf20 // Just in case the gesture is disabled somewhere else in the code
+\b0 \cf0 \
+	     [
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0  
+\b \cf23 cancelInteractiveTransition
+\b0 \cf0 ];\
+	\}\
+     \}\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+NOTE: But Now we are still using the TwoStepTransition inside our interactive one.\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \
+
+\fs24 Fix#1 Create a new Animated Transition class
+\b0  
+\fs22 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 SimpleAnimatedDismissal.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  SimpleAnimatedDismissal : 
+\b \cf23 NSObject
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >\
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 SimpleAnimatedDismissal.m\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @implementation
+\b0 \cf0  SimpleAnimatedDismissal\
+-(
+\b \cf7 NSTimeInterval
+\b0 \cf0 ) transitionDuration:(
+\b \cf23 id
+\b0 \cf0 <
+\b \cf25 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+	
+\b \cf23 return
+\b0 \cf0  1.0f;\
+\}\
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Create the \cf5 from\cf0  animation for the new Animated Transition class
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @implementation
+\b0 \cf0  SimpleAnimatedDismissal\
+-(
+\b \cf5 void
+\b0 \cf0 )animateTransition:(
+\b \cf23 id
+\b0 \cf0 <
+\b UIViewControllerContextTransitioning
+\b0 >) transitionContext\
+\{\
+      
+\b \cf6 UIViewController
+\b0 \cf0  *fromVC = [transitionContext 
+\b \cf19 viewControllerForKey
+\b0 \cf0 :
+\b UITransitionContextFromViewControllerKey
+\b0 ];\
+      
+\b \cf6 CGRect
+\b0 \cf0  initialFrame = fromVC.
+\b \cf6 view
+\b0 \cf0 .
+\b \cf23 frame
+\b0 \cf0 ; 
+\b \cf20 // Get the current frame of the modal view
+\b0 \cf0 \
+      
+\b \cf6 CGRect
+\b0 \cf0  finalFrame = CGRectMake( initialFrame.
+\b origin.x
+\b0 ,      
+\b \cf20 // Make new frame located off bottom of the screen
+\b0 \cf0 \
+				           initialFrame.
+\b size.height
+\b0  + 16,\
+				           initialFrame.
+\b size.width
+\b0 ,\
+			       	           initialFrame.
+\b size.height
+\b0  );\
+      
+\b \cf6 UIViewAnimationOptions
+\b0 \cf0  opts = 
+\b UIViewAnimationOptionCurveLinear
+\b0 ;\
+      [
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf19 animatedWithDuration
+\b0 \cf0 :1.0 
+\b \cf19 delay
+\b0 \cf0 :0 
+\b \cf19 options
+\b0 \cf0 :opts 
+\b \cf19 animations
+\b0 \cf0 :^\{  
+\b \cf20 //Animate the modal view to the frame off the bottom of screen with linear curve
+\b0 \cf0 \
+	fromVC.
+\b \cf6 view
+\b0 \cf0 .
+\b \cf24 frame
+\b0 \cf0  = finalFrame;\
+       \} 
+\b \cf19 completion:
+\b0 \cf0 ^(
+\b \cf23 BOOL
+\b0 \cf0  finished) \{\
+               [transitionContext 
+\b \cf19 completeTransition
+\b0 \cf0 :YES];\
+       \}]; \
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf0 Fix#2 Add a BOOL interactive property to the controller
+\fs22 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 In PathsViewController.h\
+
+\b \cf5 @interface
+\b0 \cf0  PathsViewController : 
+\b \cf14 UIViewController
+\b0 \cf0  <
+\b \cf17 UIViewControllerTransitioningDelegate
+\b0 \cf0 >\
+\cf25 @Property (strong, nonatomic) UIPercentDrivenInteractiveTransition *myInteractiveDismissal;\cf0 \
+
+\b \cb26 @Property (assign, nonatomic) BOOL interactive;
+\b0 \cb1 \
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+Then in PathsViewController.m\
+-(
+\b \cf5 void
+\b0 \cf0 ) handleGesture:(UIPanGestureRecognizer *) gesture\
+\{\
+     \cf5 switch\cf0   ( gesture.\cf21 state\cf0 ) \{\
+	\cf5 case\cf0  UIGestureRecognizerStateBegan:\{\
+	   \cb26    
+\b \cf5 self
+\b0 \cf0 .
+\b interactive
+\b0  = YES;\cb1 \
+	     
+\b \cf16 // Kicks off the dismissal transition
+\b0 \cf0 \
+	     [\cf5 self\cf0  \cf19 dismissViewControllerAnimated:\cf0 YES \cf19 completion\cf0 :nil];\
+	     break;\
+	\} \
+     \}\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf0 Fix#3 Modify the animated transition delegate Method
+\b0\fs22 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 In PathsViewController.m\
+\
+-(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+       
+\b \cf19 animationControllerForDismissedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) dismissed\
+\{\
+       
+\b \cf23 id
+\b0 \cf0 <
+\b UIViewControllerAnimatedTransitioning
+\b0 > 
+\b \cf21 transition
+\b0 \cf0 ;\
+\
+       if (
+\b \cf23 self
+\b0 \cf0 .interactive) \{\
+	
+\b \cf21 transition
+\b0 \cf0  = [[
+\b \cf6 SimpleAnimatedDismissal
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf5 init
+\b0 \cf0 ]\
+       \} else \{\
+	
+\b \cf21 transition
+\b0 \cf0  = [[
+\b \cf6 TwoStepTransition
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf5 init
+\b0 \cf0 ];\
+       \}\
+       
+\b \cf5 return
+\b0 \cf0  
+\b \cf21 transition
+\b0 \cf0 ;	\
+\}\
+\
+-(
+\b \cf5 id
+\b0 \cf0  <
+\b UIViewControllerInteractiveTransitioning
+\b0 >)\
+        
+\b \cf14 interactionControllerForDismissal
+\b0 \cf0 :(
+\b \cf5 id
+\b0 \cf0 <
+\b UIViewControllerAnimatedTransitioning
+\b0 >) animator\
+\{\
+      
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0  = [[
+\b \cf6 UIPercentDrivenInteractiveTransition
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf6 init
+\b0 \cf0 ];\
+      
+\b \cf24 return
+\b0 \cf0  
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0 ;\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 Problem: Canceling a transition is still removing the modal view from the view hierarchy
+\b0 \cf0 \
+\
+When to call completeTransition:YES\
+[transitionContext 
+\b \cf23 completeTransition
+\b0 \cf0 :YES]\
+\
+The BOOL argument to completeTransition: tells the transition system\
+whether the transition finished or was cancelled\
+\
+Since interactive transitions can be cancelled, we have to make sure we are passing the correct BOOL.\
+[
+\b transitionContext
+\b0  
+\b \cf23 completeTransition
+\b0 \cf0 : 
+\b !
+\b0 [
+\b transitionContext
+\b0  
+\b \cf23 transitionWasCancelled
+\b0 \cf0 ]];\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf23 transitionWasCancelled
+\b0 \cf0  \'97> Returns YES if the transition was cancelled so make sure to include \
+			        the negation operator - !\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @implementation
+\b0 \cf0  SimpleAnimatedDismissal\
+-(
+\b \cf5 void
+\b0 \cf0 )animateTransition:(
+\b \cf24 id
+\b0 \cf0 <
+\b UIViewControllerContextTransitioning
+\b0 >) transitionContext\
+\{\
+      
+\b \cf6 UIViewController
+\b0 \cf0  *fromVC = [transitionContext 
+\b \cf19 viewControllerForKey
+\b0 \cf0 :
+\b UITransitionContextFromViewControllerKey
+\b0 ];\
+      
+\b \cf6 CGRect
+\b0 \cf0  initialFrame = fromVC.
+\b \cf6 view
+\b0 \cf0 .
+\b \cf24 frame
+\b0 \cf0 ; 
+\b \cf20 // Get the current frame of the modal view
+\b0 \cf0 \
+      
+\b \cf6 CGRect
+\b0 \cf0  finalFrame = CGRectMake( initialFrame.
+\b origin.x
+\b0 ,      
+\b \cf20 // Make new frame located off bottom of the screen
+\b0 \cf0 \
+				           initialFrame.
+\b size.height
+\b0  + 16,\
+				           initialFrame.
+\b size.width
+\b0 ,\
+			       	           initialFrame.
+\b size.height
+\b0  );\
+      
+\b \cf6 UIViewAnimationOptions
+\b0 \cf0  opts = 
+\b UIViewAnimationOptionCurveLinear
+\b0 ;\
+      [
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf19 animatedWithDuration
+\b0 \cf0 :1.0 
+\b \cf19 delay
+\b0 \cf0 :0 
+\b \cf19 options
+\b0 \cf0 :opts 
+\b \cf19 animations
+\b0 \cf0 :^\{  
+\b \cf20 //Animate the modal view to the frame off the bottom of screen with linear curve
+\b0 \cf0 \
+	fromVC.
+\b \cf6 view
+\b0 \cf0 .
+\b \cf24 frame
+\b0 \cf0  = finalFrame;\
+       \} 
+\b \cf19 completion:
+\b0 \cf0 ^(
+\b \cf24 BOOL
+\b0 \cf0  finished) \{\
+               [transitionContext 
+\b \cf19 completeTransition
+\b0 \cf0 : \cb26 ![transitionContext 
+\b transitionWasCancelled
+\b0 ]\cb1 ];\
+       \}]; \
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 Problem : The Two Step keyframe animated transition has stopped working
+\b0 \cf0 \
+\
+Fixing the Two Step keyframe animated transition\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 id
+\b0 \cf0  <
+\b UIViewControllerInteractiveTransitioning
+\b0 >)\
+        
+\b \cf14 interactionControllerForDismissal
+\b0 \cf0 :(
+\b \cf5 id
+\b0 \cf0 <
+\b UIViewControllerAnimatedTransitioning
+\b0 >) animator\
+\{\
+     \cb26  if (self.interactive) \cb1 \{\
+           
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0  = [[
+\b \cf6 UIPercentDrivenInteractiveTransition
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf6 init
+\b0 \cf0 ];\
+           
+\b \cf24 return
+\b0 \cf0  
+\b \cf5 self
+\b0 \cf0 .
+\b myInteractiveDismissal
+\b0 ;\
+      \}\
+      
+\b \cf23 return
+\b0 \cf0  
+\b \cf5 nil
+\b0 \cf0 ; 
+\b \cf20 // Return nil so the current dismissal isn\'92t automatically an interactive transition
+\b0 \cf0 \
+\}\
+\
+To turn interactive \'93OFF\'94 for the animated keyframe transition, we need to return nil from this delegate method.\
+\
+Last thing Reset self.interactive when the dismissal completes\
+If we don\'92t reset self.interactive after the dismissal completes, \
+the next time we go to dismiss with an animated transition the interactive transition will run.\
+\
+-(
+\b \cf5 void
+\b0 \cf0 ) handleGesture:(UIPanGestureRecognizer *) gesture\
+\{\
+     \cf5 switch\cf0   ( gesture.\cf21 state\cf0 ) \{\
+	\cf5 case\cf0  UIGestureRecognizerStateBegan:\{\
+	      
+\b \cf5 self
+\b0 \cf0 .
+\b interactive
+\b0  = YES;\
+	     
+\b \cf16 // Kicks off the dismissal transition
+\b0 \cf0 \
+	     [\cf5 self\cf0  \cf19 dismissViewControllerAnimated:\cf0 YES \cf19 completion\cf0 :^\{\
+		
+\b \cf5 \cb26 self
+\b0 \cf0 .
+\b interactive
+\b0  = NO;\cb1 \
+                    \}];\
+	     break;\
+	\} \
+     \}\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf0 Polishing your Transitions
+\b0\fs22 \
+1. Use gesture velocity to allow the dismissal to finish by \'93throwing\'94 the modal down\
+2. Subclass UIPercentDrivenInteractiveTransition and 
+\b combine
+\b0  with the Animated Transition used during interactive.\
+3. Create a separate Transitioning Delegate class instead of overloading the presenting view controller.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\f2\b\fs28 \cf3 Simple UIKit Dynamics
+\f1\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 What is UIKit Dynamics?
+\b0 \
+A new framework for adding real-world-like physics to view objects\
+Describe the types of physical behaviors a view should adopt\
+and let the physics system control how they animate.\
+\
+
+\b Start by creating a UIDynamicAnimator object
+\b0 \
+ViewController.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @property
+\b0 \cf0  (
+\b \cf23 strong
+\b0 \cf0 , 
+\b \cf23 nonatomic
+\b0 \cf0 ) 
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  *animator;  
+\b \cf20 //must be a strong property
+\b0 \cf0 \
+\
+ViewController.m\
+-(
+\b \cf5 void
+\b0 \cf0 ) viewDidLoad\
+\{\
+     [
+\b \cf5 super
+\b0 \cf0  
+\b \cf6 viewDidLoad
+\b0 \cf0 ];\
+     
+\b \cf5 self
+\b0 \cf0 .
+\b \cf6 animator
+\b0 \cf0  = [[
+\b \cf6 UIDynamicAnimator alloc
+\b0 \cf0 ] 
+\b \cf25 initWithReferenceView
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .
+\b \cf6 view
+\b0 \cf0 ];\
+\}\
+\
+the
+\b  reference view
+\b0  is usually a 
+\b container
+\b0 , while subviews are the things to be animated.\
+\
+Once you have an animator, you simply add behaviors to it to start the animations.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf17 \ul UIGravityBehavior
+\b0\fs22 \cf0 \ulnone \
+Set a gravity direction and your views will automatically animate towards it\
+\
+
+\b\fs24 \cf17 \ul UICollisionBehavior
+\b0\fs22 \cf0 \ulnone \
+Create boundaries that stop motion once a view tries to cross them\
+\
+
+\b\fs24 \cf17 \ul UIPushBehavior
+\b0\fs22 \cf0 \ulnone \
+Apply a force to a view to move it in a specific direction\
+\
+
+\b\fs24 \cf17 \ul UISnapBehavior
+\b0\fs22 \cf0 \ulnone \
+Set an arbitrary point where a view should move and it will snap into place\
+\
+
+\b\fs24 \cf17 \ul UIAttachmentBehavior
+\b0\fs22 \cf0 \ulnone \
+Attach one view to an arbitrary point or other view\
+Can be linked to the tap position during a gesture.\
+\
+
+\b\fs24 \cf17 \ul UIDynamicItemBehavior
+\b0\fs22 \cf0 \ulnone \
+A generic behavior class that controls some of the underlying physical properties of a view\
+density\
+velocity (linear and angular)\
+elasticity\
+friction\
+resistance\
 \
 \
 \
