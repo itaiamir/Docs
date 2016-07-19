@@ -5,8 +5,8 @@
 \red0\green0\blue255;\red0\green186\blue251;\red71\green204\blue252;\red102\green177\blue50;\red255\green0\blue0;
 \red0\green255\blue0;\red198\green50\blue253;\red160\green114\blue253;\red114\green44\blue253;\red0\green145\blue206;
 \red74\green0\blue230;\red85\green142\blue40;\red174\green0\blue240;\red63\green105\blue30;\red0\green121\blue165;
-\red153\green102\blue51;\red255\green0\blue255;\red133\green0\blue175;\red128\green0\blue128;\red128\green0\blue128;
-\red0\green0\blue0;\red255\green255\blue0;}
+\red153\green102\blue51;\red255\green0\blue255;\red133\green0\blue175;\red128\green0\blue128;\red255\green255\blue0;
+\red128\green0\blue128;\red0\green0\blue0;}
 \paperw11900\paperh16840\vieww20420\viewh26200\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -17,7 +17,6 @@
 \i\fs22 \cf2 \ulnone \
 
 \i0\fs28 \cf3 Changing The display contrast of the status bar\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b0\fs22 \cf0 in a View controller:\
 -(
@@ -29,12 +28,12 @@
 \b0 \cf0 UIStatusBarStyleLightContent;\
 \}\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b\fs28 \cf3 Creating content subview to avoid status bar
 \b0\fs22 \cf0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 In ViewController.h\
+\pard\pardeftab720\partightenfactor0
 
 \b \cf5 @property
 \b0 \cf0  (
@@ -1142,8 +1141,7 @@ Traits can be added to text styles Like Bold, Italic etc.\
 \
 in PathsViewController.m\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) loginButtonTapped:(
 \b \cf5 id
@@ -1168,11 +1166,9 @@ in PathsViewController.m\
 	                       \cf17 animated\cf0 :YES\
 		    \cf11  completion\cf0 :nil];\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\
 
-\b \cf0 Note:
+\b Note:
 \b0  Custom Transitions make heavy use of Protocols.\
 \
 
@@ -1181,6 +1177,7 @@ in PathsViewController.m\
 \
 in PathsViewController.h\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf20 #import <Foundation/Foundation.h>
 \b0 \cf0 \
@@ -1251,7 +1248,6 @@ in BouncyTransition.h\
 \b0 \cf0 \
 \
 in BouncyTransition.m\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 @implementation
 \b0 \cf0  BouncyTransition\
@@ -1296,8 +1292,7 @@ in PathsViewController.m\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b0 \cf0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf21 id
 \b0 \cf0  <
 \b UIViewControllerAnimatedTransitioning
@@ -1331,8 +1326,7 @@ in PathsViewController.m\
 \b \cf5 return
 \b0 \cf0  transition;\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
+\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf0 Step 5: Implement The Animation
@@ -1342,14 +1336,11 @@ B. Set the starting position of the modal view\
 C. Animate the modal view into position using UIView animations\
 D. Complete the transition\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf0 A. Insert the modal view into the \'93transition\'94 view hierarchy
+\b A. Insert the modal view into the \'93transition\'94 view hierarchy
 \b0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+\
+-(
 \b \cf5 void
 \b0 \cf0 ) animateTransition:(
 \b \cf5 id
@@ -1382,15 +1373,13 @@ D. Complete the transition\
 \b0 \cf0 : toVC.view];\
 \
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
+\
 The 
 \b \cf5 containerView
 \b0 \cf0  contains all the views in the transition\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf0 B. Set the starting position of the modal view before animating ( start position )
+\b B. Set the starting position of the modal view before animating ( start position )
 \b0 \
 -(
 \b \cf5 void
@@ -1401,8 +1390,7 @@ The
 \b0 \cf0 >) transitionContext\
 \{\
 	\'85\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0      
+     
 \b \cf6 CGRect
 \b0 \cf0  fullFrame = [
 \b \cf14 transitionContext
@@ -1433,9 +1421,8 @@ The
 \b0 \cf0 \
 				     );\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf0 C. Animate the modal view into position using UIView animations ( end position )
+\b C. Animate the modal view into position using UIView animations ( end position )
 \b0 \
 \
       [
@@ -1463,7 +1450,7 @@ The
 \b \cf22 animations
 \b0 \cf0 :^\{\
 				         \cf8  // 
-\b \cf8 toVC.view.frame = fullFrame; only if we wanted the fullFrame
+\b toVC.view.frame = fullFrame; only if we wanted the fullFrame
 \b0 \cf0 \
 				          toVC.view.frame = 
 \b \cf6 CGRectMake
@@ -1479,9 +1466,8 @@ The
       ];\
 \}\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf0 D. Complete the transition
+\b D. Complete the transition
 \b0 \
 Instead of  
 \b \cf22 completion
@@ -1542,8 +1528,7 @@ in PathsViewController.m (Transition Delegate)\
 
 \b \cf5 \ul This is for the Presentation
 \b0 \cf0 \ulnone \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf21 id
 \b0 \cf0  <
 \b UIViewControllerAnimatedTransitioning
@@ -1578,12 +1563,10 @@ in PathsViewController.m (Transition Delegate)\
 \b0 \cf0  transition;\
 \}\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 \ul This is for the Dismissal
 \b0 \cf0 \ulnone \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf21 id
 \b0 \cf0  <
 \b UIViewControllerAnimatedTransitioning
@@ -1706,10 +1689,8 @@ in PathsViewController.m ( Transition Delegate )\
 \b \cf5 return
 \b0 \cf0  transition;\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+\
+-(
 \b \cf21 id
 \b0 \cf0  <
 \b UIViewControllerAnimatedTransitioning
@@ -1745,8 +1726,7 @@ in PathsViewController.m ( Transition Delegate )\
 \
 in TwoStepTransition.m\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) animateTransition:(
 \b \cf5 id
@@ -1813,11 +1793,11 @@ in TwoStepTransition.m\
                 [
 \b \cf6 UIView
 \b0 \cf0  
-\b \cf24 addKeyframeWithRelativeStartTime
+\b \cf23 addKeyframeWithRelativeStartTime
 \b0 \cf0 :0.8 
-\b \cf24 relativeDuration
+\b \cf23 relativeDuration
 \b0 \cf0 :0.2 
-\b \cf24 animations
+\b \cf23 animations
 \b0 \cf0 : ^\{\
 	        presentedFrame.
 \b \cf23 origin.y
@@ -1852,7 +1832,7 @@ in TwoStepTransition.m\
 	     (  
 \b presentedFrame
 \b0 .
-\b \cf24 origin.y
+\b \cf23 origin.y
 \b0 \cf0  += 
 \b \cf17 CGRectGetHeight
 \b0 \cf0 (presentedFrame) + 20; )\
@@ -1882,8 +1862,9 @@ In Our Example: Allow the user to dismiss the LoginVC using a pan gesture from t
 2. Update as interaction changes\
 3. Finish or Cancel the interactive transition\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b\fs24 Step 1: Starting and Setting up
+\b\fs24 \cf0 Step 1: Starting and Setting up
 \b0\fs22 \
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
@@ -1892,8 +1873,7 @@ In Our Example: Allow the user to dismiss the LoginVC using a pan gesture from t
 \
 We need to install the gesture recognizer on the loginVC when the presentation finishes\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) loginButtonTapped:(
 \b \cf5 id
@@ -1948,12 +1928,10 @@ We need to install the gesture recognizer on the loginVC when the presentation f
 \b0 ];\
      \}];\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
+\
 The gesture recognizer is added to LoginVC.view\
 But the method will be called in PathsViewController.\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b\fs24 \cf5 B. When the gesture begins, start the transition by dismissing the view controller
 \b0\fs22 \cf0 \
@@ -1992,14 +1970,12 @@ in PathsViewController.m\
 	
 \b \cf5 case
 \b0 \cf0  UIGestureRecognizerStateEnded: \{\'85\}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0      	
+     	
 \b \cf5 case
 \b0 \cf0  UIGestureRecognizerStateCancelled: \{\'85\}\
      \}\
 \}\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b\fs24 \cf5 C. Return an Interactive transition object from the transition delegate
 \b0\fs22 \cf0 \
@@ -2025,6 +2001,7 @@ We need to return an object that conforms to the new interactive transitioning p
 \
 Before we needed to implement the BouncyTransition and the twoStepTransition classed to conform the delegate.\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 UIKit
 \b0 \cf0  provides a class called 
@@ -2061,7 +2038,6 @@ the interactive transitioning protocol.\
 \b \cf14 finishInteractiveTransition
 \b0 \cf0 ];\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf16 // Cancel the transition
 \b0 \cf0 \
@@ -2092,8 +2068,9 @@ SO In PathsViewController.m\
 \b0 \
 \}\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b\fs24 Step 2: Update as interaction changes
+\b\fs24 \cf0 Step 2: Update as interaction changes
 \fs22 \
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
@@ -2105,8 +2082,7 @@ We need to Update the interactive transition object as finger pans\
 \b0  
 \b \cf19 updateInteractiveTransition
 \b0 \cf0 :0.0];\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 [
+[
 \b transition
 \b0  
 \b \cf19 updateInteractiveTransition
@@ -2132,8 +2108,7 @@ Sets the timing of the animated transition.\
 \
 in PathsViewController.m\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) handleGesture:(UIPanGestureRecognizer *) gesture\
 \{\
@@ -2205,9 +2180,8 @@ in PathsViewController.m\
      \}\
 \}\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf0 2 Problems are:
+\b 2 Problems are:
 \b0 \
 We need to figure out what number to pass into the updateInteractiveTransition\
 How do we access the transition object that we created in the InteractiveTransition delegate ?\
@@ -2224,6 +2198,7 @@ In PathsViewController.h\
 \b0 \cf0  <
 \b \cf17 UIViewControllerTransitioningDelegate
 \b0 \cf0 >\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf23 @Property
 \b0 \cf0  (
@@ -2235,6 +2210,7 @@ In PathsViewController.h\
 \b0 \cf0  *
 \b myInteractiveDismissal
 \b0 ;\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 @end
 \b0 \cf0 \
@@ -2358,19 +2334,18 @@ Cancel -> View Reverses direction and returns to its starting position\
 	\}\
      \}\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
+\
 NOTE: But Now we are still using the TwoStepTransition inside our interactive one.\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\fs24 Fix#1 Create a new Animated Transition class
+\fs24 \cf0 Fix#1 Create a new Animated Transition class
 \b0  
 \fs22 \
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 SimpleAnimatedDismissal.h\
+SimpleAnimatedDismissal.h\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 @interface
@@ -2383,9 +2358,7 @@ NOTE: But Now we are still using the TwoStepTransition inside our interactive on
 \b \cf5 @end
 \b0 \cf0 \
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 SimpleAnimatedDismissal.m\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
+SimpleAnimatedDismissal.m\
 
 \b \cf5 @implementation
 \b0 \cf0  SimpleAnimatedDismissal\
@@ -2394,8 +2367,8 @@ NOTE: But Now we are still using the TwoStepTransition inside our interactive on
 \b0 \cf0 ) transitionDuration:(
 \b \cf23 id
 \b0 \cf0 <
-\b \cf25 UIViewControllerContextTransitioning
-\b0 \cf0 >) transitionContext\
+\b UIViewControllerContextTransitioning
+\b0 >) transitionContext\
 \{\
 	
 \b \cf23 return
@@ -2474,7 +2447,7 @@ NOTE: But Now we are still using the TwoStepTransition inside our interactive on
 	fromVC.
 \b \cf6 view
 \b0 \cf0 .
-\b \cf24 frame
+\b \cf23 frame
 \b0 \cf0  = finalFrame;\
        \} 
 \b \cf19 completion:
@@ -2494,8 +2467,8 @@ NOTE: But Now we are still using the TwoStepTransition inside our interactive on
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b0 \cf0 \
+In PathsViewController.h\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 In PathsViewController.h\
 
 \b \cf5 @interface
 \b0 \cf0  PathsViewController : 
@@ -2503,10 +2476,12 @@ NOTE: But Now we are still using the TwoStepTransition inside our interactive on
 \b0 \cf0  <
 \b \cf17 UIViewControllerTransitioningDelegate
 \b0 \cf0 >\
-\cf25 @Property (strong, nonatomic) UIPercentDrivenInteractiveTransition *myInteractiveDismissal;\cf0 \
+@Property (strong, nonatomic) UIPercentDrivenInteractiveTransition *myInteractiveDismissal;\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cb26 @Property (assign, nonatomic) BOOL interactive;
+\b \cf0 \cb24 @Property (assign, nonatomic) BOOL interactive;
 \b0 \cb1 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf5 @end
 \b0 \cf0 \
@@ -2518,7 +2493,7 @@ Then in PathsViewController.m\
 \{\
      \cf5 switch\cf0   ( gesture.\cf21 state\cf0 ) \{\
 	\cf5 case\cf0  UIGestureRecognizerStateBegan:\{\
-	   \cb26    
+	   \cb24    
 \b \cf5 self
 \b0 \cf0 .
 \b interactive
@@ -2531,14 +2506,12 @@ Then in PathsViewController.m\
 	\} \
      \}\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
+\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b\fs24 \cf0 Fix#3 Modify the animated transition delegate Method
 \b0\fs22 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 In PathsViewController.m\
+In PathsViewController.m\
 \
 -(
 \b \cf21 id
@@ -2614,7 +2587,7 @@ Then in PathsViewController.m\
 \b \cf6 init
 \b0 \cf0 ];\
       
-\b \cf24 return
+\b \cf23 return
 \b0 \cf0  
 \b \cf5 self
 \b0 \cf0 .
@@ -2661,7 +2634,7 @@ Since interactive transitions can be cancelled, we have to make sure we are pass
 -(
 \b \cf5 void
 \b0 \cf0 )animateTransition:(
-\b \cf24 id
+\b \cf23 id
 \b0 \cf0 <
 \b UIViewControllerContextTransitioning
 \b0 >) transitionContext\
@@ -2678,7 +2651,7 @@ Since interactive transitions can be cancelled, we have to make sure we are pass
 \b0 \cf0  initialFrame = fromVC.
 \b \cf6 view
 \b0 \cf0 .
-\b \cf24 frame
+\b \cf23 frame
 \b0 \cf0 ; 
 \b \cf20 // Get the current frame of the modal view
 \b0 \cf0 \
@@ -2719,16 +2692,16 @@ Since interactive transitions can be cancelled, we have to make sure we are pass
 	fromVC.
 \b \cf6 view
 \b0 \cf0 .
-\b \cf24 frame
+\b \cf23 frame
 \b0 \cf0  = finalFrame;\
        \} 
 \b \cf19 completion:
 \b0 \cf0 ^(
-\b \cf24 BOOL
+\b \cf23 BOOL
 \b0 \cf0  finished) \{\
                [transitionContext 
 \b \cf19 completeTransition
-\b0 \cf0 : \cb26 ![transitionContext 
+\b0 \cf0 : \cb24 ![transitionContext 
 \b transitionWasCancelled
 \b0 ]\cb1 ];\
        \}]; \
@@ -2741,8 +2714,7 @@ Since interactive transitions can be cancelled, we have to make sure we are pass
 \
 Fixing the Two Step keyframe animated transition\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 id
 \b0 \cf0  <
 \b UIViewControllerInteractiveTransitioning
@@ -2755,7 +2727,7 @@ Fixing the Two Step keyframe animated transition\
 \b UIViewControllerAnimatedTransitioning
 \b0 >) animator\
 \{\
-     \cb26  if (self.interactive) \cb1 \{\
+     \cb24  if (self.interactive) \cb1 \{\
            
 \b \cf5 self
 \b0 \cf0 .
@@ -2768,7 +2740,7 @@ Fixing the Two Step keyframe animated transition\
 \b \cf6 init
 \b0 \cf0 ];\
            
-\b \cf24 return
+\b \cf23 return
 \b0 \cf0  
 \b \cf5 self
 \b0 \cf0 .
@@ -2806,7 +2778,7 @@ the next time we go to dismiss with an animated transition the interactive trans
 \b0 \cf0 \
 	     [\cf5 self\cf0  \cf19 dismissViewControllerAnimated:\cf0 YES \cf19 completion\cf0 :^\{\
 		
-\b \cf5 \cb26 self
+\b \cf5 \cb24 self
 \b0 \cf0 .
 \b interactive
 \b0  = NO;\cb1 \
@@ -2815,8 +2787,7 @@ the next time we go to dismiss with an animated transition the interactive trans
 	\} \
      \}\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
+\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b\fs24 \cf0 Polishing your Transitions
@@ -2874,8 +2845,8 @@ ViewController.m\
 \b0 \cf0  = [[
 \b \cf6 UIDynamicAnimator alloc
 \b0 \cf0 ] 
-\b \cf25 initWithReferenceView
-\b0 \cf0 :
+\b initWithReferenceView
+\b0 :
 \b \cf5 self
 \b0 \cf0 .
 \b \cf6 view
@@ -2922,18 +2893,1862 @@ Can be linked to the tap position during a gesture.\
 \b0\fs22 \cf0 \ulnone \
 A generic behavior class that controls some of the underlying physical properties of a view\
 density\
-velocity (linear and angular)\
+velocity (linear and angular)b\
 elasticity\
 friction\
 resistance\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Adding a gravity behavior to a View
+\b0 \
 \
+in ViewController.m\
+-(
+\b \cf23 void
+\b0 \cf0 ) viewDidLoad\
+\{\
+      [
+\b \cf23 super
+\b0 \cf0  
+\b \cf14 viewDidLoad
+\b0 \cf0 ];\
+      
+\b \cf23 self
+\b0 \cf0 .
+\b \cf14 animator
+\b0 \cf0  = [[
+\b \cf14 UIDynamicAnimator
+\b0 \cf0  
+\b \cf14 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithReference
+\b0 \cf0 :
+\b \cf23 self
+\b0 \cf0 .
+\b \cf14 view
+\b0 \cf0 ];\
 \
+      
+\b \cf14 UIGravityBehavior
+\b0 \cf0  *gravity = [[
+\b \cf14 UIGravityBehavior
+\b0 \cf0  
+\b \cf14 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithItems
+\b0 \cf0 :
+\b \cf5 @[self.boxView]
+\b0 \cf0 ];	\
+      gravity.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf14 CGVectorMake
+\b0 \cf0 (0, 1);\
+      [
+\b \cf23 self
+\b0 \cf0 .
+\b \cf14 animator \cf23 addBehavior\cf0 :gravity
+\b0 ] \
+\}\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 self.view
+\b0 \cf0          -> The reference view\
+
+\b \cf5 self.boxView
+\b0 \cf0   -> The view the behavior is being applied to\
+		 The dynamic item that will be moving.\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf14 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\fs24 \cf0 Control the gravity direction with vectors
+\b0\fs22 \
+Combination of angle and magnitude.\
+					    X, Y\
+ gravity.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf14 CGVectorMake
+\b0 \cf0 (0, 1);\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 angle
+\b0  -> straight DOWN.\
+
+\b magnitude
+\b0  -> 1 times normal rate.\
 \
+ gravity.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf14 CGVectorMake
+\b0 \cf0 (0, 3);\
 \
+
+\b angle
+\b0  -> straight DOWN.\
+
+\b magnitude
+\b0  -> 3 times normal rate.\
 \
+ gravity.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf14 CGVectorMake
+\b0 \cf0 (0, -1);\
+\
+
+\b angle
+\b0  -> straight UP.\
+
+\b magnitude
+\b0  -> 1 times normal rate.\
+\
+ gravity.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf14 CGVectorMake
+\b0 \cf0 (1, 0);\
+\
+
+\b angle
+\b0  -> to the RIGHT\
+
+\b magnitude
+\b0  -> 1 times normal rate.\
+\
+ gravity.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf14 CGVectorMake
+\b0 \cf0 (-1, 0);\
+\
+
+\b angle
+\b0  -> to the LEFT\
+
+\b magnitude
+\b0  -> 1 times normal rate.\
+\
+
+\b POSITIVE
+\b0  numbers == down and right\
+
+\b NEGATIVE
+\b0  numbers == up and left\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf0 Use collisions to limit motion due to gravity
+\b0\fs22 \
+Gravity is usually paired with collision behaviors.\
+\
+Still in ViewController.m\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf14 UICollisionBehavior
+\b0 \cf0  *viewBoundaries = [[
+\b \cf14 UICollisionBehavior
+\b0 \cf0  
+\b \cf14 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithItems
+\b0 \cf0 :
+\b \cf5 @[self.boxView]
+\b0 \cf0 ];\
+viewBoundaries.
+\b \cf23 translatesReferenceBoundsIntoBoundary
+\b0 \cf0  = 
+\b \cf5 YES
+\b0 \cf0 ;\
+[
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :viewBoundaries];\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf23 translatesReferenceBoundsIntoBoundary 
+\b0 \cf0 -> sets four boundaries equal to the \'93walls\'94 of the container view\
+\
+self.view edges can act as a collision boundary for the falling boxView.\
+Gravity is still there, but the boundary prevents the boxView from moving down.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf21 Displaying a View Using Dynamics
+\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf0 Start by declaring a UIView property and plan the implementation
+\b0\fs22 \
+\
+ArticleVC.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf23 @property
+\b0 \cf0  (
+\b \cf23 strong
+\b0 \cf0 , 
+\b \cf23 nonatomic
+\b0 \cf0 ) 
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  *animator;\
+
+\b \cf23 @property
+\b0 \cf0  (
+\b \cf23 strong
+\b0 \cf0 , 
+\b \cf23 nonatomic
+\b0 \cf0 ) 
+\b \cf6 UIView
+\b0 \cf0  *noticeView;\
+\
+ArticleVC.m\
+-(
+\b \cf23 void
+\b0 \cf0 ) saveArticle:(
+\b \cf23 id
+\b0 \cf0 ) sender\
+\{\
+   
+\b \cf20 // initialize and add the noticeView
+\b0 \cf0 \
+   
+\b \cf5 self
+\b0 \cf0 .noticeView = [[
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf23 init
+\b0 \cf0 ];\
+  
+\b \cf20  // set the noticeView.frame off screen
+\b0 \cf0 \
+   
+\b \cf5 self
+\b0 \cf0 .noticeView.
+\b \cf23 frame
+\b0 \cf0  = 
+\b \cf6 CGRectMake
+\b0 \cf0 (0, -20, 320, 30); 
+\b \cf20 // start off screen so it can be animated in
+\b0 \cf0 \
+   
+\b \cf5 self
+\b0 \cf0 .noticeView.
+\b \cf23 noticeLabel.text
+\b0 \cf0  = 
+\b \cf5 @\'93Saved!\'94
+\b0 \cf0 ;\
+   [
+\b \cf5 self
+\b0 \cf0 .scrollView 
+\b \cf23 addSubview
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .noticeView];\
+ \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf0    Add a snap behavior that will animated the view into place
+\b0\fs22 \
+\
+  
+\b \cf20 // add a snap behavior
+\b0 \cf0 \
+   
+\b \cf6 UISnapBehavior
+\b0 \cf0  *snapBehavior = [[
+\b \cf6 UISnapBehavior
+\b0 \cf0  alloc]
+\b \cf23  initWithItem
+\b0 \cf0 :
+\b \cf5 self.
+\b0 \cf0 noticeView \
+							      
+\b \cf23 snapToPoint
+\b0 \cf0 :
+\b \cf6 CGPointMake
+\b0 \cf0 (160, 15)];\
+   \
+
+\b\fs24    To adjust the Bounciness with Damping property
+\b0\fs22 \
+   snapBehavior.
+\b \cf23 damping
+\b0 \cf0  = 0.3; \
+   [
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :snapBehavior];\
+\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 NOTE
+\b0 : this point is the 
+\b \cf0 center
+\b0 \cf9  of where the view should end up, 
+\b NOT
+\b0  the top left corner !!!\cf0 \
+snapBehavior.
+\b \cf23 damping 
+\b0 \cf0 ->
+\b \cf23  \cf0 a lower damping means more bounciness
+\b0 \
+\
+But the noticeView never disappears\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf0 Adopt and set the animator delegate
+\b0\fs22 \
+ArticleVC.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  ArticleVC : UIViewController <
+\b \cf6 UIDynamicAnimatorDelegate
+\b0 \cf0 >\
+\
+ArticleVC.m\
+-(
+\b \cf23 void
+\b0 \cf0 )viewDidLoad\
+\{\
+    [
+\b \cf23 super
+\b0 \cf0  viewDidLoad];\
+    
+\b \cf5 self
+\b0 \cf0 .animator = [[
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  alloc] 
+\b \cf23 initWithReferenceView
+\b0 \cf0 :self.view];\
+    
+\b \cf5 self
+\b0 \cf0 .animator.
+\b \cf23 delegate
+\b0 \cf0  = 
+\b self
+\b0 ;\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Implement the delegate method that runs when motion finishes
+\b0 \
+-(
+\b \cf23 void
+\b0 \cf0 ) dynamicAnimatorDidPause:(
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  *) animator\
+\{\
+    [
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 removeAllBehaviors
+\b0 \cf0 ];\
+    [
+\b \cf5 self
+\b0 \cf0 .noticeView 
+\b \cf23 removeFromSuperview
+\b0 \cf0 ]; 
+\b \cf20 // Just make the noticeView disappear
+\b0 \cf0 \
+     OR 
+\b \cf20 // make another animation to push the notice to the right
+\b0 \cf0 \
+    
+\b \cf6 UIPushBehavior
+\b0 \cf0  *pushBehavior = [[
+\b \cf6 UIPushBehavior
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithItems
+\b0 \cf0 :
+\b \cf5 @[\cf23 self\cf5 .\cf0 noticeView\cf5 ]
+\b0 \cf0 \
+								      
+\b \cf23 mode
+\b0 \cf0 :
+\b \cf6 UIPushBehaviorModeInstantaneous
+\b0 \cf0 ];\
+    pushBehavior.
+\b \cf23 pushDirection
+\b0 \cf0  = 
+\b \cf14 CGVectorMake
+\b0 \cf0 (9, 0);\
+    [
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :pushBehavior];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 UIPushBehaviorModeInstantaneous \cf0 -> It just applies that push once and then the animator takes over.
+\b0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 Problem: the push animation doesn\'92t have a finished state.
+\b0 \cf0 \
+
+\b \cf10 Solution: Use the UIDynamicBehavior action Block
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 All behaviors inherit from the UIDynamicBehavior 
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Action
+\b0 \
+The block you want to execute during dynamic animation.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @property
+\b0 \cf0  (
+\b \cf23 nonatomic
+\b0 \cf0 , 
+\b \cf23 copy
+\b0 \cf0 ) void (^
+\b action
+\b0 ) (void)\
+\
+The dynamic animator calls the Action Block on 
+\b EVERY ANIMATION STEP
+\b0 .\
+And we can get updates about the status of the animation in this block.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Let\'92s start by logging out the frame as the animation happens
+\b0 \
+pushBehavior.
+\b \cf23 action
+\b0 \cf0  = ^\{\
+	
+\b \cf6 NSLog
+\b0 \cf0 (
+\b \cf5 @\'93%@\'93
+\b0 \cf0 , 
+\b \cf6 NSStringFromCGRect
+\b0 \cf0 (
+\b \cf5 self
+\b0 \cf0 .noticeView.
+\b \cf23 frame
+\b0 \cf0 ));\
+\}\
+\
+we will see that the X of the frame increasing to infinity\'85\
+\
+
+\b Check to see if the current frame is visible on screen
+\b0 \
+pushBehavior.
+\b \cf23 action
+\b0 \cf0  = ^\{\
+ 	
+\b \cf20 // This method will be true as long as noticeView is partially onscreen\
+	// we want to check then this is NOT true, so we can remove the view & push behavior
+\b0 \cf0 \
+	
+\b \cf5 if
+\b0 \cf0  ( !
+\b \cf19 CGRectIntersectsRect
+\b0 \cf0  (
+\b \cf5 self
+\b0 \cf0 .view.
+\b \cf23 frame
+\b0 \cf0 ,\
+				     
+\b \cf5 self
+\b0 \cf0 .noticeView.
+\b \cf23 frame
+\b0 \cf0 )) \{\
+		[
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 removeBehavior
+\b0 \cf0 :pushBehavior];\
+		[
+\b \cf5 self
+\b0 \cf0 .noticeView 
+\b \cf23 removeFromSuperview
+\b0 \cf0 ];\
+	\}\
+\}\
+\
+
+\b Another Option of animation is to add a gravity behavior instead of a push behavior
+\b0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 UIGravityBehavior
+\b0 \cf0  *gravityBehavior = [[
+\b \cf6 UIGravityBehavior
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithItem
+\b0 \cf0 :
+\b \cf5 self.\cf0 noticeView
+\b0 ];\
+gravityBehavior.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf14 CGVectorMake
+\b0 \cf0 (0, 5);\
+[
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :gravityBehavior];\
+\
+Gravity will pull the view down with a factor of 5x magnitude.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Add an angular velocity in addition to the gravity behavior
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 UIDynamicBehavior
+\b0 \cf0  *dynamicBehavior = [[
+\b \cf6 UIDynamicItemBehavior
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithItems
+\b0 \cf0 :
+\b \cf5 @
+\b0 \cf0 [
+\b \cf23 self\cf5 .\cf0 noticeView
+\b0 ];\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 \
+// turn the noticeView at a slight angle as it falls
+\b0 \cf0 \
+[dynamicBehavior 
+\b \cf23 addAngularVelocity
+\b0 \cf0 :(
+\b \cf5 M_PI
+\b0 \cf0  / 2)\
+			           
+\b \cf23 forItem
+\b0 \cf0 : 
+\b \cf5 self
+\b0 \cf0 .noticeView];\
+\
+[
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :dynamicBehavior];\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Remember : 
+\b0 UIDynamicItemBehavior is this generic class that allows us to add some \
+	         velocity and elasticity and deal with some of the physical properties of the view.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 PROBLEM: clicking multiple times creates multiple notice views \
+\cf10 SOLUTION: At the start of the save method, reset everything
+\b0 \cf0 \
+\
+-(
+\b \cf23 void
+\b0 \cf0 ) dynamicAnimatorDidPause:(
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  *) animator\
+\{\
+	if ( [
+\b \cf5 self
+\b0 \cf0 .noticeView 
+\b \cf23 isDescendantOfView
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .view] ) \{\
+	      [
+\b \cf5 self
+\b0 \cf0 .noticeView 
+\b \cf23 removeFromSuperview
+\b0 \cf0 ];\
+	      [
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 removeAllBehaviors
+\b0 \cf0 ];\
+	\} \
+\}\
+\
+If the noticeView is already in the hierarchy, then remove it and all dynamic behaviors.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf21 Animated Transitions and UIKit Dynamics
+\b0\fs22 \cf0 \
+\
+A quick reminder of the animated transition setup\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \ul This method is called when we tap \'93Settings\'94 in the nav bar:\ulnone \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+-(
+\b \cf5 void
+\b0 \cf0 ) showSettings: (
+\b \cf23 id
+\b0 \cf0 ) sender\
+\{\
+      
+\b \cf6 SettingsViewController
+\b0 \cf0  *settingsVC = [[
+\b \cf6 SettingsViewController
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf23 init
+\b0 \cf0 ];\
+      settingsVC.
+\b \cf23 modalPresentationStyle
+\b0 \cf0  = 
+\b \cf6 UIModalPresentationCustom
+\b0 \cf0 ;\
+      settingsVC.
+\b \cf23 transitioningDelegate
+\b0 \cf0  = 
+\b \cf5 self
+\b0 \cf0 ;\
+\
+      [self 
+\b \cf23 presentViewController
+\b0 \cf0 :settingsVC 
+\b \cf23 animated
+\b0 \cf0 :YES 
+\b \cf23 completion
+\b0 \cf0 :^\{\
+	
+\b \cf6 UITapGestureRecognizer
+\b0 \cf0  *tapGesture = [[
+\b \cf6 UITapGestureRecognizer
+\b0 \cf0  alloc]\
+						
+\b \cf23 initWithTarget
+\b0 \cf0 : self\
+						               
+\b \cf23 action
+\b0 \cf0 :
+\b \cf5 @selector
+\b0 \cf0 (handleTap:)];\
+	[settingsVC.hideSettings 
+\b \cf23 addGestureRecognizer
+\b0 \cf0 :tapGesture];\
+      \}\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \ul Separate animations for presentation and dismissal\ulnone \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 -(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+     
+\b \cf19 animationControllerForPresentedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presented\
+			   
+\b \cf19 presentingController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) presenting\
+			          
+\b \cf19 sourceController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) source \{\
+  \
+      
+\b \cf6 DropBounce
+\b0 \cf0  *dropBounce = [[
+\b \cf6 DropBounce
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf5 init
+\b0 \cf0 ];\
+      
+\b \cf5 return
+\b0 \cf0  dropBounce;\
+\}\
+\
+-(
+\b \cf21 id
+\b0 \cf0  <
+\b UIViewControllerAnimatedTransitioning
+\b0 >)\
+       
+\b \cf19 animationControllerForDismissedController
+\b0 \cf0 :(
+\b \cf6 UIViewController
+\b0 \cf0  *) dismissed\
+\{\
+       
+\b \cf6 DismissGravity
+\b0 \cf0  *dismissGravity = [[
+\b \cf6 DismissGravity
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf5 init
+\b0 \cf0 ];\
+       
+\b \cf5 return
+\b0 \cf0  dismissGravity;	\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \ul The presentation animation BEFORE dynamics are added
+\b0 \ulnone \
+DropBounce.m\
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+    
+\b  \cf6 UIViewController
+\b0 \cf0  *toVC = [transitionContext\
+			          
+\b \cf19 viewControllerForKey
+\b0 \cf0 :UITransitionContext
+\b To
+\b0 ViewControllerKey];\
+\
+     
+\b \cf6 UIViewController
+\b0 \cf0  *fromVC = [transitionContext\
+			          
+\b \cf19 viewControllerForKey
+\b0 \cf0 :UITransitionContext
+\b From
+\b0 ViewControllerKey];\
+     
+\b \cf6 CGRect
+\b0 \cf0  fromVCStartFrame = [transitionContext initialFrameForViewController:fromVC];\
+     
+\b \cf6 CGRect
+\b0 \cf0  toVCStartFrame = 
+\b \cf23 CGRectMake
+\b0 \cf0 (0,\
+					    -
+\b \cf19 CGRectGetHeight
+\b0 \cf0 (fromVCStartFrame),\
+					    
+\b \cf19 CGRectGetWidth
+\b0 \cf0 (fromVCStartFrame),\
+					    
+\b \cf14 CGRectGetHeight
+\b0 \cf0 (fromVCStartFrame);\
+      toVC.view.
+\b \cf23 frame
+\b0 \cf0  = toVCStartFrame;\
+     [[transitionContext 
+\b \cf5 containerView
+\b0 \cf0 ] 
+\b \cf19 addSubview
+\b0 \cf0 : toVC.view];\
+\
+    
+\b \cf20  // add a UIView animation to bring toVC.view down
+\b0 \cf0 \
+\
+    
+\b \cf20  // add a keyframe to make toVC.view bounce up a little
+\b0 \cf0 \
+\
+   
+\b \cf20  // add another keyframe to make toVC.view bounce make down a little more (repeat)
+\b0 \cf0 \
+\
+    
+\b \cf20 // complete the transition on completion of the final keyframe
+\b0 \cf0 \
+\}\
+\
+we could replace all of this animation code with dynamics\
+\
+
+\b \ul Add the dynamic animator to the presentation animation class
+\b0 \ulnone \
+DropBounce.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  DropBounce : 
+\b \cf6 NSObject
+\b0 \cf0  <
+\b \cf6 UIViewControllerAnimatedTransitioning
+\b0 \cf0 >\
+
+\b \cf5 @property
+\b0 \cf0  (
+\b \cf23 strong
+\b0 \cf0 , 
+\b \cf23 nonatomic
+\b0 \cf0 ) 
+\b \cf14 UIDynamicAnimator
+\b0 \cf0  *animator;\
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+DropBounce.m\
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf23 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+       
+\b \cf5 self
+\b0 \cf0 .animator = [[
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  
+\b \cf14 alloc
+\b0 \cf0 ] \
+			
+\b \cf23 initWithReferenceView
+\b0 \cf0 :[transitionContext 
+\b \cf23 containerView
+\b0 \cf0 ]];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \ul The different child controller states as the animation happens
+\b0 \ulnone \
+\
+The reference view is the 
+\b \cf23 containerView
+\b0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 {{\NeXTGraphic Pasted Graphic.tiff \width16580 \height6660
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\
+DropBounce.m\
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf23 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+       
+\b \cf5 self
+\b0 \cf0 .animator = [[
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  
+\b \cf14 alloc
+\b0 \cf0 ] \
+			
+\b \cf23 initWithReferenceView
+\b0 \cf0 :[transitionContext 
+\b \cf23 containerView
+\b0 \cf0 ]];\
+       
+\b \cf6 UIGravityBehavior
+\b0 \cf0  *gravity = [[
+\b \cf6 UIGravityBehavior
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithItems
+\b0 \cf0 :
+\b \cf5 @
+\b0 \cf0 [toVC.view]];\
+       gravity.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf23 CGVectorMake
+\b0 \cf0 (0, 3);\
+       [
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :gravity];\
+\}\
+\
+Gravity is obviously working, but we need to add a collision boundary to stop it from moving\'85\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \ul Adding a Collision boundary to just the bottom of the container view
+\b0 \ulnone \
+DropBounce.m\
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf23 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+    
+\b \cf6 UICollisionBehavior
+\b0 \cf0  *collision = [[
+\b \cf6 UICollisionBehavior
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithItems
+\b0 \cf0 :
+\b \cf5 @
+\b0 \cf0 [toVC.view]];\
+    [collision 
+\b \cf23 addBoundaryWithIdentifier
+\b0 \cf0 :
+\b \cf5 @\'93bottomEdge\'94\
+			\cf20 // we actually draw a line from the bottom left corner
+\b0 \cf0 \
+			
+\b \cf23 fromPoint
+\b0 \cf0 :
+\b \cf19 CGPointMake
+\b0 \cf0 (0,\
+						   
+\b \cf19 CGRectGetMaxY
+\b0 \cf0 (fromVC.view.frame)\
+						  )\
+			
+\b \cf20 // to the bottom right corner
+\b0 \cf0 \
+			
+\b \cf23 toPoint
+\b0 \cf0 :
+\b \cf19 CGPointMake
+\b0 \cf0 (
+\b \cf19 CGRectGetMaxX
+\b0 \cf0 (fromVC.view.frame),\
+					            
+\b \cf19 CGRectGetMaxY
+\b0 \cf0 (fromVC.view.frame)\
+					           )];\
+    [
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :collision];\
+\}\
+\
+The animation looks good, but we need to complete the transition when the motion ends.\
+\
+
+\b \ul Adopt the animator delegate and create a transition context property
+\b0 \ulnone \
+\
+DropBounce.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  DropBounce : 
+\b \cf6 NSObject
+\b0 \cf0  <
+\b \cf6 UIViewControllerAnimatedTransitioning\cf0 ,\cb24 UIDynamicAnimatorDelegate
+\b0 \cb1 >\
+
+\b \cf5 @property
+\b0 \cf0  (
+\b \cf23 strong
+\b0 \cf0 , 
+\b \cf23 nonatomic
+\b0 \cf0 ) 
+\b \cf14 UIDynamicAnimator
+\b0 \cf0  *animator;\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 \cb24 @property
+\b0 \cf0  (
+\b \cf23 strong
+\b0 \cf0 , 
+\b \cf23 nonatomic
+\b0 \cf0 ) id<
+\b \cf14 UIViewControllerContextTransitioning
+\b0 \cf0 >*transitionContext;\cb1 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+We need to capture the transitionContext as a property\
+or we won\'92t be able to access it in the animation delegate method.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Completing the transition when the animation finishes
+\b0 \
+DropBounce.m\
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf23 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+    
+\b \cf20 // capture the transitionContext
+\b0 \cf0 \
+    
+\b \cf5 self
+\b0 \cf0 .
+\b \cf6 transitionContext
+\b0 \cf0  = transitionContext;\
+    \'85\
+   
+\b \cf20 // set the animator delegate
+\b0 \cf0 \
+    
+\b \cf5 self
+\b0 \cf0 .animator.
+\b \cf25 delegate
+\b0 \cf0  = 
+\b \cf5 self
+\b0 \cf0 ; \
+\}\
+\
+-(
+\b \cf25 void
+\b0 \cf0 ) dynamicAnimatorDidPause:(
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  *) animator\
+\{\
+       
+\b \cf20 // complete the transition when the animation finishes
+\b0 \cf0 \
+       [
+\b \cf5 self
+\b0 \cf0 .transitionContext 
+\b \cf25 completeTransition
+\b0 \cf0 :
+\b \cf5 YES
+\b0 \cf0 ];\
+\}\
+\
+To dismiss, we\'92ll apply a negative gravity behavior and complete the transition when\
+ the view moves completely off screen\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \ul Make the settings View animate back up during dismissal
+\b0 \ulnone \
+\
+DismissGravity.m \'97> different class for dismissal animation\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf23 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+       
+\b \cf6 UIViewController
+\b0 \cf0  *fromVC = [transitionContext\
+			          
+\b \cf19 viewControllerForKey
+\b0 \cf0 :UITransitionContext
+\b From
+\b0 ViewControllerKey];\
+       
+\b \cf5 self
+\b0 \cf0 .animator = [[
+\b \cf6 UIDynamicAnimator
+\b0 \cf0  
+\b \cf14 alloc
+\b0 \cf0 ] \
+			
+\b \cf23 initWithReferenceView
+\b0 \cf0 :[transitionContext 
+\b \cf23 containerView
+\b0 \cf0 ]];\
+       
+\b \cf6 UIGravityBehavior
+\b0 \cf0  *gravity = [[
+\b \cf6 UIGravityBehavior
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithItems
+\b0 \cf0 :
+\b \cf5 @
+\b0 \cf0 [fromVC.view]];\
+       gravity.
+\b \cf23 gravityDirection
+\b0 \cf0  = 
+\b \cf23 CGVectorMake
+\b0 \cf0 (0, -12);\
+       [
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :gravity];\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \ul Track the progress of the dismissal and complete the transition
+\b0 \ulnone \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf23 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+      \'85.\
+      [
+\b \cf5 self
+\b0 \cf0 .animator 
+\b \cf23 addBehavior
+\b0 \cf0 :gravity];\
+ \
+      gravity.
+\b \cf23 action
+\b0 \cf0  = ^\{\
+	
+\b \cf5 if
+\b0 \cf0  ( !
+\b \cf19 CGRectIntersectsRect
+\b0 \cf0  (
+\b \cf5 fromVC
+\b0 \cf0 .view.
+\b \cf23 frame
+\b0 \cf0 ,\
+				     [[transitionContext 
+\b \cf25 containerView
+\b0 \cf0 ] 
+\b \cf23 frame
+\b0 \cf0 ])) \{\
+		[
+\b \cf5 self
+\b0 \cf0 .
+\b \cf6 animator
+\b0 \cf0  
+\b \cf23 removeAllBehaviors
+\b0 \cf0 ];\
+		[\cf26 transitionContext\cf0  
+\b \cf23 completeTransition:\cf5 YES
+\b0 \cf0 ];\
+	\}\
+      \};\
+\}\
+Complete the transition as soon as the settings view moves offscreen\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf21 Parallax & Motion Effects
+\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 What is Parallax?
+\b0 \
+An optical phenomenon that can add depth to an otherwise \'93flat\'94 interface.\
+Device tilting to achieve this effect.\
+\
+
+\b Introducing UIMotionEffects
+\b0 \
+A new set of classes to perform 
+\b changes 
+\b0 on a view\
+based on the tilt of the device on the 
+\b X
+\b0  and 
+\b Y
+\b0  axis\
+\
+Much easier to implement than using raw device motion updates\
+
+\b A few
+\b0  lines of code versus 
+\b hundreds
+\b0  and it Saves battery life too !\
+\
+
+\b Implementing the Horizontal tilt effect
+\b0 \
+in LoginViewController.m\
+\
+-(
+\b \cf5 void
+\b0 \cf0 ) viewDidLoad\
+\{\
+     
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  *centerX;\
+     centerX = [[
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  alloc]\
+			 
+\b \cf25 initWithKeyPath
+\b0 \cf0 :
+\b \cf5 @\'93center.x\'94
+\b0 \cf0 \
+		        		        
+\b \cf25 type\cf0 :UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis
+\b0 ];\
+     \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0      \cf20 //But how much does the center.x change ?\
+         These properties define the range of change for the centerX motion effect
+\b0 \cf0 \
+     centerX.
+\b \cf14 maximumRelativeValue
+\b0 \cf0  = 
+\b \cf5 @20
+\b0 \cf0 ;\
+     centerX.
+\b \cf14 minimumRelativeValue
+\b0 \cf0  = 
+\b \cf5 @-20
+\b0 \cf0 ;\
+\
+     [
+\b \cf5 self
+\b0 \cf0 .view 
+\b \cf25 addMotionEffect
+\b0 \cf0 :centerX];\
+\}\
+\
+Tilting the phone along horizontal axis will change the 
+\b \cf5 \'93center.x\'94
+\b0 \cf0  of self.view\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Implementing the Vertical tilt effect
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) viewDidLoad\
+\{\
+       \'85\
+       [
+\b \cf5 self
+\b0 \cf0 .view 
+\b \cf23 addMotionEffect
+\b0 \cf0 :centerX];\
+  \
+        
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  *centerY;\
+        centerY = [[
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  alloc]\
+			 
+\b \cf23 initWithKeyPath
+\b0 \cf0 :
+\b \cf5 @\'93center.y\'94
+\b0 \cf0 \
+		        		        
+\b \cf23 type\cf0 :UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis
+\b0 ];\
+        centerY.
+\b \cf14 maximumRelativeValue
+\b0 \cf0  = 
+\b \cf5 @20
+\b0 \cf0 ;\
+        centerY.
+\b \cf14 minimumRelativeValue
+\b0 \cf0  = 
+\b \cf5 @-20
+\b0 \cf0 ;\
+\
+        [
+\b \cf5 self
+\b0 \cf0 .view 
+\b \cf23 addMotionEffect
+\b0 \cf0 :centerY];\
+\}\
+\
+Views can have multiple effects, but related ones should be grouped !!!\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Grouping Effects with UIMotionEffectGroup
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) viewDidLoad\
+\{\
+      
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  *centerX = \'85;\
+
+\b \cf6       UIInterpolatingMotionEffect
+\b0 \cf0  *centerY  = \'85;\
+      
+\b \cf14 UIMotionEffectGroup
+\b0 \cf0  *group = [[
+\b \cf6 UIMotionEffectGroup
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf25 init
+\b0 \cf0 ]\
+      group.motionEffects = 
+\b \cf5 @[centerX, centerY]
+\b0 \cf0 ;\
+      [
+\b \cf5 self
+\b0 \cf0 .view 
+\b \cf23 addMotionEffect
+\b0 \cf0 :
+\b \cb24 group
+\b0 \cb1 ];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 USE \cf26 UIMotionEffectGroup\cf9  to apply effects AT THE SAME TIME (More Efficient)
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 What can be changed using Motion Effects ?
+\b0 \
+Properties animatable by Core Animation on UIView:\
+- center\
+- frame\
+- bounds\
+- alpha\
+\
+And on the view\'92s CALayer:\
+- layer.borderWidth\
+- layer.anchorPoint\
+- layer.bounds\
+- layer.shadowOffset\
+\
+
+\b Create dynamic lighting effect using shadowOffset
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+in RootViewController.m\
+-(
+\b \cf5 void
+\b0 \cf0 ) viewDidLoad\
+\{\
+     [
+\b \cf25 super
+\b0 \cf0  viewDidLoad]\
+     
+\b \cf5 self
+\b0 \cf0 .blockView = [[
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf25 initWithFrame
+\b0 \cf0 :
+\b \cf6 CGRectMake
+\b0 \cf0 (60, 100, 200, 200)];\
+     
+\b \cf5 self
+\b0 \cf0 .blockView.
+\b \cf25 backgroundColor
+\b0 \cf0  = [
+\b \cf6 UIColor
+\b0 \cf0  darkGrayColor];\
+  \
+     
+\b \cf6 CALayer
+\b0 \cf0  *layer = 
+\b \cf25 self
+\b0 \cf0 .blockView.
+\b \cf25 layer
+\b0 \cf0 ;\
+\
+     layer.
+\b \cf25 shadowColor
+\b0 \cf0  = [
+\b \cf6 UIColor
+\b0 \cf0  lightGrayColor].
+\b \cf25 CGColor
+\b0 \cf0 ;\
+     layer.
+\b \cf25 shadowOpacity
+\b0 \cf0  = 1.0f;\
+     layer.
+\b \cf25 shadowRadius
+\b0 \cf0  = 8.0f;\
+     layer.
+\b \cf25 shadowOffset
+\b0 \cf0  = 
+\b \cf6 CGSizeMake
+\b0 \cf0 (0, 0);\
+\
+    [
+\b \cf5 self
+\b0 \cf0 .view 
+\b \cf25 addSubview
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .blockView];\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 shadowOffset
+\b0  - defines the position of the shadow relative to the layer\
+\
+
+\b Add motion effects for shadowOffset height and width
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) viewDidLoad\
+\{\
+     
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  *shadowWidth;\
+     shadowWidth = [[
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ] 
+\b \cf25 initWithKeyPath
+\b0 \cf0 :
+\b \cf5 @\'93layer.shadowOffset.width\'94
+\b0 \cf0 \
+				
+\b \cf25 type
+\b0 \cf0 :
+\b UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis
+\b0 ];\
+     
+\b \cf20 // inverses the shadow movemen
+\b0 \cf0 \
+     shadowWidth.
+\b \cf25 maximumRelativeValue
+\b0 \cf0  = 
+\b \cf5 @-50
+\b0 \cf0 ;\
+     shadowWidth.
+\b \cf25 minimumRelativeValue
+\b0 \cf0  = 
+\b \cf5 @50
+\b0 \cf0 ;\
+\
+     
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  *shadowHeight;\
+     shadowHeight = [[
+\b \cf6 UIInterpolatingMotionEffect alloc
+\b0 \cf0 ] 
+\b \cf25 initWithKeyPath
+\b0 \cf0 :
+\b \cf5 @\'93layer.shadowOffset.height\'94
+\b0 \cf0 \
+				
+\b \cf25 type
+\b0 \cf0 :
+\b UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis
+\b0 ];\
+     
+\b \cf20 // inverses the shadow movement
+\b0 \cf0 \
+     shadowHeight.
+\b \cf25 maximumRelativeValue
+\b0 \cf0  = 
+\b \cf5 @-50
+\b0 \cf0 ;\
+     shadowHeight.
+\b \cf25 minimumRelativeValue
+\b0 \cf0  = 
+\b \cf5 @50
+\b0 \cf0 ;\
+\
+     
+\b \cf6 UIMotionEffectGroup
+\b0 \cf0  *group = [[
+\b \cf6 UIMotionEffectGroup alloc
+\b0 \cf0 ] 
+\b \cf25 init
+\b0 \cf0 ];\
+     group.
+\b \cf25 motionEffects
+\b0 \cf0  = 
+\b \cf5 @[shadowWidth, shadowHeight]
+\b0 \cf0 ;\
+\
+     [
+\b \cf5 self
+\b0 \cf0 .blockView 
+\b \cf25 addMotionEffect
+\b0 \cf0 :group];\
+\}\
+\
+
+\b \cf5 \'93layer.shadowOffset.width\'94 \cf26 -> shadowOffset is a CGSize struct
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Cleaning it up by creating a custom subclass
+\b0 \
+\
+in ShadowMotionEffect.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  ShadowMotionEffect : 
+\b \cf6 UIMotionEffect
+\b0 \cf0 \
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+in ShadowMotionEffect.m\
+
+\b \cf5 @implementation
+\b0 \cf0  ShadowMotionEffect\
+\
+-(
+\b \cf6 NSDictionary
+\b0 \cf0  *) 
+\b \cf25 keyPathsAndRelativeValuesForViewerOffset
+\b0 \cf0 :(
+\b \cf6 UIOffset
+\b0 \cf0 ) viewerOffset\
+\{\
+     
+\b \cf20 // inverses the shadow movement
+\b0 \cf0 \
+     
+\b \cf6 NSNumber
+\b0 \cf0  *shadowWidth = @(viewerOffset.horizontal * -50);\
+     
+\b \cf6 NSNumber
+\b0 \cf0  *shadowHeight = @(viewerOffset.vertical * -50);\
+\
+      
+\b \cf20 // specifies which properties change and by how much
+\b0 \cf0 \
+      return 
+\b \cf5 @
+\b0 \cf0 \{\
+		
+\b \cf5 @\'93layer.shadowOffset.width\'94
+\b0 \cf0  : shadowWidth,\
+		
+\b \cf5 @\'93layer.shadowOffset.height\'94
+\b0 \cf0  : shadowHeight\
+	         \};\
+\}\
+
+\b \cf5 @end
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Using the ShadowMotionEffect class
+\b0 \
+in RootViewController.m\
+\
+-(void) viewDidLoad\
+\{\
+      
+\b \cf6 ShadowMotionEffect
+\b0 \cf0  *shadowEffect = [[
+\b \cf6 ShadowMotionEffect
+\b0 \cf0  
+\b \cf6 alloc
+\b0 \cf0 ]  
+\b \cf25 init
+\b0 \cf0 ];\
+      [
+\b \cf5 self
+\b0 \cf0 .blockView 
+\b \cf25 addMotionEffect
+\b0 \cf0 :shadowEffect];\
+\}\
+\
+NOTE: Custom UIMotionEffect subclasses can be used in groups just like interpolating effects\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf21 3D Motion Effects
+\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 What is layer / CALayer ?
+\b0 \
+Every UIView has a 
+\b backing layer
+\b0  that is an instance of CALayer.\
+\
+CALayer handles rendering, layout, and animation, while UIView handles user interaction.\
+CALayer gives you access to features UIView doesn\'92t have:\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 // These properties can be animated, which means that you can use them with UIMotionEffect
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 - Shadows, rounded corners, colored borders\
+- 3D transforms and positioning
+\b0 \
+- Nonlinear animations\
+- Alpha masking\
+\
+
+\b Rotate a View With CATransform3D
+\b0 \
+-(
+\b \cf5 void
+\b0 \cf0 ) viewDidLoad \{\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0     
+\b \cf20  // Create a simple view and add it to the view hierarchy
+\b0 \cf0 \
+     
+\b \cf6 UIView
+\b0 \cf0  *blockView = [[
+\b \cf6 UIView alloc
+\b0 \cf0 ] 
+\b \cf25 init
+\b0 \cf0 ];\
+     \
+     
+\b \cf20 // Set the anchorPoint to the top middle\
+          \cf9 NOTE: Set the frame \cb24 AFTER\cb1  setting the anchorPoint or the view will be out of position
+\b0 \cf0 \
+     blockView.
+\b \cf25 layer.anchorPoint
+\b0 \cf0  = 
+\b \cf6 CGPointMake
+\b0 \cf0 (0.5, 0);\
+\
+     blockView.
+\b \cf25 frame 
+\b0 \cf0 = 
+\b \cf6 CGRectMake
+\b0 \cf0 (60, 60, 200, 200);\
+     blockView.
+\b \cf25 backgroundColor
+\b0 \cf0  = [
+\b \cf6 UIColor
+\b0 \cf0  lightGrayColor];\
+     \
+     \
+     
+\b \cf6 CATransform3D
+\b0 \cf0  t = blockView.
+\b \cf25 layer.transform
+\b0 \cf0 ;\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20       \cb24 // Makes this transform have a \cf26 perspective projection\cf20 \cb1   \
+   \cf26   
+\b0  t.
+\b \cf25 m34
+\b0 \cf26  = -1.0/500;
+\b \cf20 \
+\
+     // Rotate the transform by 45 degrees about the X axis
+\b0 \cf0 \
+     t =  
+\b \cf25 CATransform3DRotate
+\b0 \cf0 (t, 
+\b DEGREES_TO_RADIANS
+\b0 (45), 1, 0, 0);\
+     blockView.
+\b \cf25 layer.transform 
+\b0 \cf0 = t\
+ \
+     [
+\b \cf5 self
+\b0 \cf0 .view 
+\b \cf25 addSubview
+\b0 \cf0 :blockView];\
+\}\
+\
+-> 
+\b \cf6 CATransform3D
+\b0 \cf0  CATransform3DRotate (
+\b \cf6 CATransform3D
+\b0 \cf0  
+\b t
+\b0 , 
+\b \cf6 CGFloat
+\b0 \cf0  
+\b angle
+\b0 , 
+\b \cf6 CGFloat
+\b0 \cf0  
+\b x
+\b0 , 
+\b \cf6 CGFloat
+\b0 \cf0  
+\b y
+\b0 , 
+\b \cf6 CGFloat
+\b0 \cf0  
+\b z
+\b0 )\
+-> -1.0/500 - 
+\b 500
+\b0  is the distance between the imaginary camera and the screen in points\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Rotate With UIMotionEffect
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 -(
+\b \cf5 void
+\b0 \cf0 ) viewDidLoad \{\
+    \'85.\
+    
+\b \cf6 UIInterpolatingMotionEffect
+\b0 \cf0  *verticalEffect;\
+    verticalEffect = [[
+\b \cf6 UIInterpolatingMotionEffect alloc
+\b0 \cf0 ]\
+			
+\b \cf25 initWithKeyPath
+\b0 \cf0 :
+\b \cf5 @\'93layer.transform\'94
+\b0 \cf0 \
+				    
+\b \cf25 type
+\b0 \cf0 :
+\b UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis
+\b0 ];\
+\
+    
+\b \cf20  // CATransform3DIdentity is just a new \'93blank\'94 transform with no modifications
+\b0 \cf0 \
+     
+\b \cf6 CATransform3D
+\b0 \cf0  newT = CATransform3DIdentity;\
+     \
+     
+\b \cf6 CATransform3D
+\b0 \cf0  minT = 
+\b \cf25 CATransform3DRotate
+\b0 \cf0 (newT, 
+\b \cf5 DEGREES_TO_RADIANS
+\b0 \cf0 (-15.0f), 1, 0, 0);\
+     
+\b \cf6 CATransform3D
+\b0 \cf0  maxT = 
+\b \cf25 CATransform3DRotate
+\b0 \cf0 (newT, 
+\b \cf5 DEGREES_TO_RADIANS
+\b0 \cf0 (15.0f), 1, 0, 0);\
+\
+     verticalEffect.
+\b \cf25 maximumRelativeValue
+\b0 \cf0  = [
+\b \cf6 NSValue
+\b0 \cf0  
+\b \cf25 valueWithCATransform3D
+\b0 \cf0 :minT];\
+     verticalEffect.
+\b \cf25 minimumRelativeValue
+\b0 \cf0  = [
+\b \cf6 NSValue
+\b0 \cf0  
+\b \cf25 valueWithCATransform3D
+\b0 \cf0 :maxT];\
+\
+     [blockView 
+\b \cf25 addMotionEffect
+\b0 \cf0 :verticalEffect];\
+\}\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 Problem:\cf0  
+\b0 Instead of rotating around the center point, it should rotate around the top of the view.\
+	   To fix we need to change the 
+\b anchorPoint
+\b0 .\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Changing the anchorPoint changes the rotation
+\b0 \
+\
+Default anchorPoint is in the center of the view (\{0.5, 0.5\})\
+\
+view.layer.anchorPoint = CGPointMake(0,0);  -> now it is on the top left corner\
+\
+To set the anchorPoint to the top middle \{0.5, 0\}\
 \
 \
 }
