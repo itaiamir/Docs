@@ -1,13 +1,13 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Calibri;\f2\fnil\fcharset0 LucidaGrande;
-}
+\f3\fnil\fcharset0 Menlo-Regular;}
 {\colortbl;\red255\green255\blue255;\red0\green77\blue187;\red155\green0\blue211;\red75\green172\blue198;
 \red0\green0\blue255;\red0\green186\blue251;\red71\green204\blue252;\red102\green177\blue50;\red255\green0\blue0;
 \red0\green255\blue0;\red198\green50\blue253;\red160\green114\blue253;\red114\green44\blue253;\red0\green145\blue206;
 \red74\green0\blue230;\red85\green142\blue40;\red174\green0\blue240;\red63\green105\blue30;\red0\green121\blue165;
 \red153\green102\blue51;\red255\green0\blue255;\red133\green0\blue175;\red128\green0\blue128;\red255\green255\blue0;
-\red128\green0\blue128;\red0\green0\blue0;}
-\paperw11900\paperh16840\vieww20420\viewh26200\viewkind0
+\red128\green0\blue128;\red63\green110\blue116;\red38\green71\blue75;\red170\green13\blue145;}
+\paperw11900\paperh16840\vieww20420\viewh26060\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \ul \ulc0 I
@@ -3955,14 +3955,14 @@ DropBounce.m\
     
 \b \cf5 self
 \b0 \cf0 .animator.
-\b \cf25 delegate
+\b \cf23 delegate
 \b0 \cf0  = 
 \b \cf5 self
 \b0 \cf0 ; \
 \}\
 \
 -(
-\b \cf25 void
+\b \cf23 void
 \b0 \cf0 ) dynamicAnimatorDidPause:(
 \b \cf6 UIDynamicAnimator
 \b0 \cf0  *) animator\
@@ -3973,7 +3973,7 @@ DropBounce.m\
        [
 \b \cf5 self
 \b0 \cf0 .transitionContext 
-\b \cf25 completeTransition
+\b \cf23 completeTransition
 \b0 \cf0 :
 \b \cf5 YES
 \b0 \cf0 ];\
@@ -3989,8 +3989,7 @@ To dismiss, we\'92ll apply a negative gravity behavior and complete the transiti
 \
 DismissGravity.m \'97> different class for dismissal animation\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) animateTransition:(
 \b \cf23 id
@@ -4040,15 +4039,12 @@ DismissGravity.m \'97> different class for dismissal animation\
 \b \cf23 addBehavior
 \b0 \cf0 :gravity];\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\
 
-\b \cf0 \ul Track the progress of the dismissal and complete the transition
+\b \ul Track the progress of the dismissal and complete the transition
 \b0 \ulnone \
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) animateTransition:(
 \b \cf23 id
@@ -4076,7 +4072,7 @@ DismissGravity.m \'97> different class for dismissal animation\
 \b \cf23 frame
 \b0 \cf0 ,\
 				     [[transitionContext 
-\b \cf25 containerView
+\b \cf23 containerView
 \b0 \cf0 ] 
 \b \cf23 frame
 \b0 \cf0 ])) \{\
@@ -4087,7 +4083,7 @@ DismissGravity.m \'97> different class for dismissal animation\
 \b0 \cf0  
 \b \cf23 removeAllBehaviors
 \b0 \cf0 ];\
-		[\cf26 transitionContext\cf0  
+		[transitionContext 
 \b \cf23 completeTransition:\cf5 YES
 \b0 \cf0 ];\
 	\}\
@@ -4142,17 +4138,16 @@ in LoginViewController.m\
 \b \cf6 UIInterpolatingMotionEffect
 \b0 \cf0  alloc]\
 			 
-\b \cf25 initWithKeyPath
+\b \cf23 initWithKeyPath
 \b0 \cf0 :
 \b \cf5 @\'93center.x\'94
 \b0 \cf0 \
 		        		        
-\b \cf25 type\cf0 :UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis
+\b \cf23 type\cf0 :UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis
 \b0 ];\
      \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf0      \cf20 //But how much does the center.x change ?\
+\b      \cf20 //But how much does the center.x change ?\
          These properties define the range of change for the centerX motion effect
 \b0 \cf0 \
      centerX.
@@ -4169,7 +4164,7 @@ in LoginViewController.m\
      [
 \b \cf5 self
 \b0 \cf0 .view 
-\b \cf25 addMotionEffect
+\b \cf23 addMotionEffect
 \b0 \cf0 :centerX];\
 \}\
 \
@@ -4177,12 +4172,10 @@ Tilting the phone along horizontal axis will change the
 \b \cf5 \'93center.x\'94
 \b0 \cf0  of self.view\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf0 Implementing the Vertical tilt effect
+\b Implementing the Vertical tilt effect
 \b0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) viewDidLoad\
 \{\
@@ -4227,18 +4220,17 @@ Tilting the phone along horizontal axis will change the
 \
 Views can have multiple effects, but related ones should be grouped !!!\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf0 Grouping Effects with UIMotionEffectGroup
+\b Grouping Effects with UIMotionEffectGroup
 \b0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) viewDidLoad\
 \{\
       
 \b \cf6 UIInterpolatingMotionEffect
 \b0 \cf0  *centerX = \'85;\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf6       UIInterpolatingMotionEffect
 \b0 \cf0  *centerY  = \'85;\
@@ -4249,7 +4241,7 @@ Views can have multiple effects, but related ones should be grouped !!!\
 \b0 \cf0  
 \b \cf6 alloc
 \b0 \cf0 ] 
-\b \cf25 init
+\b \cf23 init
 \b0 \cf0 ]\
       group.motionEffects = 
 \b \cf5 @[centerX, centerY]
@@ -4265,7 +4257,7 @@ Views can have multiple effects, but related ones should be grouped !!!\
 \
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf9 USE \cf26 UIMotionEffectGroup\cf9  to apply effects AT THE SAME TIME (More Efficient)
+\b \cf9 USE \cf0 UIMotionEffectGroup\cf9  to apply effects AT THE SAME TIME (More Efficient)
 \b0 \cf0 \
 \
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
@@ -4287,15 +4279,14 @@ And on the view\'92s CALayer:\
 
 \b Create dynamic lighting effect using shadowOffset
 \b0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
+\
 in RootViewController.m\
 -(
 \b \cf5 void
 \b0 \cf0 ) viewDidLoad\
 \{\
      [
-\b \cf25 super
+\b \cf23 super
 \b0 \cf0  viewDidLoad]\
      
 \b \cf5 self
@@ -4304,14 +4295,14 @@ in RootViewController.m\
 \b0 \cf0  
 \b \cf6 alloc
 \b0 \cf0 ] 
-\b \cf25 initWithFrame
+\b \cf23 initWithFrame
 \b0 \cf0 :
 \b \cf6 CGRectMake
 \b0 \cf0 (60, 100, 200, 200)];\
      
 \b \cf5 self
 \b0 \cf0 .blockView.
-\b \cf25 backgroundColor
+\b \cf23 backgroundColor
 \b0 \cf0  = [
 \b \cf6 UIColor
 \b0 \cf0  darkGrayColor];\
@@ -4319,26 +4310,26 @@ in RootViewController.m\
      
 \b \cf6 CALayer
 \b0 \cf0  *layer = 
-\b \cf25 self
+\b \cf23 self
 \b0 \cf0 .blockView.
-\b \cf25 layer
+\b \cf23 layer
 \b0 \cf0 ;\
 \
      layer.
-\b \cf25 shadowColor
+\b \cf23 shadowColor
 \b0 \cf0  = [
 \b \cf6 UIColor
 \b0 \cf0  lightGrayColor].
-\b \cf25 CGColor
+\b \cf23 CGColor
 \b0 \cf0 ;\
      layer.
-\b \cf25 shadowOpacity
+\b \cf23 shadowOpacity
 \b0 \cf0  = 1.0f;\
      layer.
-\b \cf25 shadowRadius
+\b \cf23 shadowRadius
 \b0 \cf0  = 8.0f;\
      layer.
-\b \cf25 shadowOffset
+\b \cf23 shadowOffset
 \b0 \cf0  = 
 \b \cf6 CGSizeMake
 \b0 \cf0 (0, 0);\
@@ -4346,23 +4337,20 @@ in RootViewController.m\
     [
 \b \cf5 self
 \b0 \cf0 .view 
-\b \cf25 addSubview
+\b \cf23 addSubview
 \b0 \cf0 :
 \b \cf5 self
 \b0 \cf0 .blockView];\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\
 
-\b \cf0 shadowOffset
+\b shadowOffset
 \b0  - defines the position of the shadow relative to the layer\
 \
 
 \b Add motion effects for shadowOffset height and width
 \b0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) viewDidLoad\
 \{\
@@ -4374,12 +4362,12 @@ in RootViewController.m\
 \b0 \cf0  
 \b \cf6 alloc
 \b0 \cf0 ] 
-\b \cf25 initWithKeyPath
+\b \cf23 initWithKeyPath
 \b0 \cf0 :
 \b \cf5 @\'93layer.shadowOffset.width\'94
 \b0 \cf0 \
 				
-\b \cf25 type
+\b \cf23 type
 \b0 \cf0 :
 \b UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis
 \b0 ];\
@@ -4387,12 +4375,12 @@ in RootViewController.m\
 \b \cf20 // inverses the shadow movemen
 \b0 \cf0 \
      shadowWidth.
-\b \cf25 maximumRelativeValue
+\b \cf23 maximumRelativeValue
 \b0 \cf0  = 
 \b \cf5 @-50
 \b0 \cf0 ;\
      shadowWidth.
-\b \cf25 minimumRelativeValue
+\b \cf23 minimumRelativeValue
 \b0 \cf0  = 
 \b \cf5 @50
 \b0 \cf0 ;\
@@ -4403,12 +4391,12 @@ in RootViewController.m\
      shadowHeight = [[
 \b \cf6 UIInterpolatingMotionEffect alloc
 \b0 \cf0 ] 
-\b \cf25 initWithKeyPath
+\b \cf23 initWithKeyPath
 \b0 \cf0 :
 \b \cf5 @\'93layer.shadowOffset.height\'94
 \b0 \cf0 \
 				
-\b \cf25 type
+\b \cf23 type
 \b0 \cf0 :
 \b UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis
 \b0 ];\
@@ -4416,12 +4404,12 @@ in RootViewController.m\
 \b \cf20 // inverses the shadow movement
 \b0 \cf0 \
      shadowHeight.
-\b \cf25 maximumRelativeValue
+\b \cf23 maximumRelativeValue
 \b0 \cf0  = 
 \b \cf5 @-50
 \b0 \cf0 ;\
      shadowHeight.
-\b \cf25 minimumRelativeValue
+\b \cf23 minimumRelativeValue
 \b0 \cf0  = 
 \b \cf5 @50
 \b0 \cf0 ;\
@@ -4431,10 +4419,10 @@ in RootViewController.m\
 \b0 \cf0  *group = [[
 \b \cf6 UIMotionEffectGroup alloc
 \b0 \cf0 ] 
-\b \cf25 init
+\b \cf23 init
 \b0 \cf0 ];\
      group.
-\b \cf25 motionEffects
+\b \cf23 motionEffects
 \b0 \cf0  = 
 \b \cf5 @[shadowWidth, shadowHeight]
 \b0 \cf0 ;\
@@ -4442,13 +4430,14 @@ in RootViewController.m\
      [
 \b \cf5 self
 \b0 \cf0 .blockView 
-\b \cf25 addMotionEffect
+\b \cf23 addMotionEffect
 \b0 \cf0 :group];\
 \}\
 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf5 \'93layer.shadowOffset.width\'94 \cf26 -> shadowOffset is a CGSize struct
-\b0 \cf0 \
+\b \cf5 \'93layer.shadowOffset.width\'94 \cf0 -> shadowOffset is a CGSize struct
+\b0 \
 \
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
@@ -4474,7 +4463,7 @@ in ShadowMotionEffect.m\
 -(
 \b \cf6 NSDictionary
 \b0 \cf0  *) 
-\b \cf25 keyPathsAndRelativeValuesForViewerOffset
+\b \cf23 keyPathsAndRelativeValuesForViewerOffset
 \b0 \cf0 :(
 \b \cf6 UIOffset
 \b0 \cf0 ) viewerOffset\
@@ -4522,12 +4511,12 @@ in RootViewController.m\
 \b0 \cf0  
 \b \cf6 alloc
 \b0 \cf0 ]  
-\b \cf25 init
+\b \cf23 init
 \b0 \cf0 ];\
       [
 \b \cf5 self
 \b0 \cf0 .blockView 
-\b \cf25 addMotionEffect
+\b \cf23 addMotionEffect
 \b0 \cf0 :shadowEffect];\
 \}\
 \
@@ -4569,8 +4558,7 @@ CALayer gives you access to features UIView doesn\'92t have:\
 \b \cf5 void
 \b0 \cf0 ) viewDidLoad \{\
 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0     
+    
 \b \cf20  // Create a simple view and add it to the view hierarchy
 \b0 \cf0 \
      
@@ -4578,7 +4566,7 @@ CALayer gives you access to features UIView doesn\'92t have:\
 \b0 \cf0  *blockView = [[
 \b \cf6 UIView alloc
 \b0 \cf0 ] 
-\b \cf25 init
+\b \cf23 init
 \b0 \cf0 ];\
      \
      
@@ -4586,18 +4574,18 @@ CALayer gives you access to features UIView doesn\'92t have:\
           \cf9 NOTE: Set the frame \cb24 AFTER\cb1  setting the anchorPoint or the view will be out of position
 \b0 \cf0 \
      blockView.
-\b \cf25 layer.anchorPoint
+\b \cf23 layer.anchorPoint
 \b0 \cf0  = 
 \b \cf6 CGPointMake
 \b0 \cf0 (0.5, 0);\
 \
      blockView.
-\b \cf25 frame 
+\b \cf23 frame 
 \b0 \cf0 = 
 \b \cf6 CGRectMake
 \b0 \cf0 (60, 60, 200, 200);\
      blockView.
-\b \cf25 backgroundColor
+\b \cf23 backgroundColor
 \b0 \cf0  = [
 \b \cf6 UIColor
 \b0 \cf0  lightGrayColor];\
@@ -4606,32 +4594,32 @@ CALayer gives you access to features UIView doesn\'92t have:\
      
 \b \cf6 CATransform3D
 \b0 \cf0  t = blockView.
-\b \cf25 layer.transform
+\b \cf23 layer.transform
 \b0 \cf0 ;\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
-\b \cf20       \cb24 // Makes this transform have a \cf26 perspective projection\cf20 \cb1   \
-   \cf26   
+\b \cf20       \cb24 // Makes this transform have a \cf0 perspective projection\cf20 \cb1   \
+   \cf0   
 \b0  t.
-\b \cf25 m34
-\b0 \cf26  = -1.0/500;
+\b \cf23 m34
+\b0 \cf0  = -1.0/500;
 \b \cf20 \
 \
      // Rotate the transform by 45 degrees about the X axis
 \b0 \cf0 \
      t =  
-\b \cf25 CATransform3DRotate
+\b \cf23 CATransform3DRotate
 \b0 \cf0 (t, 
 \b DEGREES_TO_RADIANS
 \b0 (45), 1, 0, 0);\
      blockView.
-\b \cf25 layer.transform 
+\b \cf23 layer.transform 
 \b0 \cf0 = t\
  \
      [
 \b \cf5 self
 \b0 \cf0 .view 
-\b \cf25 addSubview
+\b \cf23 addSubview
 \b0 \cf0 :blockView];\
 \}\
 \
@@ -4666,8 +4654,7 @@ CALayer gives you access to features UIView doesn\'92t have:\
 
 \b \cf0 Rotate With UIMotionEffect
 \b0 \
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 -(
+-(
 \b \cf5 void
 \b0 \cf0 ) viewDidLoad \{\
     \'85.\
@@ -4678,12 +4665,12 @@ CALayer gives you access to features UIView doesn\'92t have:\
 \b \cf6 UIInterpolatingMotionEffect alloc
 \b0 \cf0 ]\
 			
-\b \cf25 initWithKeyPath
+\b \cf23 initWithKeyPath
 \b0 \cf0 :
 \b \cf5 @\'93layer.transform\'94
 \b0 \cf0 \
 				    
-\b \cf25 type
+\b \cf23 type
 \b0 \cf0 :
 \b UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis
 \b0 ];\
@@ -4698,39 +4685,38 @@ CALayer gives you access to features UIView doesn\'92t have:\
      
 \b \cf6 CATransform3D
 \b0 \cf0  minT = 
-\b \cf25 CATransform3DRotate
+\b \cf23 CATransform3DRotate
 \b0 \cf0 (newT, 
 \b \cf5 DEGREES_TO_RADIANS
 \b0 \cf0 (-15.0f), 1, 0, 0);\
      
 \b \cf6 CATransform3D
 \b0 \cf0  maxT = 
-\b \cf25 CATransform3DRotate
+\b \cf23 CATransform3DRotate
 \b0 \cf0 (newT, 
 \b \cf5 DEGREES_TO_RADIANS
 \b0 \cf0 (15.0f), 1, 0, 0);\
 \
      verticalEffect.
-\b \cf25 maximumRelativeValue
+\b \cf23 maximumRelativeValue
 \b0 \cf0  = [
 \b \cf6 NSValue
 \b0 \cf0  
-\b \cf25 valueWithCATransform3D
+\b \cf23 valueWithCATransform3D
 \b0 \cf0 :minT];\
      verticalEffect.
-\b \cf25 minimumRelativeValue
+\b \cf23 minimumRelativeValue
 \b0 \cf0  = [
 \b \cf6 NSValue
 \b0 \cf0  
-\b \cf25 valueWithCATransform3D
+\b \cf23 valueWithCATransform3D
 \b0 \cf0 :maxT];\
 \
      [blockView 
-\b \cf25 addMotionEffect
+\b \cf23 addMotionEffect
 \b0 \cf0 :verticalEffect];\
 \}\
-\pard\pardeftab720\sl276\slmult1\partightenfactor0
-\cf0 \
+\
 \pard\pardeftab720\sl276\slmult1\partightenfactor0
 
 \b \cf9 Problem:\cf0  
@@ -4749,6 +4735,885 @@ Default anchorPoint is in the center of the view (\{0.5, 0.5\})\
 view.layer.anchorPoint = CGPointMake(0,0);  -> now it is on the top left corner\
 \
 To set the anchorPoint to the top middle \{0.5, 0\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf21 The Depth Of Blurs
+\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 What do we mean by \'93blur\'94?
+\b0 \
+IOS 7 adds depth and context using an interesting \'93blur\'94 effect for certain Views\
+\
+
+\b Two Different Types Of Blurs
+\b0 \
+1. Static Blurs using Apple provided UIImage effects\
+2. Dynamic Blurs that update as view moves ( e.g Control Center )\
+\
+
+\b Static Blur Steps
+\b0 \
+1. Take snapshot image of the View Underneath with drawViewHierarchyInRect:afterScreenUpdates:\
+2. Add UIImage + ImageEffects category to your project\
+3. Apply corresponding image effect to the snapshot image and set on placeholder image view\
+\
+
+\b Step 1: Take snapshot image
+\b0 \
+in RootViewController.m\
+-(
+\b \cf23 IBAction
+\b0 \cf0 ) lightBlur: (
+\b \cf23 id
+\b0 \cf0 )sender\
+\{\
+      
+\b \cf20 // Specifies the size of the image we want to create
+\b0 \cf0 \
+      
+\b \cf23 UIGraphicsBeginImageContextWithOptions
+\b0 \cf0 (
+\b \cf5 self
+\b0 \cf0 .buttonView.
+\b \cf14 frame
+\b0 \cf0 .
+\b \cf14 size
+\b0 \cf0 , 
+\b \cf23 NO
+\b0 \cf0 , 
+\b \cf5 0.0
+\b0 \cf0 );\
+      \
+      
+\b \cf20 // Convert bounds of button into the webView\'92s coordinate space
+\b0 \cf0 \
+      
+\b \cf6 CGPoint
+\b0 \cf0  buttonInWebView = [
+\b \cf5 self
+\b0 \cf0 .buttonView 
+\b \cf23 convertRect
+\b0 \cf0 : 
+\b \cf5 self
+\b0 \cf0 .buttonView.bounds\
+						           
+\b \cf23 toView
+\b0 \cf0 : 
+\b \cf5 self
+\b0 \cf0 .webView].
+\b \cf23 origin
+\b0 \cf0 ;\
+      \
+      
+\b \cf20 // Offset the bounds of the webView by the button\'92s origin point
+\b0 \cf0 \
+      
+\b \cf6 CGRect
+\b0 \cf0  drawingRect = 
+\b \cf23 CGRectOffset
+\b0 \cf0 (
+\b \cf5 self
+\b0 \cf0 .webView.
+\b \cf23 bounds
+\b0 \cf0 , -buttonInWebView.
+\b \cf23 x
+\b0 \cf0 , -buttonInWebView.
+\b \cf23 y
+\b0 \cf0 );\
+      \
+      [
+\b \cf5 self
+\b0 \cf0 .webView 
+\b \cf23 drawViewHierarchyInRect
+\b0 \cf0 :drawingRect 
+\b \cf23 afterScreenUpdates
+\b0 \cf0 :YES];\
+      
+\b \cf6 UIImage
+\b0 \cf0  *newBGImage = 
+\b \cf23 UIGraphicsGetImageFromCurrentImageContext
+\b0 \cf0 ();\
+      
+\b \cf23 UIGraphicsEndImageContext
+\b0 \cf0 ();\
+\}\
+\
+
+\b Step 2: Adding UIImage+ImageEffects category to project
+\b0 \
+Download the files from : http://github.com/codeschool/UIImage-ImageEffects\
+Add the files to your project\
+Include the header file \'93UIImage+ImageEffects.h\'94\
+\
+
+\b Step 3: Apply the image effects
+\b0 \
+\
+-(
+\b \cf23 IBAction
+\b0 \cf0 ) lightBlur: (
+\b \cf23 id
+\b0 \cf0 )sender\
+\{\
+    \'85.\
+    
+\b \cf20 // applyLightEffect is a method provided by the category we just added to the project
+\b0 \cf0 \
+  
+\b \cf5   self
+\b0 \cf0 .blurView.
+\b \cf23 image
+\b0 \cf0  = [
+\b \cf6 newBGImage
+\b0 \cf0  applyLightEffect];\
+    
+\b \cf23 UIGraphicsEndImageContext
+\b0 \cf0 ();\
+\}\
+\
+
+\b Other Image Effects
+\b0 \
+applyLightEffect\
+applyExtraLightEffect\
+applyDarkEffect\
+applyTintEffectWithColor:\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 Problem : The blur doesn\'92t update as the content below the button changes
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 We can \'93Borrow\'94 the layer of a UIToolbar
+\b0 \
+UIToolbar\'92s already have this blurring effect, and it updates live.\
+-(
+\b \cf23 void
+\b0 \cf0 )viewDidLoad\
+\{\
+     
+\b \cf5 self
+\b0 \cf0 .buttonView.
+\b \cf23 backgroundColor
+\b0 \cf0  = [
+\b \cf6 UIColor
+\b0 \cf0  clearColor];\
+ 
+\b \cf5     self
+\b0 \cf0 .buttonView.
+\b \cf23 clipsToBounds
+\b0 \cf0  = 
+\b \cf5 YES
+\b0 \cf0 ;\
+     
+\b \cf20 // Save toolbar to a strong property or it will be released
+\b0 \cf0 \
+     
+\b \cf5 self
+\b0 \cf0 .toolbar = [[
+\b \cf6 UIToolbar
+\b0 \cf0  
+\b \cf23 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithFrame
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .view.
+\b \cf23 frame
+\b0 \cf0 ];\
+     
+\b \cf5 self
+\b0 \cf0 .toolbar.
+\b \cf23 barStyle
+\b0 \cf0  = 
+\b \cf6 UIBarStyleDefault
+\b0 \cf0 ;\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20      // Insert the toolbar\'92s layer at the bottom of the buttonView\'92s layer hierarchy
+\b0 \cf0 \
+     [
+\b \cf5 self
+\b0 \cf0 .buttonView.
+\b \cf23 layer
+\b0 \cf0  
+\b \cf23 insertSublayer
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .toolbar.
+\b \cf23 layer
+\b0 \cf0  
+\b \cf23 atIndex
+\b0 \cf0 :0];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Using the \'93Borrow Layer\'94 technique to strengthen Nav Bar Color
+\b0 \
+in AppDelegate.m\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 UIViewController
+\b0 \cf0  *viewController = [[
+\b \cf6 RootViewController
+\b0 \cf0  
+\b \cf23 alloc
+\b0 \cf0 ] 
+\b \cf23 init
+\b0 \cf0 ];\
+
+\b \cf6 UINavigationController
+\b0 \cf0  *navController = [[
+\b \cf6 UINavigationController
+\b0 \cf0  
+\b \cf23 alloc
+\b0 \cf0 ]\
+					   
+\b \cf23 initWithRootViewController
+\b0 \cf0 :viewController];\
+
+\b \cf6 UIColor
+\b0 \cf0  *barColor = [
+\b \cf6 UIColor
+\b0 \cf0  
+\b \cf23 colorWithRed
+\b0 \cf0 :0.65f 
+\b \cf23 green
+\b0 \cf0 :0.427f 
+\b \cf23 blue
+\b0 \cf0 :0.203f 
+\b \cf23 alpha
+\b0 \cf0 :1.0f];\
+
+\b \cf6 navController\cf0 .\cf14 navigationBar\cf0 .\cf23 barTintColor
+\b0 \cf0  = barColor;\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 // Create a blank view with the barColor
+\b0 \cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 CGRect
+\b0 \cf0  frame = 
+\b \cf6 CGRectMake
+\b0 \cf0 (0.f, -20.f, 320.f, 64.f);\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 // Save the view to a Strong property
+\b0 \cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 self
+\b0 \cf0 .strongColorView = [[
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf23 alloc
+\b0 \cf0 ] 
+\b \cf23 initWithFrame
+\b0 \cf0 :frame];\
+
+\b \cf5 self
+\b0 \cf0 .strongColorView.
+\b \cf23 userInteractionEnabled
+\b0 \cf0  = 
+\b \cf5 NO
+\b0 \cf0 ;\
+
+\b \cf5 self
+\b0 \cf0 .strongColorView.
+\b \cf23 alpha
+\b0 \cf0  = .7f;\
+
+\b \cf5 self
+\b0 \cf0 .strongColorView.
+\b \cf23 backgroundColor
+\b0 \cf0  = barColor;\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf20 // Insert the view\'92s layer into the nav bar hierarchy
+\b0 \cf0 \
+[
+\b \cf6 navController\cf0 .\cf14 navigationBar
+\b0 \cf0 .
+\b \cf23 layer
+\b0 \cf0  
+\b \cf23 insertSublayer
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .strongColorView.
+\b \cf23 layer
+\b0 \cf0  
+\b \cf23 atIndex
+\b0 \cf0 :1];\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 NOTE : Index 1 is the only place where this trick is gonna work !!!
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf9 The Layer is above the title and back button after navigation transition
+\b0 \cf0 \
+
+\b \cf10 Fix by reapplying the layer after transitions
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Adopt the Nav Controller delegate protocol
+\b0 \
+AppDelegate.h\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf5 @interface
+\b0 \cf0  AppDelegate: 
+\b \cf23 UIResponder
+\b0 \cf0  <
+\b \cf23 UIApplicationDelegate
+\b0 \cf0 , 
+\b \cf21 UINavigationControllerDelegate
+\b0 \cf0 >\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Set the app Delegates as the nav delegate in applicationDidFinishLaunchingWithOptions
+\b0 \
+AppDelegate.m\
+navController.
+\b \cf23 delegate
+\b0 \cf0  = 
+\b \cf5 self
+\b0 \cf0 ;\
+\
+\
+
+\b Reapply the strongColorView layer every time a new view controller is shown
+\b0 \
+-(
+\b \cf23 void
+\b0 \cf0 )
+\b \cf23 navigationController
+\b0 \cf0 : (
+\b \cf6 UINavigationController
+\b0 \cf0  *) navigationController\
+      
+\b \cf23 didShowViewController
+\b0 \cf0 : (
+\b \cf6 UIViewController
+\b0 \cf0  *) viewController\
+                               
+\b \cf23 animated
+\b0 \cf0 : (
+\b \cf23 BOOL
+\b0 \cf0 ) animated \
+\{\
+       [
+\b \cf5 self
+\b0 \cf0 .strongColorView.layer 
+\b \cf23 removeFromSuperlayer
+\b0 \cf0 ];\
+       [navigationController.
+\b \cf6 navigationBar
+\b0 \cf0 .
+\b \cf23 layer
+\b0 \cf0  
+\b \cf23 insertSublayer
+\b0 \cf0 :
+\b \cf5 self
+\b0 \cf0 .strongColorView.
+\b \cf23 layer
+\b0 \cf0  
+\b \cf23 atIndex
+\b0 \cf0 :1];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf21 View Snapshots
+\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 What are view snapshots?
+\b0 \
+A snapshot of a view is a really fast way to \'93flatten\'94 an entire view hierarchy into a single rendered view\
+Useful for transitions and animations\
+\
+
+\b How to take a view snapshot
+\b0 \
+Create a snapshot view based on the current rendered state of self.view\
+UIView *snapshotView = [self.view snapshotViewAfterScreenUpdates:NO];\
+\
+
+\b // The boolean \'93NO\'94 indicates whether snapshotView will contain recent changes made to self.view\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Use snapshot views in Custom Animated Transitions
+\b0 \
+Because taking snapshots are so fast, they can be used in custom animated transitions\
+Allows you to animate a single snapshotted view instead of an entire view hierarchy,\
+achieving a higher frame-rate.\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 \ul Using a snapshot view during our transition
+\b0 \ulnone \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 A. Insert the modal view into the \'93transition\'94 view hierarchy\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+-(
+\b \cf5 void
+\b0 \cf0 ) animateTransition:(
+\b \cf5 id
+\b0 \cf0 <
+\b \cf6 UIViewControllerContextTransitioning
+\b0 \cf0 >) transitionContext\
+\{\
+    
+\b  \cf6 UIViewController
+\b0 \cf0  *toVC = [transitionContext\
+			          
+\b \cf19 viewControllerForKey
+\b0 \cf0 :UITransitionContext
+\b To
+\b0 ViewControllerKey];\
+\
+     
+\b \cf6 UIViewController
+\b0 \cf0  *fromVC = [transitionContext\
+			          
+\b \cf19 viewControllerForKey
+\b0 \cf0 :UITransitionContext
+\b From
+\b0 ViewControllerKey];\
+\
+\
+\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 B. Set the starting position of the modal view\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+     
+\b \cf6 CGRect
+\b0 \cf0  fullFrame = [
+\b \cf14 transitionContext
+\b0 \cf0  
+\b \cf22 initialFrameForViewController
+\b0 \cf0 :fromVC];\
+     
+\b \cf6 CGFloat
+\b0 \cf0  height = 
+\b CGRectGetHeight
+\b0 (fullFrame);\
+\
+     toVC.view.
+\b \cf5 frame
+\b0 \cf0  = 
+\b \cf6 CGRectMake
+\b0 \cf0 ( fullFrame.origin.x + 20, 
+\b \cf8 // Move the x 20 points left
+\b0 \cf0 \
+				      height +16 + 20,  
+\b \cf8 // y = height + 36
+\b0 \cf0 \
+				      CGRectGetWidth ( fullFrame) - 40 ,  
+\b \cf8 // Width - 2*20
+\b0 \cf0 \
+				      height - 40  
+\b \cf8 // height - 40
+\b0 \cf0 \
+				     );\
+\
+      
+\b \cf6 UIView
+\b0 \cf0  *
+\b \cb24 snapshotView
+\b0 \cb1  = [toVC.
+\b \cf23 view
+\b0 \cf0  
+\b \cf23 snapshotViewAfterScreenUpdates
+\b0 \cf0 :
+\b \cf5 YES
+\b0 \cf0 ];\
+      
+\b \cb24 snapshotView
+\b0 \cb1 .
+\b \cf23 frame
+\b0 \cf0  = toVC.view.
+\b \cf23 frame
+\b0 \cf0 ;\
+      [[transitionContext 
+\b \cf5 containerView
+\b0 \cf0 ] 
+\b \cf19 addSubview
+\b0 \cf0 : 
+\b \cb24 snapshotView
+\b0 \cb1 ];\
+   \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 C. Animate the modal view into position using UIView animations
+\b0 \
+\
+     [
+\b \cf6 UIView
+\b0 \cf0  
+\b \cf22 animateWithDuration
+\b0 \cf0 :[
+\b \cf5 self
+\b0 \cf0  transitionDuration:transitionContext]\
+			        
+\b \cf22 delay
+\b0 \cf0 :0.0\
+	 
+\b \cf22 usingSpringWithDamping
+\b0 \cf0 :0.5f\
+                          
+\b \cf22 initialSpringVelocity
+\b0 \cf0 :0.6f\
+			    
+\b \cf22 options
+\b0 \cf0 :
+\b UIViewAnimationOptionCurveEaseInOut
+\b0 \
+                                         
+\b \cf22 animations
+\b0 \cf0 :^\{\
+				          
+\b \cb24 snapshotView
+\b0 \cb1 .frame = 
+\b \cf6 CGRectMake
+\b0 \cf0 (20, 20,\
+								          
+\b \cf6 CGRectGetWidth
+\b0 \cf0 (fullFrame) - 40, \
+								          height - 40);\
+                                                                 \}\
+		             
+\b \cf22 completion
+\b0 \cf0 : nil\
+      ];\
+\
+
+\b D. Complete the transition\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b0 \cf0 \
+ 
+\b \cf22 completion
+\b0 \cf0 : ^(
+\b \cf5 BOOL
+\b0 \cf0  finished) \{\
+   toVC.view.frame = snapshotView.frame;\
+   [
+\b \cb24 snapshotView
+\b0 \cb1  removeFromSuperview];\
+   [[transitionContext containerView]  addSubview:toView];\
+    [transitionContext 
+\b \cf22 completeTransition
+\b0 \cf0 :YES];\
+\}\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b\fs24 \cf21 Networking and Multitasking
+\b0\fs22 \cf0 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Why NSURLSession ?
+\b0 \
+Updated architecture makes this possible:\
+- Background download and uploads over HTTP\
+- Pauseable and Resumable requests\
+- Isolated caching, cookies and credentials\
+- \'93Ephemeral\'94 HTTP sessions (private browsing)\
+\
+
+\b Creating NSURLSessions
+\b0 \
+[
+\b \cf6 NSURLSession
+\b0 \cf0  
+\b \cf23 sharedSession
+\b0 \cf0 ] - returns a global session that acts like NSURLConnection\
+\
+
+\b Create a new session based on the default configuration
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  *config = [
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  
+\b defaultSessionConfiguration
+\b0 ];\
+
+\b \cf6 NSURLSession
+\b0 \cf0  *session = [
+\b \cf6 NSURLSession
+\b0 \cf0  
+\b \cf23 sessionWithConfiguration\cf0 :config
+\b0 ];\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Create a new session to do background down/uploads
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  *config = [
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0 \
+				             
+\b \cf23 backgroundSessionConfiguration
+\b0 \cf0 :
+\b \cf5 @\'93key\'94
+\b0 \cf0 ];\
+
+\b \cf6 NSURLSession
+\b0 \cf0  *session = [
+\b \cf6 NSURLSession
+\b0 \cf0  
+\b \cf23 sessionWithConfiguration\cf0 :config
+\b0 ];\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Create a new session with modified default configuration
+\b0 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  *config = [
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  
+\b defaultSessionConfiguration
+\b0 ];\
+config.
+\b \cf23 allowCellularAccess
+\b0 \cf0  = 
+\b \cf5 NO
+\b0 \cf0 ;\
+
+\b \cf6 NSURLSession
+\b0 \cf0  *session = [
+\b \cf6 NSURLSession
+\b0 \cf0  
+\b \cf23 sessionWithConfiguration\cf0 :config
+\b0 ];\
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+
+\b \cf0 Introducing Searchagrams
+\b0 \
+Example Request: http://searchagram.herokuapp.com/photos?term=dolphins\
+\
+-(
+\b \cf5 void
+\b0 \cf0 )refreshPhotos:(
+\b \cf5 id
+\b0 \cf0 )sender\
+\{\
+     
+\b \cf6 NSString
+\b0 \cf0  *search = [
+\b \cf6 NSString
+\b0 \cf0  
+\b \cf25 stringWithFormat
+\b0 \cf0 :searchURL, 
+\b \cf5 self
+\b0 \cf0 .searchTerm];\
+     
+\b \cf6 NSURL
+\b0 \cf0  *URL = [
+\b \cf6 NSURL
+\b0 \cf0  
+\b \cf25 URLWithString
+\b0 \cf0 :search];\
+     
+\b \cf6 NSURLRequest
+\b0 \cf0  *request = [
+\b \cf6 NSURLRequest
+\b0 \cf0  
+\b \cf25 requestWithURL
+\b0 \cf0 :URL];\
+     
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  *config = [
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  defaultSessionConfiguration];\
+     
+\b \cf6 NSURLSession
+\b0 \cf0  *session = [
+\b \cf6 NSURLSession
+\b0 \cf0  
+\b \cf23 sessionWithConfiguration\cf0 :config
+\b0 ];\
+     
+\b \cf6 NSURLSessionDataTask
+\b0 \cf0  *task = [session 
+\b \cf25 dataTaskWithRequest
+\b0 \cf0 :request\
+                  
+\b \cf25 completionHandler
+\b0 \cf0 :^(
+\b \cf6 NSData
+\b0 \cf0  *data, 
+\b \cf6 NSURLResponse
+\b0 \cf0  *response, 
+\b \cf6 NSError
+\b0 \cf0  *e)\
+     \{\
+          
+\b \cf5 self
+\b0 \cf0 .photos = (
+\b \cf6 NSArray
+\b0 \cf0  *)[NSJSONSerialization 
+\b \cf25 JSONObjectWithData
+\b0 \cf0 :data\
+						                              
+\b \cf25  options
+\b0 \cf0 :0\
+								      
+\b \cf25 error
+\b0 \cf0 :nil];\
+          [[
+\b \cf6 NSOperationQueue
+\b0 \cf0  mainQueue] 
+\b \cf25 addOperationWithBlock
+\b0 \cf0 :^\{\
+                [
+\b \cf5 self
+\b0 \cf0 .tableView reloadData];\
+          \}];         \
+      [
+\b \cf5 task
+\b0 \cf0  resume];\
+\}\
+\
+
+\b Fetching cell images with NSURLSession
+\b0 \
+-(
+\b \cf6 UITableViewCell
+\b0 \cf0  *)
+\b \cf25 tableView
+\b0 \cf0 :(
+\b \cf6 UITableView
+\b0 \cf0  *) tableView\
+             
+\b \cf25 cellForRowAtIndexPath
+\b0 \cf0 :(
+\b \cf6 NSIndexPath
+\b0 \cf0  *) indexPath\
+\{\
+       
+\b \cf6 UITableViewCell
+\b0 \cf0  *cell = [
+\b \cf5 self
+\b0 \cf0  
+\b \cf25 setupCell
+\b0 \cf0 :tableView];\
+       
+\b \cf6 NSDictionary
+\b0 \cf0  *photo =  
+\b \cf5 self
+\b0 \cf0 .photos[indexPath.row];\
+\
+       
+\b \cf6 NSURL
+\b0 \cf0  *imageURL = [
+\b \cf6 NSURL
+\b0 \cf0  
+\b \cf25 URLWithString
+\b0 \cf0 :photo[
+\b \cf5 @\'93thumbnail_url\'94
+\b0 \cf0 ];\
+       \
+       
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  *config = [
+\b \cf6 NSURLSessionConfiguration
+\b0 \cf0  defaultSessionConfiguration];\
+       
+\b \cf6 NSURLSession
+\b0 \cf0  *session = [
+\b \cf6 NSURLSession
+\b0 \cf0  
+\b \cf25 sessionWithConfiguration
+\b0 \cf0 :config];\
+\
+       
+\b \cf6 NSURLSessionDataTask
+\b0 \cf0  *task = [session 
+\b \cf25 dataTaskWithURL
+\b0 \cf0 :imageURL\
+	
+\b \cf25 completionHandler
+\b0 \cf0 :^(
+\b \cf6 NSData
+\b0 \cf0  *data, 
+\b \cf6 NSURLResponse
+\b0 \cf0  *response, 
+\b \cf6 NSError
+\b0 \cf0  *error)\
+       \{\
+             [[NSOperationQueue mainQueue] 
+\b \cf25 addOperationWithBlock
+\b0 \cf0 :^\{\
+	    cell.imageView.image = [
+\b \cf6 UIImage
+\b0 \cf0  
+\b \cf25 imageWithData
+\b0 \cf0 :data];\
+             \}];\
+       \}]; \
+ \
+      [task 
+\b \cf25 resume
+\b0 \cf0 ];\
+\
+      
+\b \cf5 return
+\b0 \cf0  cell; \
+\}\
+\
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+
+\f3 \cf0 \CocoaLigature0  \cf26 PKPinManager\cf0  *pinManager = [\cf26 PKPinManager\cf0  \cf27 sharedInstance\cf0 ];\
++(\cf28 instancetype\cf0 )sharedInstance;
+\f1 \CocoaLigature1 \
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
 \
 \
 }

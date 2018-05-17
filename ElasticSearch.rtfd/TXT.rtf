@@ -1,0 +1,1047 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Calibri;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red255\green0\blue0;\red255\green128\blue0;
+\red63\green105\blue30;\red102\green177\blue50;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c100000\c0\c0;\csgenericrgb\c100000\c50000\c0;
+\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c40000\c69412\c19608;}
+\paperw11900\paperh16840\vieww19000\viewh18520\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs22 \cf0 \ul \ulc0 ElasticSearch\
+
+\b0 \ulnone \
+
+\b Starting elastic search
+\b0 \
+./bin/elasticsearch\
+\
+
+\b Starting elastic search with cluster name and node name
+\b0 \
+./bin/elasticsearch -Ecluster.name=pularsight -Enode.name=my_first_node\
+\
+
+\b Getting all Indices from cluster
+\b0 \
+curl -XGET \'91localhost:9200/_cat/indices?v&pretty\
+ \
+
+\b Getting nodes 
+\b0 \
+curl -XGET \'91localhost:9200/_cat/nodes?v&pretty\'92\
+\
+
+\b Getting Health of cluster
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 curl -XGET \'91localhost:9200/_cat/health?v&pretty\'92\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 Create new index
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 curl -XPUT \'91localhost:9200/products?v&pretty\'92\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 PUT vs. POST
+\b0 \
+
+\b \cf2 PUT
+\b0 \cf0 : 
+\b \cf3 create
+\b0 \cf0  and 
+\b \cf3 update
+\b0 \cf0  resources, 
+\b \cf2 POST
+\b0 \cf0 : only to 
+\b \cf3 update
+\b0 \cf0  resources\
+\
+
+\b Add new document to an index 
+\b0 \
+curl -XPUT \'91localhost:9200/products/mobiles/1?pretty\'92 -d\'92\
+\
+
+\b Get the document
+\b0 \
+curl -XGET \'91localhost:9200/products/mobiles/1?pretty\'92\
+\
+
+\b Retrieve a document without it\'92s content
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 curl -XGET \'91localhost:9200/products/mobiles/1?pretty&_source=false\'92\
+\
+
+\b Retrieve a document specific fields
+\b0 \
+curl -XGET \'91localhost:9200/products/mobiles/1?pretty&_source=name,reviews\'92\
+\
+
+\b Update a document 
+\b0 \
+curl -XPUT \'91localhost:9200/products/mobiles/1?pretty\'92 -d\'92\
+\
+
+\b Update specific fields
+\b0 \
+curl -XPOST \'91localhost:9200/products/mobiles/2/_update?pretty\'92 -d\'92\
+\
+
+\b Delete a Document 
+\b0 \
+curl -XDELETE \'91localhost:9200/products/mobiles/2?pretty\'92\
+\
+
+\b Get Multiple Documents
+\b0 \
+curl -XGET \'91localhost:9200/_mget?pretty\'92 -d\'92\
+\
+
+\b Bulk Add
+\b0 \
+curl -XPOST \'91localhost:9200/_bulk?pretty\'92 -d\'92\
+to index - > \{ \'93index\'94 : \{ \'93_index\'94 : \'93products\'94, \'93_type\'94 : \'93shoes\'94,\'94_id\'94 : \'933\'94 \} \}\
+what -> \{ \'93name\'94 : \'93puma\'94, \'93size\'94:9, \'93color\'94: \'93black\'94 \}\
+\
+
+\b Add from Json
+\b0 \
+curl -H \'93Content-Type: application/x-ndjson\'94 - XPOST \'91localhost:9200/customers/personal/_bulk?pretty&refresh\'92 \'97data-binary @\'93customers.json\'94\
+\
+
+\b Search using query parameters
+\b0 \
+curl -XGET \'91localhost:9200/customers/_search?q=jerusalem&pretty\'92\
+\
+
+\b \cf2 The default number of results returned is 10
+\b0 \cf0 \
+\
+
+\b Sort the results
+\b0 \
+curl -XGET \'91localhost:9200/customers/_search?q=jerusalem&
+\b sort=age:desc
+\b0 &pretty\'92\
+\
+
+\b From & Size
+\b0 \
+if we want to get from index n and only numOfdocuments\
+curl -XGET \'91localhost:9200/customers/_search?q=jerusalem&
+\b from=10&size=2
+\b0 &pretty\'92\
+this will return only 2 documents from index 10\
+\
+
+\b Explain
+\b0 \
+why the search result was returned\
+curl -XGET \'91localhost:9200/customers/_search?q=jerusalem&
+\b explain
+\b0 &pretty\'92\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 1.tiff \width18740 \height8440
+}¬}\
+\
+
+\f0\b\fs22 Search using the request body to specify parameters
+\b0 \
+\
+
+\b return all the documents
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 curl -XGET \'91localhost:9200/products/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{ \'93match_all\'94 : \{\} \}\
+\}\
+\
+
+\b \cf4 Elasticsearch maintains NO OPEN CURSOR OR SESSION for your search
+\b0 \cf0 \
+\
+
+\b return 3 documents
+\b0 \
+curl -XGET \'91localhost:9200/products/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{ \'93match_all\'94 : \{\} \},\
+               \'93size\'94 : 3\
+\}\
+\
+
+\b Search multiple indices
+\b0 \
+curl -XGET \'91localhost:9200/customers,products/_search?pretty\'92 -d\'92\
+\
+
+\b Search multiple doc types
+\b0 \
+curl -XGET \'91localhost:9200/products/shoes,laptops/_search?pretty\'92 -d\'92\
+\
+
+\b Sorting in body params
+\b0 \
+curl -XGET \'91localhost:9200/products/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{ \'93match_all\'94 : \{\} \},\
+	\'93sort\'94 : \{ \'93age\'94: \{ \'93order\'94 : \'93desc\'94 \} \},\
+               \'93size\'94 : 3\
+\}\
+\
+
+\b Search Specific Field
+\b0 \
+curl -XGET \'91localhost:9200/customers/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{ \
+               	\'93term\'94 : \{ \'93name\'94 : \'93cohen\'94 \} \
+               \}\
+\}\
+\
+Return specific fields\
+curl -XGET \'91localhost:9200/customers/_search?pretty\'92 -d\'92\
+\{\
+	\'93source\'94 : \'93st*\'94,\
+	\'93query\'94 : \{ \
+               	\'93term\'94 : \{ \'93state\'94 : \'93washington\'94 \} \
+               \}\
+\}\
+\
+will return street and state: \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 2.tiff \width8680 \height4980
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+
+\f0\b\fs22 Match (not an exact match)
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 curl -XGET \'91localhost:9200/customers/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{\
+		\'93match\'94: \{ \
+               		\'93name\'94 : \'93cohen\'94  \
+              		 \}\
+	\}\
+\}\
+\
+
+\b Logical OR Matches
+\b0 \
+curl -XGET \'91localhost:9200/customers/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{\
+		\'93match\'94: \{ \
+               		\'93name\'94 :  \{\
+    				\'93query\'94 : \'93Chuck norris\'94,\
+				\'93operator\'94 : \'93or\'94  \
+              		 \}\
+	\}\
+\}\
+\
+All documents with \'93Chuck\'94 OR \'93 norris\'94 in the \'93name\'94 field\
+
+\b \cf4 When no operator is specified it DEFAULT to OR
+\b0 \cf0 \
+\
+
+\b Match Prefix
+\b0 \
+curl -XGET \'91localhost:9200/customers/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{\
+		\'93match_phrase_prefix\'94: \{ \
+               		\'93name\'94 : \'93co\'94  \
+              		 \}\
+	\}\
+\}\
+\
+
+\b Match_Phrase
+\b0 \
+curl -XGET \'91localhost:9200/customers/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{\
+		\'93match_phrase\'94: \{ \
+               		\'93street\'94 : \'93tompkins place\'94  \
+              		 \}\
+	\}\
+\}\
+\
+Try to match the entire phrase in the query !!!\
+\
+
+\b Elasticsearch Relevance Algorithm - The Score
+\b0 \
+\
+TF/IDF\
+
+\b T
+\b0 erm 
+\b F
+\b0 requency / 
+\b I
+\b0 nverse 
+\b D
+\b0 ocument 
+\b F
+\b0 requency\
+\
+Term frequency - How often does the term appear in the field ?\
+                                More often, more relevant\
+		   A field containing 4 mentions of a term is more relevant than one\
+		   which has just one mention\
+\
+Inverse document frequency - How often does the term appear in the index ?\
+			            More often, less relevant\
+			            If the term really common across documents in the index,\
+			            its relevance for particular document is low\
+			            e.g. stop words such as \'93the\'94, \'93this\'94\
+\
+Field-length norm - How long is the field which was searched ?\
+                                    Longer fields, less relevant\
+                                    A term appearing in a longer field is one of a larger set, so less relevant\
+		       e.g. words in the title of a book are more relevant than words in the contents\
+\
+
+\b The Common Terms Problem
+\b0 \
+\
+Search for \'93The quick brown fox\'94 - elastic search each word separately \
+\
+The problem is that the word \'93the\'94 is likely to match a huge number of documents.\
+With low relevance to the actual search.\
+Leaving out the stop words can have unexpected impact. e.g. \'93great\'94 and \'93not great\'94\
+\
+Elastic will solve it by splitting terms: low and high frequency\
+
+\b Low
+\b0 : \'93quick brown fox\'94\
+
+\b High
+\b0 : \'93the\'94\
+\
+It will search for documents which have the 
+\b rarer
+\b0  terms first,\
+then look for the high frequency terms in the document 
+\b subset 
+\b0 which match\
+the low frequency terms.\
+\
+
+\b Common terms queries with \cf3 cutoff_frequency\cf0  specified
+\b0 \
+curl -XGET \'91localhost:9200/products/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{\
+		\'93common\'94: \{\
+			\'93reviews\'94: \{ \
+               			\'93query\'94 : \'93this is great\'94\
+      				\'93cutoff_frequecny: 0.001  \
+              		      	\}\
+		\}\
+	\}\
+\}\
+\
+Cutoff Frequency\
+Terms with a frequency of > 0.1% are common terms\
+\
+
+\b Compound Queries: The Boolean Query
+\b0 \
+Matches documents by 
+\b \cf3 combining multiple queries
+\b0 \cf0  using boolean\
+operators such as 
+\b \cf3 AND
+\b0 \cf0 , 
+\b \cf3 OR
+\b0 \cf0 \
+\
+
+\b must
+\b0  -         The clause must appear in the matching documents\
+
+\b must_not
+\b0  - The clause must not appear in the document results\
+
+\b should
+\b0  -       The clause may appear in matching documents but may not sometimes\
+
+\b filter
+\b0  -           The clause must appear in the results 
+\b BUT
+\b0  results are not 
+\b scored
+\b0 \
+\
+curl -XGET \'91localhost:9200/products/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{\
+		\'93bool\'94: \{\
+			\'93must\'94: [\
+               			\{\'93match\'94 : \{ \'93street\'94: \'93benyehuda\'94 \} \},\
+      				\{\'93match\'94 : \{ \'93street\'94: \'93rechov\'94 \} \}\
+			]\
+		\}\
+	\}\
+\}\
+\
+
+\b Term Query 
+\b0 \
+The exact term needs to be found in the inverted index for indexed documents.\
+The terms found in the index may 
+\b \cf3 vary
+\b0 \cf0  based on how you 
+\b \cf3 analyze
+\b0 \cf0  them\
+\
+curl -XGET \'91localhost:9200/customers/_search?pretty\'92 -d\'92\
+\{\
+   \'93query\'94 : \{\
+      \'93bool\'94 : \{\
+         \'93should\'94: [\
+	\{\
+	    \'93term\'94: \{\
+	         \'93state\'94 : \{\
+		\'93value\'94 : \'93Idaho\'94,\
+		\'93boost\'94 : 2.0\
+                        \}\
+	     \}\
+  	\},\
+	\{\
+                  \'93term\'94: \{\
+	         \'93state\'94 : \{\
+ 	             \'93value\'94 : \'93California\'94\
+	          \}\
+	     \} 		              		\
+	\}\
+           ]\
+      \}\
+   \}\
+\}\
+\
+
+\b Filters
+\b0 \
+The documents in the result are 
+\b \cf3 not scored
+\b0 \cf0 \
+Each document responds 
+\b \cf3 yes/no
+\b0 \cf0  to whether it should be included in the result.\
+\
+ curl -XGET \'91localhost:9200/products/_search?pretty\'92 -d\'92\
+\{\
+	\'93query\'94 : \{\
+	    \'93bool\'94: \{\
+	       \'93must\'94: \{\'93match_all\'94 : \{ \} \},\
+      	       \'93filter\'94 : \{\
+                          \'93range\'94 :  \{\
+                              \'93age\'94 :  \{\
+                                 \'93gte\'94 : 20,\
+                                 \'93lte\'94 : 30\
+		 \}\
+                           \}\
+                     \}\
+	\}\
+         \}\
+\}\
+\
+
+\b Range Filter
+\b0 \
+
+\b gte
+\b0 : Greater than and equal \
+
+\b lte
+\b0  : Less than and equal to\
+\
+\
+
+\b \ul INDEXER
+\b0 \ulnone \
+\
+
+\b Similarity Models
+\b0 \
+Defines how matching documents are scored\
+Determines how similar the document terms are to the search queries.\
+\
+The default similarity model before Elasticsearch 6.x used to be the classic TF/IDF model\
+the Okapi BM25 is the current model.\
+\
+
+\b Term Frequency Saturation
+\b0  - Commonly occurring words such as \'93a\'94, \'93the\'94 have some value\
+			         The default analyzer does not remove them\
+			          TF/IDF 
+\b \cf3 artificially boosts
+\b0 \cf0  their importance.\
+			          BM25 has a 
+\b \cf5 saturation limit
+\b0 \cf0  for these terms.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 3.tiff \width12780 \height7900
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+
+\fs22 The common words affects TF/IDF score while in BM25 its not.\
+\
+
+\f0\b Field-length Normalization
+\b0  - TF/IDF treats all short fields in the 
+\b \cf3 SAME
+\b0 \cf0  way\
+			         BM25 specifically considers the 
+\b \cf6 length of individual fields
+\b0 \cf0 \
+                                                                 while scoring 
+\f1\fs24 \
+
+\f0\fs22 \
+
+\b Additional Tuning Parameters
+\b0 \
+K1 : Determines how quickly an increase in term frequency results in saturation\
+        - Lower values, quicker saturation\
+        
+\b \cf3 Useful if you have lots of documents with common terms !!!
+\b0 \cf0 \
+\
+b: Controls the effect of field-length normalization\
+     - 0.0 disables normalization\
+     - 1.0 normalizes fully\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 4.tiff \width21380 \height11580
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+You can specify different similarity models to each field !!!\
+
+\f0\fs22 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+
+\b discount_overlaps
+\b0 \
+Overlap tokens (such as synonyms) do no count when computing the field length norm\
+\
+curl -XPUT \'91localhost:9200/text_1?pretty\'92 -H \'91Content-Type: application/json\'92 -d\'92\
+\{\
+    \'93settings\'94 : \{\
+         \'93index\'94 : \{\
+               \'93similarity\'94 : \{\
+                   \'93
+\b my_similarity
+\b0 \'94 : \{\
+                       \'93type\'94 : \'93classic\'94,\
+                       \'93discount_overlaps\'94 : \'93true\'94\
+                   \}\
+                \}\
+           \}\
+     \}\
+\}\
+\
+
+\b To insert a field with the similarity
+\b0 \
+curl -XPUT \'91localhost:9200/text_1/_mapping/book?pretty\'92 - H \'91Content-Type: application/json\'92 -d\'92\
+\{\
+   \'93properties\'94 : \{\
+        \'93title\'94 : \{ \'93type\'94 : \'93text\'94, \'93similarity\'94 : \'93
+\b my_similarity
+\b0 \'94 \}\
+    \}\
+\}\
+\
+
+\b Adding Synonyms (milim nirdafot)
+\b0 \
+\{\
+    \'93settings\'94 : \{\
+        \'93index\'94 : \{\
+            \'93analysis\'94 : \{\
+                \'93analyzer\'94 : \{\
+                     \'93my_synonym\'94 : \{\
+                         \'93tokenizer\'94 : \'93whitespace\'94,\
+                         \'93filter\'94 : [\'93synonym\'94]\
+                     \}\
+                 \},\
+                 \'93filter\'94 : \{\
+                    \'93synonym\'94 : \{\
+                       \'93type\'94 : \'93synonym\'94,\
+                       \'93synonyms\'94 :  [\
+                           
+\b  \'93English, British\'94,\
+                            \'93queen, monarch\'94
+\b0 \
+                        ]\
+                     \}\
+                   \}\
+                 \},\
+                \'93similarity\'94 : \{\
+                     \'93my_similarity\'94 : \{\
+                      \'93type\'94 : \'93classic\'94,\
+                      \'93discount_overlaps\'94 : \'93true\'94\
+                      \}\
+                 \}\
+             \}\
+          \}\
+      \}\
+\
+curl -XPUT \'91localhost:9200/text_index/_mapping/book?pretty\'92 - H \'91Content-Type: application/json\'92 -d\'92\
+\{\
+   \'93properties\'94 : \{\
+        \'93title\'94 : \{ \'93type\'94 : \'93text\'94, \'93similarity\'94 : \'93
+\b my_similarity
+\b0 \'94, \'93analyzer\'94 : \'93
+\b my_synonym
+\b0 \'94\}\
+    \}\
+\}\
+\
+
+\b Similar Word Suggestion
+\b0 \
+\
+Term suggesters - provide word alternatives on a per token basis\
+\
+\{\
+   \'93suggest\'94: \{\
+       \'93my-suggestion\'94 : \{\
+          \'93text\'94 : \'93paperhouns\'94,\
+          \'93term\'94 :  \{\
+              \'93field\'94 : \'93title\'94\
+          \}\
+       \}\
+    \}\
+\}\
+ \
+Suggest similar terms from the title field.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 5.tiff \width7420 \height12040
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+The suggested terms are scored based on edit distance.\
+\
+
+\b Phrase Suggester
+\f0\b0\fs22 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Phrase Suggester suggests entire corrected phrases based on weighted n-gram models.\
+n-gram -> is a collection of n words which occur in sequence from the input.\
+Phrase Suggesters require mappings to be set up front.\
+\
+Here we specified \
+\{\
+    \'93settings\'94 : \{\
+        \'93index\'94 : \{\
+            \'93number_of_shards\'94 : 1,\
+                \'93analysis\'94 : \{\
+                   \'93analyzer\'94 : \{\
+                     \'93trigram\'94 : \{\
+                         \'93type\'94 : \'93custom\'94,\
+                         \'93tokenizer\'94 : \'93standard\'94\
+                         \'93filter\'94: [\'93standard\'94,\'94
+\b \cf4 shingle
+\b0 \cf0 \'94]\
+                     \}\
+                 \}\
+              \}\
+              \}\
+         \},\
+         \'93mappings\'94 : \{\
+              \'93nonfiction\'94 : \{\
+                \'93properties\'94 : \{\
+                       \'93title\'94 :  \{\
+                         \'93type\'94: \'93text\'94,\
+                         \'93fields:  \{\
+                            \'93trigram\'94: \{\
+                               \'93type\'94 : \'93text\'94,\
+                               \'93analyzer\'94 : \'93trigram\'94\
+      	             \}                  \
+                        \}\
+                     \}\
+               \}\
+            \}\
+        \}\
+    \}\
+\}\
+\
+Shingle Filter - is the one that responsible generating n-grams and adding the n-grams \
+                          from the input document into our inverted index.\
+                          The shingle filter construct shingles.\
+                          shingles are token n-gram from the input fields.\
+                          The default size of a shingle is 2\
+\
+example : for the sentence \'93Shingles from this sentence\'94\
+                   the 2-grams that will be generated :\
+                   \'93Shingles from\'94 , \'93from this\'94 , \'93this sentence\'94\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 6.tiff \width9240 \height6660
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+The spelling is wrong it should be nobel prize so when we search:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 7.tiff \width11200 \height9160
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+Elastic search not by words but by sentence.\
+The suggested is NOT tokenized, it is a phrase.\
+\
+
+\b Auto Complete 
+\b0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf0 \{\
+    \'93mappings\'94 : \{\
+          \'93songs\'94 : \{\
+                \'93properties\'94 : \{\
+                       \'93suggest\'94 :  \{\
+                         \'93type\'94: \'93completion\'94\
+                         \},\
+                            \'93title\'94: \{\
+                               \'93type\'94 : \'93keyword\'94\
+      	             \}                  \
+                        \}\
+            \}\
+    \}\
+\}\
+\
+The music index has 2 fields - the suggest field of type completion.\
+Completion suggesters provide autocomplete, search-as-you-type functionality.\
+Suggestions can be indexed just like any other field in your document.\
+The title field of type keyword.\
+\
+To get the suggestions :\
+\
+curl -XPOST \'91localhost:9200/music?_search?pretty&pretty\'92  -H \'91Content-Type: application/json\'92 -d\'92\
+\{\
+    \'93suggest\'94 : \{\
+         \'93song-suggest\'94 : \{\
+               \'93prefix\'94 : \'93ever\'94,\
+                \'93completion\'94 : \{\
+                     \'93field\'94 : \'93suggest\'94\
+                   \}\
+        \}\
+    \}\
+\}\
+\
+The response :\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 8.tiff \width13780 \height14200
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Suggestions are near real-time just like search.\
+\
+
+\b Context Suggesters
+\b0 \
+Context Suggesters allow you to boost certain suggestions based on criteria.\
+\
+\{\
+    \'93mappings\'94 : \{\
+          \'93shops\'94 : \{\
+                \'93properties\'94 : \{\
+                       \'93suggest\'94 :  \{\
+                         \'93type\'94: \'93completion\'94,\
+	           \'93contexts\'94 : [\
+                               \{\
+                                   \'93name\'94 : \'93place_type\'94,\
+                                   \'93type\'94 : \'93category\'94\
+                               \},\
+	                \{\
+                                 \'93name\'94 : \'93location\'94,\
+                                 \'93type\'94 : \'93geo\'94,\
+                                 \'93precision\'94 : 4          \
+                             \}\
+                      ]\
+                   \}\
+              \}\
+         \}\
+     \}\
+\}\
+\
+Every shop that we add associate one or more categories with the suggestion.\
+Every shop that we add associate one or more geo locations with the suggestion.\
+\
+Suggestions can be boosted based on categories or geo-locations.\
+\
+curl -XPUT \'91localhost:9200/place/shops2?pretty\'92  -H \'91Content-Type: application/json\'92 -d\'92\
+\{\
+    \'93suggest\'94 : \{\
+         \'93input\'94 : [\'93drunken monkey\'94,\'94big pitcher\'94],\
+               \'93contexts\'94 : \{\
+                     \'93place_type\'94 : [\'93pub\'94, \'93food\'94]\
+                   \}\
+        \}\
+\}\
+\
+To Search with context suggestion:\
+\
+curl -XPOST \'91localhost:9200/place/_search?pretty&pretty\'92  -H \'91Content-Type: application/json\'92 -d\'92\
+\{\
+    \'93suggest\'94 : \{\
+         \'93place-suggest\'94 : \{\
+               \'93prefix\'94 : \'93big\'94,\
+                \'93completion\'94 : \{\
+                     \'93field\'94 : \'93suggest\'94,\
+                     \'93size\'94 : 10,\
+                     \'93contexts\'94 : \{\
+                         \'93place_type\'94: [\'93cafe\'94, \'93pub\'94]\
+                   \}\
+              \}\
+         \}\
+    \}\
+\}\
+\
+Result:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 9.tiff \width9360 \height16700
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 To give higher relevance to the \'93pub\'94 context :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf0 curl -XPOST \'91localhost:9200/place/_search?pretty&pretty\'92  -H \'91Content-Type: application/json\'92 -d\'92\
+\{\
+    \'93suggest\'94 : \{\
+         \'93place-suggest\'94 : \{\
+               \'93prefix\'94 : \'93big\'94,\
+                \'93completion\'94 : \{\
+                     \'93field\'94 : \'93suggest\'94,\
+                     \'93size\'94 : 10,\
+                     \'93contexts\'94 : \{\
+                         \'93place_type\'94: [\
+                              \{ \'93context\'94 : \'93cafe\'94\},\
+                              \{ \'93context\'94 : \'93pub\'94, \'93boost\'94 : 2 \}\
+                         ]\
+                   \}\
+              \}\
+         \}\
+    \}\
+\}
+\f1\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+And the result :\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 10.tiff \width9740 \height17000
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+
+\b Fuzzy Search 
+\b0 \
+Fuzzy searches for words within a certain distance\
+\
+let\'92s say we have 2 documents with id number:\
+1. \'93idno\'94 : \'93ABC01\'94\
+2. \'93idno\'94 : \'93XYZ0\'94\
+\
+If we search \'93BC01\'94 It will find the first doc\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 If we search \'93AB01\'94 It will find the first doc\
+\
+Fuzzy search has their limitations and they depends on the configuration setup.\
+\
+If we search \'93AB10\'94 No results were found\
+If we search \'93XYZ\'94 No results were found\
+\
+- Because 2 characters have been omitted, not just 1.\
+- By default fuzzy search only work for similar terms which have edit distance of 1\
+  from the search query you specified\
+\
+Fuzzy Search Settings:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf0 curl -XGET \'91localhost:9200/_search?pretty\'92 -H \'91Content-Type: application/json\'92 -d\'92\
+\{\
+	\'93query\'94 : \{\
+		\'93fuzzy\'94: \{\
+			\'93idno\'94: \{ \
+               			\'93value\'94 : \'93AB10\'94,\
+      				\'93boost\'94: 1.0,\
+				\'93fuzziness\'94 : 2\
+      				\'93prefix_length\'94 : 0,  \
+				\'93max_expansions\'94 : 100\
+              		      	\}\
+		\}\
+	\}\
+\}
+\f1\fs24 \
+\
+
+\f0\fs22 fuzziness - the maximum edit distance ( 2 is the max) will look for similar terms \
+                   which have 2 characters different from the term we specified.\
+prefix_length - the number of initial characters that will no be fuzzified\
+max_expansions - the maximum number of terms the fuzzy search will expand to\
+\
+Now XYZ will find the second document.\
+\
+
+\b \cf3 WARNING : This search can potentially be very expensive may examine every term in the index !!!
+\b0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \
+
+\b Autocomplete using n-grams of characters within a word
+\b0 \
+\
+autocomplete_filter\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf0 \{\
+    \'93settings\'94 : \{\
+        \'93analysis\'94 : \{\
+            \'93filter\'94 : \{\
+                \'93autocomplete_filter\'94 : \{\
+                         \'93type\'94 : \'93edge_ngram\'94,\
+                         \'93min_gram\'94 : 1,\
+                         \'93max_gram\'94: 20\
+                     \},\
+                \'93analyzer\'94: \{\
+                    \'93autocomplete\'94: \{\
+                     \'93type\'94 : \'93custom\'94,\
+                     \'93tokenizer\'94 : \'93standard\'94,\
+                     \'93filter\'92 : [\
+                         \'93lowercase\'94,\
+                         \'93autocomplete_filter\'94             \
+                     ]\
+	  \}\
+              \}\
+           \}\
+         \},\
+         \'93mappings\'94 : \{\
+              \'93post\'94 : \{\
+                \'93properties\'94 : \{\
+                       \'93title\'94 :  \{\
+                         \'93type\'94: \'93text\'94,\
+                         \'93analyzer\'94 : \'93autocomplete\'94,\
+                         \'93search_analyzer\'94 : \'93standard\'94\
+      	         \}                  \
+                     \}\
+                  \}\
+               \}\
+            \}\
+       \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 edge_ngram - emits n-grams of words to help with search as you type queries.\
+e.g. yoga -> \'93y\'94,\'94yo\'94,\'94yog\'94,\'94yoga\'94 will be entered to the inverted index.\
+\
+So if we searched \'93Pilate vs Yo\'94\
+because of the n-grams specified it will find our document.\
+\
+
+\b Allow Multiple Languages In The Same Field
+\b0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 11.tiff \width8820 \height13680
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+The title field can have text in any of these languages.\
+\
+If we search for \'93Invisible Guardian\'94 in english \
+elastic manage to return to us the match in Spanish: \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 12.tiff \width12180 \height9640
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+
+\f0\fs22 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0          \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
